@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI产业链轮动扫描</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: #181818; color: #e4e4e4; padding: 24px;
+  max-width: 1200px; margin: 0 auto;
+}
+h1 { font-size: 22px; font-weight: 600; margin-bottom: 4px; }
+h2 { font-size: 16px; font-weight: 600; margin: 24px 0 12px; color: #aaa; text-transform: uppercase; letter-spacing: .5px; }
+.subtitle { font-size: 12px; color: #888; margin-bottom: 20px; }
+.stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 20px; }
+.stat-card { background: #222; border: 1px solid #333; border-radius: 8px; padding: 14px 16px; text-align: center; }
+.stat-card .value { font-size: 28px; font-weight: 700; }
+.stat-card .label { font-size: 11px; color: #888; margin-top: 2px; text-transform: uppercase; }
+.stat-card.board .value { color: #3fa266; }
+.stat-card.watch .value { color: #f0a040; }
+.stat-card.wait .value { color: #70b0d8; }
+.stat-card.total .value { color: #e4e4e4; }
+.charts { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 20px; }
+.chart-box { background: #222; border: 1px solid #333; border-radius: 8px; padding: 14px 16px; }
+.chart-box h3 { font-size: 12px; font-weight: 600; color: #aaa; margin-bottom: 10px; }
+.chart-box canvas { max-height: 200px; }
+table { width: 100%; border-collapse: collapse; font-size: 13px; background: #1e1e1e; border-radius: 8px; overflow: hidden; }
+th, td { padding: 8px 12px; text-align: right; }
+th:first-child, td:first-child { text-align: left; }
+th:nth-child(2), td:nth-child(2) { text-align: left; }
+th { background: #2a2a2a; font-size: 11px; text-transform: uppercase; color: #999; font-weight: 600; border-bottom: 1px solid #333; }
+td { border-bottom: 1px solid #2a2a2a; }
+tr:last-child td { border-bottom: none; }
+.pct-up { color: #3fa266; } .pct-down { color: #cf4b4b; }
+.pill { display: inline-block; padding: 2px 8px; border-radius: 10px; font-size: 11px; font-weight: 600; }
+.pill-board { background: #1f3a2a; color: #3fa266; border: 1px solid #2a553a; }
+.pill-watch { background: #3a2e1a; color: #f0a040; border: 1px solid #554428; }
+.pill-hot { background: #3a1a1a; color: #f04040; border: 1px solid #552828; }
+.code { font-weight: 600; color: #e4e4e4; margin-right: 6px; }
+.name { color: #aaa; font-size: 12px; }
+.verdict-cell { display: flex; align-items: center; gap: 8px; }
+.score { font-weight: 700; font-size: 13px; min-width: 24px; }
+.tab-bar { display: flex; gap: 4px; margin-bottom: 12px; }
+.tab { padding: 6px 14px; border-radius: 6px; font-size: 12px; cursor: pointer; background: #222; border: 1px solid #333; color: #999; }
+.tab.active { background: #333; color: #e4e4e4; border-color: #555; }
+</style>
+</head>
+<body>
+<h1>AI 产业链轮动扫描</h1>
+<p class="subtitle" id="dateLine">加载中...</p>
+
+<div class="stats">
+  <div class="stat-card board"><div class="value" id="statBoard">-</div><div class="label">可上车</div></div>
+  <div class="stat-card watch"><div class="value" id="statWatch">-</div><div class="label">可关注</div></div>
+  <div class="stat-card wait"><div class="value" id="statWait">-</div><div class="label">观望</div></div>
+  <div class="stat-card total"><div class="value" id="statTotal">-</div><div class="label">总计</div></div>
+</div>
+
+<h2>板块量能</h2>
+<div class="charts">
+  <div class="chart-box"><h3>板块量比</h3><canvas id="chartVolumeRatio"></canvas></div>
+  <div class="chart-box"><h3>主力资金净流入 (亿元)</h3><canvas id="chartMoneyFlow"></canvas></div>
+  <div class="chart-box"><h3>板块20日涨跌幅 (%)</h3><canvas id="chartPct20d"></canvas></div>
+  <div class="chart-box" style="padding-top:8px"><h3>板块明细</h3><table id="tableSector"></table></div>
+</div>
+
+<h2>个股诊断</h2>
+<div class="tab-bar">
+  <div class="tab active" data-tab="board">可上车</div>
+  <div class="tab" data-tab="watch">可关注</div>
+  <div class="tab" data-tab="wait">观望</div>
+</div>
+<div id="tableStock"></div>
+
+<p style="text-align:center;color:#555;font-size:11px;margin-top:24px;">数据来源: Tushare · 框架: AI产业链内部轮动投资研判 2026-06-16</p>
+
+<script>
+var SCAN_DATA = {"trade_date": "20260617", "sectors": [{"name": "液冷/IDC电力", "priority": 1, "avg_volume_ratio": 1.0, "vol_trend": "持平", "vol_trend_ratio": 0.96, "net_mf": 73357.77, "avg_pct": 0.64, "avg_pct_5d": 6.3, "avg_pct_20d": -1.38, "uptrend_count": 1, "downtrend_count": 4, "status": "正常", "summary": "主力流入7.3亿；4/6只下跌趋势"}, {"name": "先进封装设备材料", "priority": 2, "avg_volume_ratio": 0.98, "vol_trend": "持平", "vol_trend_ratio": 0.92, "net_mf": 310886.66, "avg_pct": 3.9, "avg_pct_5d": 13.64, "avg_pct_20d": 15.11, "uptrend_count": 1, "downtrend_count": 0, "status": "正常", "summary": "主力流入31.1亿"}, {"name": "CPO/光互连/高速铜缆", "priority": 3, "avg_volume_ratio": 1.01, "vol_trend": "持平", "vol_trend_ratio": 0.88, "net_mf": 298349.23, "avg_pct": 2.8, "avg_pct_5d": 12.75, "avg_pct_20d": 10.32, "uptrend_count": 1, "downtrend_count": 2, "status": "正常", "summary": "主力流入29.8亿"}, {"name": "PCB/CCL", "priority": 4, "avg_volume_ratio": 1.13, "vol_trend": "持平", "vol_trend_ratio": 1.13, "net_mf": -91406.16, "avg_pct": 2.98, "avg_pct_5d": 14.57, "avg_pct_20d": 18.23, "uptrend_count": 2, "downtrend_count": 1, "status": "过热", "summary": "板块过热；主力流出9.1亿"}, {"name": "AI服务器/整机", "priority": 5, "avg_volume_ratio": 1.05, "vol_trend": "持平", "vol_trend_ratio": 0.95, "net_mf": 51079.44, "avg_pct": 0.09, "avg_pct_5d": 4.58, "avg_pct_20d": -6.89, "uptrend_count": 0, "downtrend_count": 2, "status": "正常", "summary": "主力流入5.1亿；2/3只下跌趋势"}, {"name": "国产算力/AI应用", "priority": 6, "avg_volume_ratio": 1.17, "vol_trend": "持平", "vol_trend_ratio": 1.01, "net_mf": -17737.88, "avg_pct": -0.11, "avg_pct_5d": 1.46, "avg_pct_20d": -13.73, "uptrend_count": 0, "downtrend_count": 4, "status": "正常", "summary": "主力流出1.8亿；4/5只下跌趋势"}], "stocks": [{"code": "688525.SH", "name": "华海诚科", "sector": "先进封装设备材料", "priority": 2, "close": 370.0, "pct_chg": 8.67, "volume_ratio": 1.27, "pct_5d": 16.72, "pct_20d": 16.87, "trend": "上升", "net_mf": 169776.12, "verdict": "可上车", "score": 100, "reasons": ["放量上涨", "主力流入", "多头排列", "连阳走强", "研报首推板块"], "warnings": []}, {"code": "002156.SZ", "name": "通富微电", "sector": "先进封装设备材料", "priority": 2, "close": 67.22, "pct_chg": 6.82, "volume_ratio": 1.5, "pct_5d": 9.41, "pct_20d": 7.93, "trend": "震荡", "net_mf": 92868.43, "verdict": "可上车", "score": 98, "reasons": ["放量上涨", "主力流入", "站上20日线", "低位突破", "研报首推板块"], "warnings": []}, {"code": "300476.SZ", "name": "胜宏科技", "sector": "PCB/CCL", "priority": 4, "close": 361.7, "pct_chg": 1.75, "volume_ratio": 1.24, "pct_5d": 9.52, "pct_20d": 8.23, "trend": "震荡", "net_mf": 4914.75, "verdict": "可上车", "score": 91, "reasons": ["温和上涨", "主力流入", "站上20日线", "低位突破", "连阳走强"], "warnings": []}, {"code": "600584.SH", "name": "长电科技", "sector": "先进封装设备材料", "priority": 2, "close": 81.76, "pct_chg": 6.28, "volume_ratio": 1.34, "pct_5d": 10.41, "pct_20d": 23.47, "trend": "震荡", "net_mf": 19030.73, "verdict": "可上车", "score": 90, "reasons": ["放量上涨", "主力流入", "站上20日线", "研报首推板块"], "warnings": []}, {"code": "300576.SZ", "name": "金盘科技", "sector": "液冷/IDC电力", "priority": 1, "close": 51.22, "pct_chg": 2.69, "volume_ratio": 0.63, "pct_5d": 17.4, "pct_20d": 14.13, "trend": "上升", "net_mf": 13930.12, "verdict": "可上车", "score": 89, "reasons": ["主力流入", "多头排列", "研报首推板块"], "warnings": []}, {"code": "688120.SH", "name": "华海清科", "sector": "先进封装设备材料", "priority": 2, "close": 222.31, "pct_chg": 10.5, "volume_ratio": 1.24, "pct_5d": 22.0, "pct_20d": -25.4, "trend": "震荡", "net_mf": 29211.38, "verdict": "可上车", "score": 87, "reasons": ["放量上涨", "主力流入", "深度超跌", "研报首推板块"], "warnings": ["跌破20日线"]}, {"code": "688041.SH", "name": "海光信息", "sector": "国产算力/AI应用", "priority": 6, "close": 308.22, "pct_chg": 4.73, "volume_ratio": 0.98, "pct_5d": 8.22, "pct_20d": -2.69, "trend": "震荡", "net_mf": 49473.0, "verdict": "可上车", "score": 82, "reasons": ["温和上涨", "主力流入", "短中期向好"], "warnings": []}, {"code": "300308.SZ", "name": "中际旭创", "sector": "CPO/光互连/高速铜缆", "priority": 3, "close": 1276.11, "pct_chg": 2.24, "volume_ratio": 0.75, "pct_5d": 11.26, "pct_20d": 23.06, "trend": "震荡", "net_mf": 186904.22, "verdict": "可上车", "score": 78, "reasons": ["主力流入", "多头排列", "连阳走强"], "warnings": []}, {"code": "002463.SZ", "name": "沪电股份", "sector": "PCB/CCL", "priority": 4, "close": 146.55, "pct_chg": 4.2, "volume_ratio": 1.06, "pct_5d": 12.21, "pct_20d": 41.48, "trend": "上升", "net_mf": 16923.72, "verdict": "可上车", "score": 77, "reasons": ["温和上涨", "主力流入", "多头排列"], "warnings": ["41%过热", "板块拥挤+个股涨幅大"]}, {"code": "002837.SZ", "name": "英维克", "sector": "液冷/IDC电力", "priority": 1, "close": 74.62, "pct_chg": 1.95, "volume_ratio": 0.95, "pct_5d": 8.3, "pct_20d": -31.17, "trend": "下跌", "net_mf": 41157.67, "verdict": "可上车", "score": 73, "reasons": ["温和上涨", "主力流入", "深度超跌", "研报首推板块"], "warnings": ["跌破20日线", "下跌趋势"]}, {"code": "002028.SZ", "name": "思源电气", "sector": "液冷/IDC电力", "priority": 1, "close": 186.93, "pct_chg": 7.14, "volume_ratio": 1.85, "pct_5d": 6.82, "pct_20d": -8.95, "trend": "下跌", "net_mf": 46347.2, "verdict": "可上车", "score": 71, "reasons": ["放量上涨", "主力流入", "研报首推板块"], "warnings": ["跌破20日线", "下跌趋势"]}, {"code": "301018.SZ", "name": "申菱环境", "sector": "液冷/IDC电力", "priority": 1, "close": 112.77, "pct_chg": 2.38, "volume_ratio": 1.31, "pct_5d": 11.82, "pct_20d": -30.91, "trend": "下跌", "net_mf": -15254.75, "verdict": "可上车", "score": 70, "reasons": ["放量上涨", "深度超跌", "连阳走强", "研报首推板块"], "warnings": ["主力流出", "跌破20日线", "下跌趋势"]}, {"code": "000977.SZ", "name": "浪潮信息", "sector": "AI服务器/整机", "priority": 5, "close": 64.5, "pct_chg": 3.53, "volume_ratio": 1.13, "pct_5d": 8.6, "pct_20d": -9.45, "trend": "下跌", "net_mf": 29472.08, "verdict": "可上车", "score": 70, "reasons": ["温和上涨", "主力流入", "站上20日线"], "warnings": ["下跌趋势"]}, {"code": "301391.SZ", "name": "明阳电气", "sector": "液冷/IDC电力", "priority": 1, "close": 66.12, "pct_chg": -0.32, "volume_ratio": 0.73, "pct_5d": 6.65, "pct_20d": -13.68, "trend": "震荡", "net_mf": -732.8, "verdict": "可关注", "score": 68, "reasons": ["缩量回调", "短中期向好", "短期超跌", "研报首推板块"], "warnings": ["主力流出"]}, {"code": "600183.SH", "name": "生益科技", "sector": "PCB/CCL", "priority": 4, "close": 180.15, "pct_chg": 0.42, "volume_ratio": 1.37, "pct_5d": 22.63, "pct_20d": 79.15, "trend": "上升", "net_mf": -112993.84, "verdict": "可关注", "score": 68, "reasons": ["温和上涨", "多头排列", "连阳走强"], "warnings": ["主力流出", "79%过热", "板块拥挤+个股涨幅大"]}, {"code": "300394.SZ", "name": "天孚通信", "sector": "CPO/光互连/高速铜缆", "priority": 3, "close": 329.33, "pct_chg": 1.42, "volume_ratio": 0.98, "pct_5d": -19.89, "pct_20d": -8.26, "trend": "震荡", "net_mf": 24338.75, "verdict": "可关注", "score": 67, "reasons": ["温和上涨", "主力流入"], "warnings": ["跌破20日线"]}, {"code": "603019.SH", "name": "中科曙光", "sector": "AI服务器/整机", "priority": 5, "close": 86.51, "pct_chg": 2.42, "volume_ratio": 1.06, "pct_5d": 4.61, "pct_20d": -12.07, "trend": "下跌", "net_mf": 53147.06, "verdict": "可关注", "score": 63, "reasons": ["温和上涨", "主力流入", "短期超跌"], "warnings": ["跌破20日线", "下跌趋势"]}, {"code": "688668.SH", "name": "鼎通科技", "sector": "CPO/光互连/高速铜缆", "priority": 3, "close": 408.3, "pct_chg": 2.05, "volume_ratio": 0.91, "pct_5d": -1.85, "pct_20d": 43.83, "trend": "上升", "net_mf": -7223.67, "verdict": "可关注", "score": 62, "reasons": ["温和上涨", "站上20日线"], "warnings": ["主力流出", "44%过热"]}, {"code": "601138.SH", "name": "工业富联", "sector": "AI服务器/整机", "priority": 5, "close": 72.64, "pct_chg": -0.36, "volume_ratio": 1.06, "pct_5d": 2.12, "pct_20d": 6.59, "trend": "震荡", "net_mf": -31539.7, "verdict": "可关注", "score": 62, "reasons": ["短中期向好"], "warnings": ["主力流出"]}, {"code": "688256.SH", "name": "寒武纪", "sector": "国产算力/AI应用", "priority": 6, "close": 1320.0, "pct_chg": 1.0, "volume_ratio": 1.02, "pct_5d": 7.23, "pct_20d": -3.11, "trend": "下跌", "net_mf": -64396.96, "verdict": "可关注", "score": 60, "reasons": ["温和上涨", "短中期向好"], "warnings": ["主力流出", "下跌趋势"]}, {"code": "300913.SZ", "name": "兆龙互连", "sector": "CPO/光互连/高速铜缆", "priority": 3, "close": 56.98, "pct_chg": -0.66, "volume_ratio": 0.77, "pct_5d": 3.51, "pct_20d": 2.46, "trend": "震荡", "net_mf": -3789.75, "verdict": "观望", "score": 54, "reasons": ["缩量回调", "站上20日线"], "warnings": ["主力流出"]}, {"code": "300502.SZ", "name": "新易盛", "sector": "CPO/光互连/高速铜缆", "priority": 3, "close": 557.88, "pct_chg": 1.62, "volume_ratio": 0.74, "pct_5d": -27.78, "pct_20d": -5.12, "trend": "震荡", "net_mf": 103166.83, "verdict": "观望", "score": 53, "reasons": ["主力流入"], "warnings": ["跌破20日线"]}, {"code": "002335.SZ", "name": "科华数据", "sector": "液冷/IDC电力", "priority": 1, "close": 38.93, "pct_chg": -0.26, "volume_ratio": 0.77, "pct_5d": 5.3, "pct_20d": -41.81, "trend": "下跌", "net_mf": -12089.67, "verdict": "观望", "score": 49, "reasons": ["缩量回调", "深度超跌", "研报首推板块"], "warnings": ["主力流出", "跌破20日线", "下跌趋势"]}, {"code": "002230.SZ", "name": "科大讯飞", "sector": "国产算力/AI应用", "priority": 6, "close": 41.59, "pct_chg": 0.75, "volume_ratio": 0.82, "pct_5d": -1.66, "pct_20d": -13.35, "trend": "下跌", "net_mf": -1106.2, "verdict": "观望", "score": 49, "reasons": ["温和上涨", "短期超跌"], "warnings": ["主力流出", "跌破20日线", "下跌趋势"]}, {"code": "603183.SH", "name": "生益电子", "sector": "PCB/CCL", "priority": 4, "close": 3.67, "pct_chg": -2.91, "volume_ratio": 1.0, "pct_5d": -4.68, "pct_20d": -20.22, "trend": "下跌", "net_mf": -250.79, "verdict": "观望", "score": 47, "reasons": ["深度超跌"], "warnings": ["主力流出", "跌破20日线", "下跌趋势"]}, {"code": "002130.SZ", "name": "沃尔核材", "sector": "CPO/光互连/高速铜缆", "priority": 3, "close": 20.63, "pct_chg": -1.01, "volume_ratio": 0.88, "pct_5d": 6.61, "pct_20d": -3.78, "trend": "下跌", "net_mf": -4503.06, "verdict": "观望", "score": 39, "reasons": [], "warnings": ["主力流出", "跌破20日线", "下跌趋势"]}, {"code": "300624.SZ", "name": "万兴科技", "sector": "国产算力/AI应用", "priority": 6, "close": 53.29, "pct_chg": -1.46, "volume_ratio": 0.79, "pct_5d": -1.59, "pct_20d": -19.8, "trend": "下跌", "net_mf": -1694.11, "verdict": "观望", "score": 39, "reasons": ["缩量回调", "短期超跌"], "warnings": ["主力流出", "跌破20日线", "下跌趋势"]}, {"code": "300563.SZ", "name": "神宇股份", "sector": "CPO/光互连/高速铜缆", "priority": 3, "close": 29.14, "pct_chg": -2.28, "volume_ratio": 0.72, "pct_5d": 7.01, "pct_20d": -7.67, "trend": "下跌", "net_mf": -544.09, "verdict": "观望", "score": 35, "reasons": ["缩量回调"], "warnings": ["主力流出", "跌破20日线", "下跌趋势"]}, {"code": "688111.SH", "name": "金山办公", "sector": "国产算力/AI应用", "priority": 6, "close": 215.3, "pct_chg": 0.47, "volume_ratio": 0.76, "pct_5d": 0.49, "pct_20d": -13.4, "trend": "下跌", "net_mf": -13.61, "verdict": "观望", "score": 35, "reasons": ["短期超跌"], "warnings": ["主力流出", "跌破20日线", "下跌趋势"]}]};
+</script>
+<script>
+(function() {
+var d = SCAN_DATA;
+var dt = d.trade_date;
+document.getElementById('dateLine').textContent = dt.slice(0,4)+'-'+dt.slice(4,6)+'-'+dt.slice(6,8) + ' 收盘 · Tushare · AI产业链内部轮动投资研判';
+
+var b = d.stocks.filter(function(s){return s.verdict==='可上车'}).length;
+var w = d.stocks.filter(function(s){return s.verdict==='可关注'}).length;
+var wa = d.stocks.filter(function(s){return s.verdict==='观望'}).length;
+document.getElementById('statBoard').textContent = b;
+document.getElementById('statWatch').textContent = w;
+document.getElementById('statWait').textContent = wa;
+document.getElementById('statTotal').textContent = d.stocks.length;
+
+var sNames = d.sectors.map(function(s){return s.name;});
+function bo(){return{responsive:true,maintainAspectRatio:false,indexAxis:'y',plugins:{legend:{display:false}},scales:{x:{grid:{color:'#333'},ticks:{color:'#888',font:{size:10}}},y:{grid:{display:false},ticks:{color:'#aaa',font:{size:11}}}}};}
+
+new Chart(document.getElementById('chartVolumeRatio'),{type:'bar',options:bo(),data:{labels:sNames,datasets:[{label:'量比',data:d.sectors.map(function(s){return s.avg_volume_ratio;}),backgroundColor:d.sectors.map(function(s){return s.avg_volume_ratio>1.1?'rgba(63,162,102,.6)':'rgba(120,130,140,.4)';})}]}});
+
+new Chart(document.getElementById('chartMoneyFlow'),{type:'bar',options:bo(),data:{labels:sNames,datasets:[{label:'净流入(亿)',data:d.sectors.map(function(s){return s.net_mf/1e4;}),backgroundColor:d.sectors.map(function(s){return s.net_mf>=0?'rgba(240,64,64,.6)':'rgba(90,160,220,.5)';})}]}});
+
+new Chart(document.getElementById('chartPct20d'),{type:'bar',options:bo(),data:{labels:sNames,datasets:[{label:'20日%',data:d.sectors.map(function(s){return s.avg_pct_20d;}),backgroundColor:d.sectors.map(function(s){return s.avg_pct_20d>=0?'rgba(63,162,102,.6)':'rgba(207,75,75,.5)';})}]}});
+
+document.getElementById('tableSector').innerHTML='<thead><tr><th>板块</th><th>量比</th><th>量趋势</th><th>主力(亿)</th><th>今日%</th><th>5日%</th><th>20日%</th><th>趋势</th></tr></thead><tbody>'+d.sectors.map(function(s){var hot=s.status==='过热'?'<span class="pill pill-hot">过热</span> ':'';return'<tr><td>'+hot+s.name+'</td><td>'+s.avg_volume_ratio.toFixed(2)+'</td><td style="color:'+(s.vol_trend==='缩量'?'#cf4b4b':'#aaa')+'">'+s.vol_trend+'</td><td class="'+(s.net_mf>=0?'pct-up':'pct-down')+'">'+(s.net_mf/1e4).toFixed(2)+'</td><td class="'+(s.avg_pct>=0?'pct-up':'pct-down')+'">'+(s.avg_pct>=0?'+':'')+s.avg_pct.toFixed(2)+'%</td><td class="'+(s.avg_pct_5d>=0?'pct-up':'pct-down')+'">'+(s.avg_pct_5d>=0?'+':'')+s.avg_pct_5d.toFixed(2)+'%</td><td class="'+(s.avg_pct_20d>=0?'pct-up':'pct-down')+'">'+(s.avg_pct_20d>=0?'+':'')+s.avg_pct_20d.toFixed(2)+'%</td><td>'+s.uptrend_count+'↑'+s.downtrend_count+'↓</td></tr>';}).join('')+'</tbody>';
+
+function stockTable(verdict){
+  var list = d.stocks.filter(function(s){return s.verdict===verdict;});
+  if(!list.length) return '<div style="text-align:center;padding:20px;color:#666;font-size:13px">无符合条件的标的</div>';
+  return '<table><thead><tr><th>标的</th><th>板块</th><th>今日%</th><th>量比</th><th>20日%</th><th>得分/信号</th></tr></thead><tbody>'+list.map(function(s){
+    var c = s.code.split('.')[0];
+    var pill = s.verdict==='可上车'?'<span class="pill pill-board">上车</span>':s.verdict==='可关注'?'<span class="pill pill-watch">关注</span>':'';
+    return '<tr><td><span class="code">'+c+'</span><span class="name">'+s.name+'</span></td><td style="color:#aaa">'+s.sector+'</td><td class="'+(s.pct_chg>=0?'pct-up':'pct-down')+'">'+(s.pct_chg>=0?'+':'')+s.pct_chg.toFixed(2)+'%</td><td>'+s.volume_ratio.toFixed(2)+'</td><td class="'+(s.pct_20d>=0?'pct-up':'pct-down')+'">'+(s.pct_20d>=0?'+':'')+s.pct_20d.toFixed(1)+'%</td><td><div class="verdict-cell"><span class="score">'+s.score+'</span>'+pill+'</div></td></tr>';
+  }).join('')+'</tbody></table>';
+}
+
+document.getElementById('tableStock').innerHTML = stockTable('可上车');
+document.querySelectorAll('.tab').forEach(function(t){
+  t.addEventListener('click',function(){
+    document.querySelectorAll('.tab').forEach(function(x){x.classList.remove('active');});
+    t.classList.add('active');
+    var v = {board:'可上车',watch:'可关注',wait:'观望'}[t.dataset.tab];
+    document.getElementById('tableStock').innerHTML = stockTable(v);
+  });
+});
+})();
+</script>
+</body>
+</html>

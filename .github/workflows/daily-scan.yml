@@ -1,0 +1,38 @@
+name: AI产业链轮动扫描
+
+on:
+  schedule:
+    # 北京时间 15:30 (UTC+8) = UTC 07:30，周一到周五
+    - cron: '30 7 * * 1-5'
+  workflow_dispatch:  # 允许手动触发
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run scanner & update dashboard
+        env:
+          TUSHARE_TOKEN: ${{ secrets.TUSHARE_TOKEN }}
+        run: python main.py --save-json data.json
+
+      - name: Commit updated dashboard
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add dashboard.html data.json
+          if git diff --cached --quiet; then
+            echo "数据无变化，跳过提交"
+          else
+            git commit -m "auto: 更新 $(date +%Y-%m-%d) 扫描数据 [skip ci]"
+            git push
+          fi

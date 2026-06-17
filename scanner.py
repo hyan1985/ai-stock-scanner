@@ -159,30 +159,57 @@ class Scanner:
         ths_df = ths[ths["ts_code"] == ths_code].sort_values("trade_date") if not ths.empty else pd.DataFrame()
         ths_today = ths_df[ths_df["trade_date"] == self.trade_date] if not ths_df.empty else pd.DataFrame()
 
+        df = daily[daily["ts_code"].isin(codes)]
+        today = df[df["trade_date"] == self.trade_date]
+
         if not ths_today.empty:
             # 今日涨跌幅（板块指数真实数据）
             snap.avg_pct = ths_today.iloc[0].get("pct_change", 0)
             # 板块量比
             snap.avg_volume_ratio = ths_today.iloc[0].get("volume_ratio", 1.0)
+        else:
+            # 回退：从个股数据汇总（无板块指数时）
+            if not today.empty:
+                snap.avg_pct = today["pct_chg"].mean()
+                snap.avg_volume_ratio = today["volume_ratio"].mean()
 
-        # 5日 / 20日涨跌幅（从板块指数 close 计算）
+        # 5日 / 20日涨跌幅
         if len(ths_df) >= 6:
             ths_closes = ths_df["close"].values.astype(float)
             snap.avg_pct_5d = (ths_closes[-1] / ths_closes[-6] - 1) * 100
-        if len(ths_df) >= 21:
-            snap.avg_pct_20d = (ths_closes[-1] / ths_closes[-21] - 1) * 100
+            snap.avg_pct_20d = (ths_closes[-1] / ths_closes[-21] - 1) * 100 if len(ths_df) >= 21 else 0
+        else:
+            # 回退：从个股汇总
+            closes_pivot = df.pivot_table(
+                index="trade_date", columns="ts_code", values="close", aggfunc="last"
+            ).sort_index()
+            if len(closes_pivot) >= 6:
+                pct5 = (closes_pivot.iloc[-1] / closes_pivot.iloc[-6] - 1) * 100
+                snap.avg_pct_5d = pct5.mean()
+            if len(closes_pivot) >= 21:
+                pct20 = (closes_pivot.iloc[-1] / closes_pivot.iloc[-21] - 1) * 100
+                snap.avg_pct_20d = pct20.mean()
 
-        # --- 量能趋势（近5日均量 / 前5日均量，基于板块指数 vol）---
+        # --- 量能趋势 ---
         if len(ths_df) >= 10:
             ths_vols = ths_df["vol"].values.astype(float)
             recent = ths_vols[-5:].mean()
             prior = ths_vols[-10:-5].mean()
             if prior > 0:
                 snap.vol_trend_ratio = recent / prior
-                if snap.vol_trend_ratio > 1.3:
-                    snap.vol_trend = "放量"
-                elif snap.vol_trend_ratio < 0.7:
-                    snap.vol_trend = "缩量"
+                snap.vol_trend = "放量" if snap.vol_trend_ratio > 1.3 else ("缩量" if snap.vol_trend_ratio < 0.7 else "持平")
+        else:
+            # 回退：从个股汇总
+            vols = df.pivot_table(
+                index="trade_date", columns="ts_code", values="vol", aggfunc="sum"
+            ).sort_index()
+            if len(vols) >= 10:
+                total_vol = vols.sum(axis=1)
+                recent = total_vol.iloc[-5:].mean()
+                prior = total_vol.iloc[-10:-5].mean()
+                if prior > 0:
+                    snap.vol_trend_ratio = recent / prior
+                    snap.vol_trend = "放量" if snap.vol_trend_ratio > 1.3 else ("缩量" if snap.vol_trend_ratio < 0.7 else "持平")
 
         # --- 资金流向（仍然从个股汇总，因为板块指数没有主力资金字段）---
         if not mf.empty:
@@ -192,7 +219,6 @@ class Scanner:
                 snap.mf_per_stock = snap.net_mf / len(codes)
 
         # --- 趋势统计（基于个股数据）---
-        df = daily[daily["ts_code"].isin(codes)]
         for code in codes:
             stock_closes = df[df["ts_code"] == code]["close"].values.astype(float)
             if len(stock_closes) >= 20:

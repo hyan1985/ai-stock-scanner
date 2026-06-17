@@ -51,7 +51,7 @@ STOCK_POOL = {
             {"code": "300408.SZ", "name": "三环集团"},
             {"code": "002859.SZ", "name": "洁美科技"},
             {"code": "000725.SZ", "name": "京东方A"},
-            {"code": "002129.SZ", "name": "TCL中环"},
+            {"code": "000100.SZ", "name": "TCL科技"},
             {"code": "301188.SZ", "name": "力诺药包"},
         ],
         "理由": "HBM/CoWoS/3D IC推动封测材料需求；MLCC/玻璃基板为核心物料",

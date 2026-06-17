@@ -27,7 +27,43 @@ class TushareClient:
         self._cache: Dict[str, pd.DataFrame] = {}
 
     def _get_latest_trade_date(self) -> str:
+        """返回最近一个有实际行情数据的交易日。
+
+        通过 trade_cal 查询，兼容节假日和未开盘时段（凌晨/周末/长假）。
+        每次最多往前查 10 天，逐个试探 diy 行情是否有数据。
+        """
         today = datetime.date.today()
+        start = today - datetime.timedelta(days=10)
+        cache_key = f"td_{start.strftime('%Y%m%d')}_{today.strftime('%Y%m%d')}"
+        if cache_key in self._cache:
+            return self._cache[cache_key]
+
+        try:
+            cal = self.pro.trade_cal(
+                exchange="SSE",
+                start_date=start.strftime("%Y%m%d"),
+                end_date=today.strftime("%Y%m%d"),
+                is_open="1",
+            )
+            if cal is not None and not cal.empty:
+                dates = sorted(cal["cal_date"].astype(str).tolist(), reverse=True)
+                # 逐个试探，第一个有行情的即为最近交易日
+                for d in dates:
+                    try:
+                        probe = self.pro.daily(
+                            ts_code="601138.SH",
+                            start_date=d,
+                            end_date=d,
+                        )
+                        if probe is not None and not probe.empty:
+                            self._cache[cache_key] = d
+                            return d
+                    except Exception:
+                        continue
+        except Exception:
+            pass
+
+        # 回退：只用星期几估算
         if today.weekday() == 5:
             today -= datetime.timedelta(days=1)
         elif today.weekday() == 6:

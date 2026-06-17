@@ -13,7 +13,7 @@ from typing import Optional, List, Dict
 from dataclasses import dataclass, field
 
 from tushare_client import TushareClient
-from config import STOCK_POOL, THS_SECTOR_MAP
+from config import STOCK_POOL, THS_SECTOR_MAP, BENCHMARKS
 
 
 # ============================================================
@@ -85,7 +85,7 @@ class Scanner:
         self.client = client
         self.trade_date: str = ""
 
-    def run(self, trade_date: Optional[str] = None) -> tuple[List[SectorSnap], List[StockVerdict]]:
+    def run(self, trade_date: Optional[str] = None) -> tuple[List[SectorSnap], List[StockVerdict], List[dict]]:
         self.trade_date = trade_date or self.client._get_latest_trade_date()
 
         # 拉数据
@@ -101,6 +101,14 @@ class Scanner:
             ths = self.client.get_ths_daily(trade_date=self.trade_date, lookback_days=70)
         except Exception:
             ths = pd.DataFrame()
+        # A股大盘指数
+        try:
+            idx = self.client.get_index_daily(trade_date=self.trade_date, lookback_days=25)
+        except Exception:
+            idx = pd.DataFrame()
+
+        # 生成大盘指数快照
+        indices = self._scan_indices(idx)
 
         # ========================================================
         # STEP 1: 板块量能扫描（使用同花顺板块指数数据）
@@ -132,7 +140,7 @@ class Scanner:
         order = {"可上车": 0, "可关注": 1, "观望": 2, "回避": 3}
         stocks.sort(key=lambda r: (order.get(r.verdict, 9), -r.score))
 
-        return sectors, stocks
+        return sectors, stocks, indices
 
     # ---------------------------------------------------------------
     # 板块扫描
@@ -237,6 +245,36 @@ class Scanner:
 
         snap.summary = "；".join(reasons) if reasons else "量能平淡，方向不明"
         return snap
+
+    # ---------------------------------------------------------------
+    # 大盘指数快照
+    # ---------------------------------------------------------------
+    def _scan_indices(self, idx: pd.DataFrame) -> List[dict]:
+        index_names = {v: k for k, v in BENCHMARKS.items()}
+        result = []
+        if idx.empty:
+            return result
+
+        for code in BENCHMARKS.values():
+            df = idx[idx["ts_code"] == code].sort_values("trade_date")
+            if df.empty:
+                continue
+            today = df[df["trade_date"] == self.trade_date]
+            pct_chg = today.iloc[0].get("pct_chg", 0) if not today.empty else 0
+            close = today.iloc[0].get("close", 0) if not today.empty else 0
+            closes = df["close"].values.astype(float)
+            n = len(closes)
+            pct_5d = (closes[-1] / closes[-6] - 1) * 100 if n >= 6 else 0
+            pct_20d = (closes[-1] / closes[-21] - 1) * 100 if n >= 21 else 0
+            result.append({
+                "name": index_names.get(code, code),
+                "code": code,
+                "close": round(float(close), 2),
+                "pct_chg": round(float(pct_chg), 2),
+                "pct_5d": round(float(pct_5d), 2),
+                "pct_20d": round(float(pct_20d), 2),
+            })
+        return result
 
     # ---------------------------------------------------------------
     # 个股诊断

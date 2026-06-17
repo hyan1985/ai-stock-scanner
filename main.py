@@ -47,12 +47,12 @@ def main():
     try:
         client = TushareClient(token=token)
         scanner = Scanner(client)
-        sectors, stocks = scanner.run(trade_date=args.date)
+        sectors, stocks, indices = scanner.run(trade_date=args.date)
 
         # 先保存完整 JSON + 生成嵌入式 HTML 面板
         if args.save_json:
             json_path = args.save_json
-            full_json = _build_json(scanner.trade_date, sectors, stocks)
+            full_json = _build_json(scanner.trade_date, sectors, stocks, indices)
             with open(json_path, "w", encoding="utf-8") as f:
                 json.dump(full_json, f, ensure_ascii=False, indent=2)
             print(f"数据已保存: {json_path}")
@@ -70,9 +70,9 @@ def main():
             stocks = [r for r in stocks if r.verdict in ("可上车", "可关注")]
 
         if args.json:
-            _output_json(scanner.trade_date, sectors, stocks)
+            _output_json(scanner.trade_date, sectors, stocks, indices)
         else:
-            _output_text(scanner.trade_date, sectors, stocks, args)
+            _output_text(scanner.trade_date, sectors, stocks, indices, args)
 
     except Exception as e:
         print(f"\n❌ 失败: {e}")
@@ -81,7 +81,7 @@ def main():
         sys.exit(1)
 
 
-def _output_text(trade_date, sectors, stocks, args):
+def _output_text(trade_date, sectors, stocks, indices, args):
     """先板块概览，再个股列表"""
     dt = datetime.datetime.strptime(trade_date, "%Y%m%d").strftime("%Y-%m-%d")
 
@@ -97,6 +97,12 @@ def _output_text(trade_date, sectors, stocks, args):
     print("├" + "─" * 74 + "┤")
     print(f"│  可上车 {len(board):>2}  |  可关注 {len(watch):>2}  |  观望 {len(stocks)-len(board)-len(watch):>2}                                       │")
     print("└" + "─" * 74 + "┘")
+
+    # 大盘指数概览
+    if indices:
+        parts = [f"{i['name']} {i['pct_chg']:+.2f}%" for i in indices]
+        print()
+        print(f"  大盘: {'  '.join(parts)}")
 
     print()
     print("━" * 76)
@@ -214,13 +220,14 @@ def _print_stock_table(stocks):
         print(f"  {code:<10} {r.name:<8} {r.sector:<14} {r.score:>4} {pct:>7} {vr:>6} {p20:>7} {r.trend:>4}")
 
 
-def _output_json(trade_date, sectors, stocks):
-    print(json.dumps(_build_json(trade_date, sectors, stocks), ensure_ascii=False, indent=2))
+def _output_json(trade_date, sectors, stocks, indices):
+    print(json.dumps(_build_json(trade_date, sectors, stocks, indices), ensure_ascii=False, indent=2))
 
 
-def _build_json(trade_date, sectors, stocks):
+def _build_json(trade_date, sectors, stocks, indices):
     return {
         "trade_date": trade_date,
+        "indices": indices,
         "sectors": [
             {
                 "name": s.name, "priority": s.priority,

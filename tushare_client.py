@@ -11,7 +11,7 @@ from typing import Optional, Dict, List
 
 import tushare as ts
 
-from config import TUSHARE_TOKEN_ENV, STOCK_POOL, THS_SECTOR_MAP
+from config import TUSHARE_TOKEN_ENV, STOCK_POOL, THS_SECTOR_MAP, BENCHMARKS
 
 
 class TushareClient:
@@ -163,5 +163,46 @@ class TushareClient:
                 return df
         except Exception as e:
             print(f"  [警告] 同花顺板块数据获取失败: {e}")
+
+        return pd.DataFrame()
+
+    # ------------------------------------------------------------
+    # A股大盘指数 — 上证、深证、创业板、科创50
+    # ------------------------------------------------------------
+    def get_index_daily(
+        self, trade_date: Optional[str] = None, lookback_days: int = 25
+    ) -> pd.DataFrame:
+        if trade_date is None:
+            trade_date = self._get_latest_trade_date()
+
+        end_dt = datetime.datetime.strptime(trade_date, "%Y%m%d")
+        start_dt = end_dt - datetime.timedelta(days=lookback_days + 10)
+        start_date = start_dt.strftime("%Y%m%d")
+
+        cache_key = f"idx_{start_date}_{trade_date}"
+        if cache_key in self._cache:
+            return self._cache[cache_key]
+
+        # index_daily 不支持逗号分隔多代码，逐个拉取后合并
+        frames = []
+        for code in BENCHMARKS.values():
+            try:
+                df = self.pro.index_daily(
+                    ts_code=code,
+                    start_date=start_date,
+                    end_date=trade_date,
+                )
+                if df is not None and not df.empty:
+                    df.columns = df.columns.str.lower()
+                    df["trade_date"] = df["trade_date"].astype(str)
+                    df = df.sort_values(["ts_code", "trade_date"])
+                    frames.append(df)
+            except Exception as e:
+                print(f"  [警告] 指数 {code} 数据获取失败: {e}")
+
+        if frames:
+            result = pd.concat(frames, ignore_index=True)
+            self._cache[cache_key] = result
+            return result
 
         return pd.DataFrame()

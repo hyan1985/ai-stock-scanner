@@ -419,18 +419,18 @@ class Scanner:
 
         # --- C. 位置 (20分) ---
         if v.pct_20d > 80:
-            score -= 30
-            v.risk_label = "⚠️高危追涨"
-            warnings.append(f"80%+高危追涨")
+            score -= 15
+            v.risk_label = "⚠️高位博弈"
+            warnings.append(f"{v.pct_20d:.0f}%高位博弈")
         elif v.pct_20d > 50:
-            score -= 20
-            v.risk_label = "⚠️涨幅过大"
-            warnings.append(f"{v.pct_20d:.0f}%涨幅过大")
+            score -= 10
+            v.risk_label = "⚠️涨幅已大"
+            warnings.append(f"{v.pct_20d:.0f}%涨幅已大")
         elif v.pct_20d > 35:
-            score -= 12
-            warnings.append(f"{v.pct_20d:.0f}%过热")
+            score -= 6
+            warnings.append(f"{v.pct_20d:.0f}%偏高")
         elif v.pct_20d > 25:
-            score -= 8
+            score -= 4
             warnings.append(f"涨幅{v.pct_20d:.0f}%偏高")
         elif v.pct_20d < -20:
             score += 8
@@ -468,10 +468,6 @@ class Scanner:
         elif score >= 55: v.verdict = "可关注"
         elif score >= 35: v.verdict = "观望"
         else:             v.verdict = "回避"
-
-        # 高危追涨 → 最高只能到"可关注"
-        if v.risk_label == "⚠️高危追涨" and v.verdict == "可上车":
-            v.verdict = "可关注"
 
         return v
 

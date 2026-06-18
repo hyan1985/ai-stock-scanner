@@ -166,6 +166,10 @@ def _one_liner(r):
     """生成个股一句话总结"""
     parts = []
 
+    # 风险标记优先展示
+    if r.risk_label:
+        parts.append(r.risk_label.replace("\u26a0\ufe0f", "高风险"))
+
     # 量价配合
     if r.volume_ratio > 1.2 and r.pct_chg > 0:
         parts.append("放量上涨")
@@ -210,14 +214,15 @@ def _one_liner(r):
 
 def _print_stock_table(stocks):
     """打印个股表格"""
-    print(f"  {'代码':<10} {'名称':<8} {'板块':<14} {'得分':>4} {'今日%':>7} {'量比':>6} {'20日%':>7} {'趋势':>4}")
-    print("  " + "─" * 64)
+    print(f"  {'代码':<10} {'名称':<8} {'板块':<14} {'得分':>4} {'今日%':>7} {'量比':>6} {'20日%':>7} {'趋势':>4} {'风险':>6}")
+    print("  " + "─" * 72)
     for r in stocks:
         code = r.code.split(".")[0]
         pct  = f"{r.pct_chg:+.2f}%" if r.pct_chg else "N/A"
         vr   = f"{r.volume_ratio:.2f}" if r.volume_ratio else "N/A"
         p20  = f"{r.pct_20d:+.1f}%" if r.pct_20d else "N/A"
-        print(f"  {code:<10} {r.name:<8} {r.sector:<14} {r.score:>4} {pct:>7} {vr:>6} {p20:>7} {r.trend:>4}")
+        risk = r.risk_label.replace("\u26a0\ufe0f", "") if r.risk_label else ""
+        print(f"  {code:<10} {r.name:<8} {r.sector:<14} {r.score:>4} {pct:>7} {vr:>6} {p20:>7} {r.trend:>4} {risk:>6}")
 
 
 def _output_json(trade_date, sectors, stocks, indices):
@@ -248,7 +253,7 @@ def _build_json(trade_date, sectors, stocks, indices):
                 "volume_ratio": round(r.volume_ratio, 2),
                 "pct_5d": round(r.pct_5d, 2), "pct_20d": round(r.pct_20d, 2),
                 "trend": r.trend, "net_mf": round(r.net_mf, 2),
-                "verdict": r.verdict, "score": r.score,
+                "verdict": r.verdict, "score": r.score, "risk_label": r.risk_label,
                 "reasons": r.reasons, "warnings": r.warnings,
             } for r in stocks
         ]

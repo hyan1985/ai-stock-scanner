@@ -70,6 +70,7 @@ class StockVerdict:
 
     verdict: str = "观望"             # 可上车 / 可关注 / 观望 / 回避
     score: int = 0
+    risk_label: str = ""              # 风险标记：⚠️高危追涨 / ⚠️涨幅过大 / ""
     reasons: List[str] = field(default_factory=list)
     warnings: List[str] = field(default_factory=list)
 
@@ -339,7 +340,7 @@ class Scanner:
                 v.net_mf = row.iloc[0].get("net_mf_amount", 0)
 
         # ========== 评分 ==========
-        score = 50
+        score = 40
         reasons = []
         warnings = []
 
@@ -417,11 +418,19 @@ class Scanner:
             reasons.append("低位突破")
 
         # --- C. 位置 (20分) ---
-        if v.pct_20d > 35:
+        if v.pct_20d > 80:
+            score -= 30
+            v.risk_label = "⚠️高危追涨"
+            warnings.append(f"80%+高危追涨")
+        elif v.pct_20d > 50:
+            score -= 20
+            v.risk_label = "⚠️涨幅过大"
+            warnings.append(f"{v.pct_20d:.0f}%涨幅过大")
+        elif v.pct_20d > 35:
             score -= 12
             warnings.append(f"{v.pct_20d:.0f}%过热")
         elif v.pct_20d > 25:
-            score -= 6
+            score -= 8
             warnings.append(f"涨幅{v.pct_20d:.0f}%偏高")
         elif v.pct_20d < -20:
             score += 8
@@ -455,10 +464,14 @@ class Scanner:
         v.reasons = reasons
         v.warnings = warnings
 
-        if   score >= 70: v.verdict = "可上车"
+        if   score >= 75: v.verdict = "可上车"
         elif score >= 55: v.verdict = "可关注"
         elif score >= 35: v.verdict = "观望"
         else:             v.verdict = "回避"
+
+        # 高危追涨 → 最高只能到"可关注"
+        if v.risk_label == "⚠️高危追涨" and v.verdict == "可上车":
+            v.verdict = "可关注"
 
         return v
 

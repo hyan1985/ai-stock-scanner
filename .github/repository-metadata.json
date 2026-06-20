@@ -1,0 +1,35 @@
+{
+  "name": "ai-stock-scanner",
+  "displayName": "AI 产业链轮动扫描",
+  "description": "A 股 AI 产业链轮动扫描工具：板块量能 + 个股诊断，Tushare Pro 驱动，GitHub Actions 每日自动更新 HTML 面板",
+  "homepage": "https://hyan1985.github.io/ai-stock-scanner/",
+  "language": "Python",
+  "license": "MIT",
+  "topics": [
+    "python",
+    "tushare",
+    "stock-scanner",
+    "a-shares",
+    "china-stock",
+    "sector-rotation",
+    "ai-industry",
+    "quantitative-analysis",
+    "github-actions",
+    "dashboard"
+  ],
+  "keywords": [
+    "AI产业链",
+    "板块轮动",
+    "Tushare",
+    "A股扫描",
+    "液冷",
+    "CPO",
+    "先进封装"
+  ],
+  "dataSource": "Tushare Pro",
+  "schedule": "Mon-Fri 15:30 Asia/Shanghai",
+  "outputs": [
+    "dashboard.html",
+    "data.json"
+  ]
+}

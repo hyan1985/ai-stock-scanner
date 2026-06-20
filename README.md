@@ -1,5 +1,10 @@
 # AI 产业链轮动扫描
 
+[![Python 3.11+](https://img.shields.io/badge/Python-3.11+-3776AB?logo=python&logoColor=white)](https://www.python.org/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+[![Daily Scan](https://img.shields.io/github/actions/workflow/status/hyan1985/ai-stock-scanner/daily-scan.yml?label=Daily%20Scan)](https://github.com/hyan1985/ai-stock-scanner/actions/workflows/daily-scan.yml)
+[![GitHub Pages](https://img.shields.io/badge/Dashboard-GitHub%20Pages-blue)](https://hyan1985.github.io/ai-stock-scanner/)
+
 基于 Tushare Pro 的 A 股 AI 产业链轮动监控工具。复刻研报 PDF 中的跟踪逻辑：**先判断板块量能与拥挤度，再在板块框架下对个股给出上车/观望建议**，并生成可视化 HTML 面板。
 
 > 在线面板：若已开启 GitHub Pages，访问  

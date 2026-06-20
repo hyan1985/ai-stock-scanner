@@ -1,0 +1,11 @@
+.venv/
+__pycache__/
+.git/
+*.pyc
+.DS_Store
+
+# 每日扫描产出，体积大且会由 Actions 更新
+data.json
+
+# 本地研报输出
+*行业研报*.html

@@ -2,3 +2,8 @@
 __pycache__/
 *.pyc
 *.pdf
+.env
+.DS_Store
+
+# 本地生成的研报 HTML（dashboard/index 仍需提交）
+*行业研报*.html

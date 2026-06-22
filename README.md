@@ -101,6 +101,18 @@ python main.py --sector 液冷
 python main.py --json
 ```
 
+### 知乎每日研报
+
+扫描完成后自动生成 Markdown，可直接复制到知乎编辑器：
+
+```bash
+python main.py --save-json data.json   # 同时生成 reports/知乎_AI产业链轮动_YYYYMMDD.md
+python zhihu_report.py                 # 仅从 data.json 重新生成
+```
+
+- 当日文件：`reports/知乎_AI产业链轮动_20260622.md`
+- 最新副本：`reports/知乎_最新.md`（GitHub Actions 每日更新）
+
 ---
 
 ## GitHub Actions 自动扫描

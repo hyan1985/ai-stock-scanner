@@ -57,6 +57,10 @@ def main():
                 json.dump(full_json, f, ensure_ascii=False, indent=2)
             print(f"数据已保存: {json_path}")
 
+            from zhihu_report import save_zhihu_report
+            report_path = save_zhihu_report(full_json)
+            print(f"知乎研报已生成: {report_path}")
+
             # 生成自包含 HTML 面板
             html_path = os.path.join(os.path.dirname(json_path) or ".", "dashboard.html")
             _inject_html(html_path, full_json)

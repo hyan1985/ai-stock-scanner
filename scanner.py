@@ -13,7 +13,7 @@ from typing import Optional, List, Dict
 from dataclasses import dataclass, field
 
 from tushare_client import TushareClient
-from config import STOCK_POOL, THS_SECTOR_MAP, BENCHMARKS
+from config import STOCK_POOL, THS_SECTOR_MAP, BENCHMARKS, THRESHOLDS
 
 
 # ============================================================
@@ -30,8 +30,9 @@ class SectorSnap:
 
     # 量能
     avg_volume_ratio: float = 1.0     # 今日平均量比
-    vol_trend: str = "持平"           # 放量 / 缩量 / 持平
-    vol_trend_ratio: float = 1.0      # 近5日均量 / 前5日均量
+    vol_trend: str = "持平"           # 放量 / 缩量 / 温和放量 / 温和缩量 / 持平
+    vol_trend_ratio: float = 1.0      # 3日量能比: 扫描日成交量 / 3日前成交量
+    vol_trend_coef: float = 0.0       # 3日量能趋势系数 VTC（见 _calc_vol_trend_3d）
 
     # 资金
     net_mf: float = 0.0               # 板块主力净流入(万元)
@@ -70,6 +71,7 @@ class StockVerdict:
 
     verdict: str = "观望"             # 可上车 / 可关注 / 观望 / 回避
     score: int = 0
+    sector_rank: int = 0              # 板块内综合排名（1=最优）
     risk_label: str = ""              # 风险标记：⚠️高危追涨 / ⚠️涨幅过大 / ""
     reasons: List[str] = field(default_factory=list)
     warnings: List[str] = field(default_factory=list)
@@ -137,6 +139,9 @@ class Scanner:
                 v = self._scan_stock(s["code"], s["name"], info["name"], p, daily, mf, snap)
                 stocks.append(v)
 
+        # 板块内相对比较 → 择优 1-2 可上车
+        self._rank_stocks_within_sectors(stocks)
+
         # 排序
         order = {"可上车": 0, "可关注": 1, "观望": 2, "回避": 3}
         stocks.sort(key=lambda r: (order.get(r.verdict, 9), -r.score))
@@ -191,26 +196,12 @@ class Scanner:
                 pct20 = (closes_pivot.iloc[-1] / closes_pivot.iloc[-21] - 1) * 100
                 snap.avg_pct_20d = pct20.mean()
 
-        # --- 量能趋势 ---
-        if len(ths_df) >= 10:
-            ths_vols = ths_df["vol"].values.astype(float)
-            recent = ths_vols[-5:].mean()
-            prior = ths_vols[-10:-5].mean()
-            if prior > 0:
-                snap.vol_trend_ratio = recent / prior
-                snap.vol_trend = "放量" if snap.vol_trend_ratio > 1.3 else ("缩量" if snap.vol_trend_ratio < 0.7 else "持平")
-        else:
-            # 回退：从个股汇总
-            vols = df.pivot_table(
-                index="trade_date", columns="ts_code", values="vol", aggfunc="sum"
-            ).sort_index()
-            if len(vols) >= 10:
-                total_vol = vols.sum(axis=1)
-                recent = total_vol.iloc[-5:].mean()
-                prior = total_vol.iloc[-10:-5].mean()
-                if prior > 0:
-                    snap.vol_trend_ratio = recent / prior
-                    snap.vol_trend = "放量" if snap.vol_trend_ratio > 1.3 else ("缩量" if snap.vol_trend_ratio < 0.7 else "持平")
+        # --- 量能趋势：扫描日起往前3个交易日的量能趋势系数 VTC ---
+        vol_series = self._get_volume_series(ths_df, df, codes)
+        coef, ratio, label = self._calc_vol_trend_3d(vol_series)
+        snap.vol_trend_coef = coef
+        snap.vol_trend_ratio = ratio
+        snap.vol_trend = label
 
         # --- 资金流向（仍然从个股汇总，因为板块指数没有主力资金字段）---
         if not mf.empty:
@@ -240,24 +231,25 @@ class Scanner:
             snap.status = "过热"
             snap.status_icon = "🔥"
             reasons.append("板块过热" if preset_crowded else f"20日涨{snap.avg_pct_20d:.0f}%过热")
-        # 活跃
-        elif snap.vol_trend == "放量" and snap.net_mf > 0 and snap.avg_pct_5d > 0:
-            snap.status = "活跃"
-            snap.status_icon = "🔥"
-            reasons.append(f"放量+资金流入")
-        elif snap.vol_trend == "放量" and snap.avg_pct > 0:
-            snap.status = "活跃"
-            snap.status_icon = "🔥"
-            reasons.append(f"放量上涨")
-        # 退潮
-        elif snap.vol_trend == "放量" and snap.avg_pct < -1:
-            snap.status = "退潮"
-            snap.status_icon = "🌊"
-            reasons.append("放量下跌，资金在退")
-        elif snap.vol_trend == "缩量" and snap.avg_pct_5d < -2:
-            snap.status = "退潮"
-            snap.status_icon = "🌊"
-            reasons.append(f"缩量阴跌")
+        else:
+            vol_up = label.startswith("放量") or label.startswith("温和放量")
+            vol_down = label.startswith("缩量") or label.startswith("温和缩量")
+            if vol_up and snap.net_mf > 0 and snap.avg_pct_5d > 0:
+                snap.status = "活跃"
+                snap.status_icon = "🔥"
+                reasons.append(f"{label}+资金流入")
+            elif vol_up and snap.avg_pct > 0:
+                snap.status = "活跃"
+                snap.status_icon = "🔥"
+                reasons.append(f"{label}上涨")
+            elif vol_up and snap.avg_pct < -1:
+                snap.status = "退潮"
+                snap.status_icon = "🌊"
+                reasons.append("放量下跌，资金在退")
+            elif vol_down and snap.avg_pct_5d < -2:
+                snap.status = "退潮"
+                snap.status_icon = "🌊"
+                reasons.append(f"{label}阴跌")
 
         # 补充说明
         if snap.net_mf > 0:
@@ -339,137 +331,251 @@ class Scanner:
             if not row.empty:
                 v.net_mf = row.iloc[0].get("net_mf_amount", 0)
 
-        # ========== 评分 ==========
-        score = 40
+        # ========== 因子采集（板块内相对比较，不在此处定 verdict）==========
         reasons = []
         warnings = []
-
-        # --- A. 量能 (35分) ---
         vr = v.volume_ratio
-
-        # 量比健康度
-        if 0.8 <= vr <= 2.0:
-            score += 8
-        elif vr > 2.5:
-            score -= 6
-            warnings.append(f"量比{vr:.1f}异常放大")
-        elif vr < 0.5:
-            score -= 4
-            warnings.append(f"极度缩量({vr:.2f})")
-
-        # 量价配合
-        if v.pct_chg > 2 and vr > 1.2:
-            score += 12
-            reasons.append("放量上涨")
-        elif v.pct_chg > 0 and vr >= 0.8:
-            score += 6
-            reasons.append("温和上涨")
-        elif v.pct_chg < -3 and vr > 1.5:
-            score -= 12
-            warnings.append("放量下跌")
-        elif v.pct_chg < 0 and vr < 0.8:
-            score += 4
-            reasons.append("缩量回调")
-
-        # 主力
-        if v.net_mf > 0:
-            score += 8
-            reasons.append("主力流入")
-        elif v.net_mf < 0:
-            score -= 6
-            warnings.append("主力流出")
-
-        # 板块量能加成
-        if snap.status == "活跃" and snap.net_mf > 0:
-            score += 5
-            reasons.append(f"板块活跃+")
-
-        # --- B. 趋势 (30分) ---
-        # 均线
         ma5  = np.mean(closes[-5:])  if n >= 5  else 0
         ma20 = np.mean(closes[-20:]) if n >= 20 else 0
 
+        # 量价与资金（描述性标签）
+        if v.pct_chg > 2 and vr > 1.2:
+            reasons.append("放量上涨")
+        elif v.pct_chg > 0 and vr >= 0.8:
+            reasons.append("温和上涨")
+        elif v.pct_chg < -3 and vr > 1.5:
+            warnings.append("放量下跌")
+        elif v.pct_chg < 0 and vr < 0.8:
+            reasons.append("缩量回调")
+
+        if vr > 2.5:
+            warnings.append(f"量比{vr:.1f}异常放大")
+        elif vr < 0.5:
+            warnings.append(f"极度缩量({vr:.2f})")
+
+        if v.net_mf > 0:
+            reasons.append("主力流入")
+        elif v.net_mf < 0:
+            warnings.append("主力流出")
+
         if ma5 > 0 and ma20 > 0 and v.close > ma5 > ma20:
-            score += 15
             reasons.append("多头排列")
+            ma_score = 3
         elif v.close > ma5 > ma20 * 0.98:
-            score += 10
             reasons.append("短中期向好")
+            ma_score = 2
         elif ma20 > 0 and v.close > ma20:
-            score += 6
             reasons.append("站上20日线")
+            ma_score = 1
         elif ma20 > 0 and v.close < ma20 < ma5:
-            score -= 10
             warnings.append("空头排列")
+            ma_score = 0
         elif ma20 > 0 and v.close < ma20:
-            score -= 5
             warnings.append("跌破20日线")
+            ma_score = 0
+        else:
+            ma_score = 1
 
         if v.trend == "上升":
-            score += 10
+            reasons.append("上升趋势")
         elif v.trend == "下跌":
-            score -= 8
             warnings.append("下跌趋势")
 
-        # 低位突破
-        if (v.pct_20d < 15 and v.close > ma20 > 0
-                and vr > 1.2 and v.pct_chg > 1 and v.trend != "下跌"):
-            score += 8
-            reasons.append("低位突破")
-
-        # --- C. 位置 (20分) ---
         if v.pct_20d > 80:
-            score -= 15
             v.risk_label = "⚠️高位博弈"
             warnings.append(f"{v.pct_20d:.0f}%高位博弈")
         elif v.pct_20d > 50:
-            score -= 10
             v.risk_label = "⚠️涨幅已大"
             warnings.append(f"{v.pct_20d:.0f}%涨幅已大")
         elif v.pct_20d > 35:
-            score -= 6
             warnings.append(f"{v.pct_20d:.0f}%偏高")
-        elif v.pct_20d > 25:
-            score -= 4
-            warnings.append(f"涨幅{v.pct_20d:.0f}%偏高")
         elif v.pct_20d < -20:
-            score += 8
             reasons.append("深度超跌")
         elif v.pct_20d < -10:
-            score += 4
             reasons.append("短期超跌")
 
-        # 连阳
-        if n >= 5:
-            up = sum(1 for i in range(1, 5) if closes[-1-i] < closes[-i])
-            if up >= 4:
-                score += 5
-                reasons.append("连阳走强")
-
-        # --- D. 优先级 (15分) ---
-        if priority <= 2:
-            score += 6
-            if snap.status != "过热":
-                reasons.append("研报首推板块")
         if snap.preset_crowded and v.pct_20d > 20:
-            score -= 8
             warnings.append("板块拥挤+个股涨幅大")
         if snap.status == "退潮":
-            score -= 5
             warnings.append("板块退潮")
 
-        # ========== 结论 ==========
-        score = max(0, min(100, score))
-        v.score = score
+        trend_score = {"上升": 2, "震荡": 1, "下跌": 0}.get(v.trend, 1)
+        vol_price = (
+            v.pct_chg * min(vr, 2.5)
+            if v.pct_chg > 0
+            else v.pct_chg - abs(v.pct_chg) * 0.3
+        )
+
+        # 板块内比较用原始因子（越大越好，除 position 外已按偏好构造）
+        v._factors = {
+            "mf": float(v.net_mf),
+            "vol_price": float(vol_price),
+            "trend": float(trend_score + ma_score),
+            "vr_health": float(-abs(vr - 1.1)),
+            "position": float(-abs(v.pct_20d - 12)),
+        }
+        v._force_avoid = v.pct_chg < -3 and vr > 1.5
+
         v.reasons = reasons
         v.warnings = warnings
-
-        if   score >= 75: v.verdict = "可上车"
-        elif score >= 55: v.verdict = "可关注"
-        elif score >= 35: v.verdict = "观望"
-        else:             v.verdict = "回避"
+        v.verdict = "观望"
+        v.score = 0
 
         return v
+
+    # ---------------------------------------------------------------
+    # 量能趋势 & 板块内排名
+    # ---------------------------------------------------------------
+
+    def _get_volume_series(
+        self, ths_df: pd.DataFrame, df: pd.DataFrame, codes: List[str]
+    ) -> np.ndarray:
+        """板块成交量序列（优先同花顺板块指数）。"""
+        if not ths_df.empty and len(ths_df) >= 3:
+            return ths_df["vol"].values.astype(float)
+        vols = df.pivot_table(
+            index="trade_date", columns="ts_code", values="vol", aggfunc="sum"
+        ).sort_index()
+        if vols.empty:
+            return np.array([])
+        return vols.sum(axis=1).values.astype(float)
+
+    def _calc_vol_trend_3d(self, vols: np.ndarray) -> tuple:
+        """
+        3日量能趋势系数 VTC（Volume Trend Coefficient）
+
+        取扫描日及前2个交易日共3天成交量 [V0, V1, V2]（时间升序），
+        对 x=[0,1,2] 做线性回归得斜率 s，VTC = s / mean(V)。
+        VTC > 0 表示量能逐日抬升，< 0 表示递减。
+
+        同时计算 3日量能比 R3 = V2 / V0（扫描日相对3日前）。
+        """
+        days = int(THRESHOLDS.get("vol_trend_days", 3))
+        if vols is None or len(vols) < days:
+            return 0.0, 1.0, "持平"
+
+        y = vols[-days:].astype(float)
+        if y.mean() <= 0:
+            return 0.0, 1.0, "持平"
+
+        x = np.arange(days, dtype=float)
+        slope = float(np.polyfit(x, y, 1)[0])
+        vtc = slope / y.mean()
+        ratio = float(y[-1] / y[0]) if y[0] > 0 else 1.0
+
+        expand = THRESHOLDS.get("vol_trend_expand", 0.05)
+        shrink = THRESHOLDS.get("vol_trend_shrink", -0.05)
+        mild_up = THRESHOLDS.get("vol_trend_mild_expand", 0.02)
+        mild_dn = THRESHOLDS.get("vol_trend_mild_shrink", -0.02)
+
+        pct = (ratio - 1) * 100
+        pct_s = f"{pct:+.0f}%"
+
+        if vtc >= expand:
+            label = f"放量({pct_s})"
+        elif vtc >= mild_up:
+            label = f"温和放量({pct_s})"
+        elif vtc <= shrink:
+            label = f"缩量({pct_s})"
+        elif vtc <= mild_dn:
+            label = f"温和缩量({pct_s})"
+        else:
+            label = f"持平({pct_s})"
+
+        return round(vtc, 4), round(ratio, 3), label
+
+    @staticmethod
+    def _percentile_rank(values: List[float], higher_better: bool = True) -> List[float]:
+        """返回 0~1 分位，ties 取平均名次。"""
+        n = len(values)
+        if n == 0:
+            return []
+        if n == 1:
+            return [1.0]
+
+        order = sorted(range(n), key=lambda i: values[i])
+        ranks = [0.0] * n
+        i = 0
+        while i < n:
+            j = i
+            while j < n - 1 and values[order[j + 1]] == values[order[i]]:
+                j += 1
+            avg_rank = (i + j) / 2.0
+            for k in range(i, j + 1):
+                ranks[order[k]] = avg_rank
+            i = j + 1
+
+        if not higher_better:
+            ranks = [n - 1 - r for r in ranks]
+
+        return [(r / (n - 1)) for r in ranks]
+
+    def _rank_stocks_within_sectors(self, stocks: List[StockVerdict]) -> None:
+        """各板块内因子横向比较，择优推荐 Top N。"""
+        weights = THRESHOLDS.get("factor_weights", {
+            "mf": 0.25,
+            "vol_price": 0.20,
+            "trend": 0.25,
+            "vr_health": 0.15,
+            "position": 0.15,
+        })
+        top_board = int(THRESHOLDS.get("sector_board_top", 2))
+        top_watch = int(THRESHOLDS.get("sector_watch_top", 3))
+
+        for p in sorted(STOCK_POOL.keys()):
+            group = [s for s in stocks if s.priority == p]
+            if not group:
+                continue
+
+            for s in group:
+                if getattr(s, "_force_avoid", False):
+                    s.verdict = "回避"
+                    s.score = 0
+                    s.sector_rank = 99
+
+            candidates = [s for s in group if s.verdict != "回避"]
+            if not candidates:
+                continue
+
+            factor_names = list(weights.keys())
+            rank_matrix = {fn: [] for fn in factor_names}
+            for s in candidates:
+                f = getattr(s, "_factors", {})
+                for fn in factor_names:
+                    rank_matrix[fn].append(f.get(fn, 0.0))
+
+            composite = [0.0] * len(candidates)
+            for fn in factor_names:
+                w = weights.get(fn, 0)
+                if w <= 0:
+                    continue
+                pr = self._percentile_rank(rank_matrix[fn], higher_better=True)
+                for i, r in enumerate(pr):
+                    composite[i] += w * r
+
+            ranked = sorted(
+                zip(candidates, composite),
+                key=lambda x: x[1],
+                reverse=True,
+            )
+
+            for rank, (s, comp) in enumerate(ranked, start=1):
+                s.sector_rank = rank
+                s.score = int(round(comp * 100))
+                if rank <= top_board:
+                    s.verdict = "可上车"
+                    s.reasons.insert(0, f"板块内第{rank}")
+                elif rank <= top_board + top_watch:
+                    s.verdict = "可关注"
+                    s.reasons.insert(0, f"板块内第{rank}")
+                else:
+                    s.verdict = "观望"
+
+            for s in group:
+                if hasattr(s, "_factors"):
+                    del s._factors
+                if hasattr(s, "_force_avoid"):
+                    del s._force_avoid
 
     @staticmethod
     def _trend(closes: np.ndarray) -> str:

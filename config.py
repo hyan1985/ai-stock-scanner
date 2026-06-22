@@ -254,6 +254,24 @@ THRESHOLDS = {
     # 趋势判断天数
     "trend_lookback_days": 20,
     "short_term_days": 5,
+
+    # 3日量能趋势系数 VTC（扫描日及前2个交易日，线性斜率/均值）
+    "vol_trend_days": 3,
+    "vol_trend_expand": 0.05,        # VTC >= 5%/日 → 放量
+    "vol_trend_shrink": -0.05,       # VTC <= -5%/日 → 缩量
+    "vol_trend_mild_expand": 0.02,   # 温和放量
+    "vol_trend_mild_shrink": -0.02,  # 温和缩量
+
+    # 板块内相对比较权重 & 每板块推荐名额
+    "sector_board_top": 2,           # 可上车：每板块 Top 2
+    "sector_watch_top": 3,             # 可关注：每板块第 3~5 名
+    "factor_weights": {
+        "mf": 0.25,          # 主力净流入
+        "vol_price": 0.20,   # 量价配合
+        "trend": 0.25,       # 均线+趋势
+        "vr_health": 0.15,   # 量比接近健康区
+        "position": 0.15,    # 20日位置（适中更佳）
+    },
 }
 
 # ============================================================

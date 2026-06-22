@@ -238,6 +238,7 @@ def _build_json(trade_date, sectors, stocks, indices):
                 "name": s.name, "priority": s.priority,
                 "avg_volume_ratio": round(s.avg_volume_ratio, 2),
                 "vol_trend": s.vol_trend, "vol_trend_ratio": round(s.vol_trend_ratio, 2),
+                "vol_trend_coef": round(s.vol_trend_coef, 4),
                 "net_mf": round(s.net_mf, 2),
                 "avg_pct": round(s.avg_pct, 2), "avg_pct_5d": round(s.avg_pct_5d, 2),
                 "avg_pct_20d": round(s.avg_pct_20d, 2),
@@ -253,7 +254,8 @@ def _build_json(trade_date, sectors, stocks, indices):
                 "volume_ratio": round(r.volume_ratio, 2),
                 "pct_5d": round(r.pct_5d, 2), "pct_20d": round(r.pct_20d, 2),
                 "trend": r.trend, "net_mf": round(r.net_mf, 2),
-                "verdict": r.verdict, "score": r.score, "risk_label": r.risk_label,
+                "verdict": r.verdict, "score": r.score, "sector_rank": r.sector_rank,
+                "risk_label": r.risk_label,
                 "reasons": r.reasons, "warnings": r.warnings,
             } for r in stocks
         ]

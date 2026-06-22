@@ -34,7 +34,7 @@ th:first-child, td:first-child { text-align: left; }
 th { background: #2a2a2a; font-size: 11px; text-transform: uppercase; color: #999; font-weight: 600; border-bottom: 1px solid #333; }
 td { border-bottom: 1px solid #2a2a2a; }
 tr:last-child td { border-bottom: none; }
-.pct-up { color: #3fa266; } .pct-down { color: #cf4b4b; }
+.pct-up { color: #cf4b4b; } .pct-down { color: #3fa266; }
 .pill { display: inline-block; padding: 2px 8px; border-radius: 10px; font-size: 11px; font-weight: 600; }
 .pill-board { background: #1f3a2a; color: #3fa266; border: 1px solid #2a553a; }
 .pill-watch { background: #3a2e1a; color: #f0a040; border: 1px solid #554428; }
@@ -50,8 +50,8 @@ tr:last-child td { border-bottom: none; }
 .idx-card { background: #222; border: 1px solid #333; border-radius: 6px; padding: 10px 14px; text-align: center; }
 .idx-card .idx-name { font-size: 11px; color: #888; margin-bottom: 2px; }
 .idx-card .idx-pct { font-size: 22px; font-weight: 700; }
-.idx-card .idx-pct.up { color: #3fa266; }
-.idx-card .idx-pct.down { color: #cf4b4b; }
+.idx-card .idx-pct.up { color: #cf4b4b; }
+.idx-card .idx-pct.down { color: #3fa266; }
 .risk-badge { display: inline-block; padding: 1px 6px; border-radius: 3px; font-size: 10px; font-weight: 700; margin-left: 4px; vertical-align: middle; }
 .risk-danger { background: #3a1a1a; color: #f04040; border: 1px solid #552828; }
 .risk-warn { background: #3a2e1a; color: #f0a040; border: 1px solid #554428; }
@@ -119,9 +119,9 @@ function bo(){return{responsive:true,maintainAspectRatio:false,indexAxis:'y',plu
 
 new Chart(document.getElementById('chartVolumeRatio'),{type:'bar',options:bo(),data:{labels:sNames,datasets:[{label:'量比',data:d.sectors.map(function(s){return s.avg_volume_ratio;}),backgroundColor:d.sectors.map(function(s){return s.avg_volume_ratio>1.1?'rgba(63,162,102,.6)':'rgba(120,130,140,.4)';})}]}});
 
-new Chart(document.getElementById('chartMoneyFlow'),{type:'bar',options:bo(),data:{labels:sNames,datasets:[{label:'净流入(亿)',data:d.sectors.map(function(s){return s.net_mf/1e4;}),backgroundColor:d.sectors.map(function(s){return s.net_mf>=0?'rgba(240,64,64,.6)':'rgba(90,160,220,.5)';})}]}});
+new Chart(document.getElementById('chartMoneyFlow'),{type:'bar',options:bo(),data:{labels:sNames,datasets:[{label:'净流入(亿)',data:d.sectors.map(function(s){return s.net_mf/1e4;}),backgroundColor:d.sectors.map(function(s){return s.net_mf>=0?'rgba(207,75,75,.6)':'rgba(63,162,102,.5)';})}]}});
 
-new Chart(document.getElementById('chartPct20d'),{type:'bar',options:bo(),data:{labels:sNames,datasets:[{label:'20日%',data:d.sectors.map(function(s){return s.avg_pct_20d;}),backgroundColor:d.sectors.map(function(s){return s.avg_pct_20d>=0?'rgba(63,162,102,.6)':'rgba(207,75,75,.5)';})}]}});
+new Chart(document.getElementById('chartPct20d'),{type:'bar',options:bo(),data:{labels:sNames,datasets:[{label:'20日%',data:d.sectors.map(function(s){return s.avg_pct_20d;}),backgroundColor:d.sectors.map(function(s){return s.avg_pct_20d>=0?'rgba(207,75,75,.6)':'rgba(63,162,102,.5)';})}]}});
 
 document.getElementById('tableSector').innerHTML='<thead><tr><th>板块</th><th>量比</th><th>量趋势(3日)</th><th>主力(亿)</th><th>今日%</th><th>5日%</th><th>20日%</th><th>趋势</th></tr></thead><tbody>'+d.sectors.map(function(s){var hot=s.status==='过热'?'<span class="pill pill-hot">过热</span> ':'';var vt=s.vol_trend||'持平';var vc=vt.indexOf('放量')===0?'#3fa266':vt.indexOf('缩量')===0?'#cf4b4b':'#aaa';return'<tr><td>'+hot+s.name+'</td><td>'+s.avg_volume_ratio.toFixed(2)+'</td><td style="color:'+vc+'">'+vt+'</td><td class="'+(s.net_mf>=0?'pct-up':'pct-down')+'">'+(s.net_mf/1e4).toFixed(2)+'</td><td class="'+(s.avg_pct>=0?'pct-up':'pct-down')+'">'+(s.avg_pct>=0?'+':'')+s.avg_pct.toFixed(2)+'%</td><td class="'+(s.avg_pct_5d>=0?'pct-up':'pct-down')+'">'+(s.avg_pct_5d>=0?'+':'')+s.avg_pct_5d.toFixed(2)+'%</td><td class="'+(s.avg_pct_20d>=0?'pct-up':'pct-down')+'">'+(s.avg_pct_20d>=0?'+':'')+s.avg_pct_20d.toFixed(2)+'%</td><td>'+s.uptrend_count+'↑'+s.downtrend_count+'↓</td></tr>';}).join('')+'</tbody>';
 

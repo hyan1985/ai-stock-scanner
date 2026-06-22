@@ -41,14 +41,14 @@
       "avg_volume_ratio": 1.13,
       "vol_trend": "持平",
       "vol_trend_ratio": 1.07,
-      "net_mf": -81979.25,
+      "net_mf": -71722.27,
       "avg_pct": 0.2,
       "avg_pct_5d": 9.37,
       "avg_pct_20d": 1.52,
-      "uptrend_count": 3,
+      "uptrend_count": 1,
       "downtrend_count": 1,
       "status": "正常",
-      "summary": "主力流出8.2亿"
+      "summary": "主力流出7.2亿"
     },
     {
       "name": "先进封装设备材料",
@@ -86,14 +86,14 @@
       "avg_volume_ratio": 1.08,
       "vol_trend": "持平",
       "vol_trend_ratio": 1.19,
-      "net_mf": -604463.98,
+      "net_mf": -614720.96,
       "avg_pct": 0.85,
       "avg_pct_5d": 17.88,
       "avg_pct_20d": 17.91,
-      "uptrend_count": 17,
+      "uptrend_count": 19,
       "downtrend_count": 1,
       "status": "过热",
-      "summary": "板块过热；主力流出60.4亿；17/20只上升趋势"
+      "summary": "板块过热；主力流出61.5亿；19/22只上升趋势"
     },
     {
       "name": "AI服务器/整机",
@@ -432,31 +432,6 @@
       ],
       "warnings": [
         "主力流出"
-      ]
-    },
-    {
-      "code": "600160.SH",
-      "name": "巨化股份",
-      "sector": "液冷/IDC电力",
-      "priority": 1,
-      "close": 48.53,
-      "pct_chg": 10.0,
-      "volume_ratio": 0.94,
-      "pct_5d": 14.48,
-      "pct_20d": 35.41,
-      "trend": "上升",
-      "net_mf": 7405.75,
-      "verdict": "可上车",
-      "score": 87,
-      "risk_label": "",
-      "reasons": [
-        "温和上涨",
-        "主力流入",
-        "多头排列",
-        "研报首推板块"
-      ],
-      "warnings": [
-        "35%偏高"
       ]
     },
     {
@@ -898,6 +873,31 @@
       ]
     },
     {
+      "code": "600160.SH",
+      "name": "巨化股份",
+      "sector": "PCB/CCL",
+      "priority": 4,
+      "close": 48.53,
+      "pct_chg": 10.0,
+      "volume_ratio": 0.94,
+      "pct_5d": 14.48,
+      "pct_20d": 35.41,
+      "trend": "上升",
+      "net_mf": 7405.75,
+      "verdict": "可关注",
+      "score": 73,
+      "risk_label": "",
+      "reasons": [
+        "温和上涨",
+        "主力流入",
+        "多头排列"
+      ],
+      "warnings": [
+        "35%偏高",
+        "板块拥挤+个股涨幅大"
+      ]
+    },
+    {
       "code": "002028.SZ",
       "name": "思源电气",
       "sector": "液冷/IDC电力",
@@ -968,32 +968,6 @@
       ],
       "warnings": [
         "74%涨幅已大"
-      ]
-    },
-    {
-      "code": "600378.SH",
-      "name": "昊华科技",
-      "sector": "液冷/IDC电力",
-      "priority": 1,
-      "close": 70.22,
-      "pct_chg": 7.77,
-      "volume_ratio": 0.89,
-      "pct_5d": 22.87,
-      "pct_20d": 92.54,
-      "trend": "上升",
-      "net_mf": -17662.73,
-      "verdict": "可关注",
-      "score": 69,
-      "risk_label": "⚠️高位博弈",
-      "reasons": [
-        "温和上涨",
-        "多头排列",
-        "连阳走强",
-        "研报首推板块"
-      ],
-      "warnings": [
-        "主力流出",
-        "93%高位博弈"
       ]
     },
     {
@@ -1833,6 +1807,32 @@
       "warnings": [
         "主力流出",
         "61%涨幅已大",
+        "板块拥挤+个股涨幅大"
+      ]
+    },
+    {
+      "code": "600378.SH",
+      "name": "昊华科技",
+      "sector": "PCB/CCL",
+      "priority": 4,
+      "close": 70.22,
+      "pct_chg": 7.77,
+      "volume_ratio": 0.89,
+      "pct_5d": 22.87,
+      "pct_20d": 92.54,
+      "trend": "上升",
+      "net_mf": -17662.73,
+      "verdict": "可关注",
+      "score": 55,
+      "risk_label": "⚠️高位博弈",
+      "reasons": [
+        "温和上涨",
+        "多头排列",
+        "连阳走强"
+      ],
+      "warnings": [
+        "主力流出",
+        "93%高位博弈",
         "板块拥挤+个股涨幅大"
       ]
     },

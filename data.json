@@ -56,14 +56,14 @@
       "avg_volume_ratio": 1.18,
       "vol_trend": "持平",
       "vol_trend_ratio": 1.05,
-      "net_mf": -204373.64,
+      "net_mf": 28649.01,
       "avg_pct": 1.61,
       "avg_pct_5d": 18.3,
       "avg_pct_20d": 19.33,
-      "uptrend_count": 17,
+      "uptrend_count": 14,
       "downtrend_count": 2,
       "status": "正常",
-      "summary": "主力流出20.4亿；17/21只上升趋势"
+      "summary": "主力流入2.9亿；14/18只上升趋势"
     },
     {
       "name": "CPO/光互连/高速铜缆",
@@ -101,14 +101,14 @@
       "avg_volume_ratio": 1.18,
       "vol_trend": "持平",
       "vol_trend_ratio": 1.04,
-      "net_mf": -236144.67,
+      "net_mf": -302831.55,
       "avg_pct": 0.85,
       "avg_pct_5d": 7.83,
       "avg_pct_20d": -4.06,
-      "uptrend_count": 0,
+      "uptrend_count": 1,
       "downtrend_count": 0,
       "status": "正常",
-      "summary": "主力流出23.6亿"
+      "summary": "主力流出30.3亿"
     },
     {
       "name": "国产算力/AI应用",
@@ -131,14 +131,14 @@
       "avg_volume_ratio": 1.14,
       "vol_trend": "持平",
       "vol_trend_ratio": 1.17,
-      "net_mf": -43545.33,
+      "net_mf": -209881.1,
       "avg_pct": 1.3,
       "avg_pct_5d": 11.36,
       "avg_pct_20d": 12.81,
-      "uptrend_count": 5,
+      "uptrend_count": 7,
       "downtrend_count": 0,
       "status": "正常",
-      "summary": "主力流出4.4亿；5/8只上升趋势"
+      "summary": "主力流出21.0亿；7/10只上升趋势"
     }
   ],
   "stocks": [
@@ -698,32 +698,6 @@
       ]
     },
     {
-      "code": "002859.SZ",
-      "name": "洁美科技",
-      "sector": "先进封装设备材料",
-      "priority": 2,
-      "close": 102.5,
-      "pct_chg": 2.78,
-      "volume_ratio": 1.3,
-      "pct_5d": 36.16,
-      "pct_20d": 70.69,
-      "trend": "上升",
-      "net_mf": -4642.07,
-      "verdict": "可上车",
-      "score": 80,
-      "risk_label": "⚠️涨幅已大",
-      "reasons": [
-        "放量上涨",
-        "多头排列",
-        "连阳走强",
-        "研报首推板块"
-      ],
-      "warnings": [
-        "主力流出",
-        "71%涨幅已大"
-      ]
-    },
-    {
       "code": "002669.SZ",
       "name": "康达新材",
       "sector": "先进封装设备材料",
@@ -824,6 +798,31 @@
       "warnings": [
         "64%涨幅已大",
         "板块拥挤+个股涨幅大"
+      ]
+    },
+    {
+      "code": "002859.SZ",
+      "name": "洁美科技",
+      "sector": "电源磁性/电容",
+      "priority": 7,
+      "close": 102.5,
+      "pct_chg": 2.78,
+      "volume_ratio": 1.3,
+      "pct_5d": 36.16,
+      "pct_20d": 70.69,
+      "trend": "上升",
+      "net_mf": -4642.07,
+      "verdict": "可关注",
+      "score": 74,
+      "risk_label": "⚠️涨幅已大",
+      "reasons": [
+        "放量上涨",
+        "多头排列",
+        "连阳走强"
+      ],
+      "warnings": [
+        "主力流出",
+        "71%涨幅已大"
       ]
     },
     {
@@ -1090,30 +1089,6 @@
       ],
       "warnings": [
         "主力流出"
-      ]
-    },
-    {
-      "code": "300408.SZ",
-      "name": "三环集团",
-      "sector": "先进封装设备材料",
-      "priority": 2,
-      "close": 156.11,
-      "pct_chg": -1.13,
-      "volume_ratio": 1.0,
-      "pct_5d": 23.41,
-      "pct_20d": 35.75,
-      "trend": "上升",
-      "net_mf": -66686.88,
-      "verdict": "可关注",
-      "score": 67,
-      "risk_label": "",
-      "reasons": [
-        "多头排列",
-        "研报首推板块"
-      ],
-      "warnings": [
-        "主力流出",
-        "36%偏高"
       ]
     },
     {
@@ -1457,6 +1432,29 @@
       ]
     },
     {
+      "code": "300408.SZ",
+      "name": "三环集团",
+      "sector": "AI服务器/整机",
+      "priority": 5,
+      "close": 156.11,
+      "pct_chg": -1.13,
+      "volume_ratio": 1.0,
+      "pct_5d": 23.41,
+      "pct_20d": 35.75,
+      "trend": "上升",
+      "net_mf": -66686.88,
+      "verdict": "可关注",
+      "score": 61,
+      "risk_label": "",
+      "reasons": [
+        "多头排列"
+      ],
+      "warnings": [
+        "主力流出",
+        "36%偏高"
+      ]
+    },
+    {
       "code": "605358.SH",
       "name": "立昂微",
       "sector": "先进封装设备材料",
@@ -1577,30 +1575,6 @@
       ],
       "warnings": [
         "主力流出"
-      ]
-    },
-    {
-      "code": "000636.SZ",
-      "name": "风华高科",
-      "sector": "先进封装设备材料",
-      "priority": 2,
-      "close": 72.98,
-      "pct_chg": -2.17,
-      "volume_ratio": 0.93,
-      "pct_5d": 23.44,
-      "pct_20d": 93.99,
-      "trend": "上升",
-      "net_mf": -161693.7,
-      "verdict": "可关注",
-      "score": 58,
-      "risk_label": "⚠️高位博弈",
-      "reasons": [
-        "多头排列",
-        "研报首推板块"
-      ],
-      "warnings": [
-        "主力流出",
-        "94%高位博弈"
       ]
     },
     {
@@ -2028,6 +2002,29 @@
       "warnings": [
         "主力流出",
         "下跌趋势"
+      ]
+    },
+    {
+      "code": "000636.SZ",
+      "name": "风华高科",
+      "sector": "电源磁性/电容",
+      "priority": 7,
+      "close": 72.98,
+      "pct_chg": -2.17,
+      "volume_ratio": 0.93,
+      "pct_5d": 23.44,
+      "pct_20d": 93.99,
+      "trend": "上升",
+      "net_mf": -161693.7,
+      "verdict": "观望",
+      "score": 52,
+      "risk_label": "⚠️高位博弈",
+      "reasons": [
+        "多头排列"
+      ],
+      "warnings": [
+        "主力流出",
+        "94%高位博弈"
       ]
     },
     {

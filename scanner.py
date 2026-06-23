@@ -95,6 +95,16 @@ class Scanner:
         daily = self.client.get_daily_data(trade_date=self.trade_date, lookback_days=70)
         if daily.empty:
             raise RuntimeError("无法获取行情数据")
+
+        codes = self.client.get_all_stock_codes()
+        got_today = daily[daily["trade_date"] == self.trade_date]["ts_code"].nunique()
+        min_need = max(1, int(len(codes) * 0.9))
+        if got_today < min_need:
+            raise RuntimeError(
+                f"交易日 {self.trade_date} 行情未收全: {got_today}/{len(codes)} 只，"
+                "请稍后重试或指定 --date 上一交易日"
+            )
+        print(f"  行情覆盖: {got_today}/{len(codes)} 只 @ {self.trade_date}")
         try:
             mf = self.client.get_moneyflow(trade_date=self.trade_date, lookback_days=5)
         except Exception:
@@ -311,7 +321,12 @@ class Scanner:
             return v
 
         today_rows = df[df["trade_date"] == self.trade_date]
-        t = today_rows.iloc[-1] if not today_rows.empty else df.iloc[-1]
+        if today_rows.empty:
+            v.verdict = "观望"
+            v.warnings.append(f"缺少{self.trade_date}行情")
+            return v
+
+        t = today_rows.iloc[-1]
 
         v.close = t["close"]
         v.pct_chg = t.get("pct_chg", 0)

@@ -48,6 +48,7 @@ def main():
         client = TushareClient(token=token)
         scanner = Scanner(client)
         sectors, stocks, indices = scanner.run(trade_date=args.date)
+        print(f"扫描交易日: {scanner.trade_date}")
 
         # 先保存完整 JSON + 生成嵌入式 HTML 面板
         if args.save_json:

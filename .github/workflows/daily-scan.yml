@@ -2,13 +2,15 @@ name: AI产业链轮动扫描
 
 on:
   schedule:
-    # 北京时间 15:30 (UTC+8) = UTC 07:30，周一到周五
-    - cron: '30 7 * * 1-5'
+    # 北京时间 19:30 = UTC 11:30，交易日取当日数据，非交易日取最近交易日
+    - cron: '30 11 * * 1-5'
   workflow_dispatch:  # 允许手动触发
 
 jobs:
   scan:
     runs-on: ubuntu-latest
+    env:
+      TZ: Asia/Shanghai
     permissions:
       contents: write   # 需要写权限以提交并推送
     steps:
@@ -25,7 +27,9 @@ jobs:
       - name: Run scanner & update dashboard
         env:
           TUSHARE_TOKEN: ${{ secrets.TUSHARE_TOKEN }}
-        run: python main.py --save-json data.json
+        run: |
+          python main.py --save-json data.json
+          python -c "import json; d=json.load(open('data.json')); print('trade_date=', d['trade_date'])"
 
       - name: Commit updated dashboard
         run: |

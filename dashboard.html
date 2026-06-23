@@ -15,13 +15,14 @@ body {
 h1 { font-size: 22px; font-weight: 600; margin-bottom: 4px; }
 h2 { font-size: 16px; font-weight: 600; margin: 24px 0 12px; color: #aaa; text-transform: uppercase; letter-spacing: .5px; }
 .subtitle { font-size: 12px; color: #888; margin-bottom: 20px; }
-.stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 20px; }
+.stats { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; margin-bottom: 20px; }
 .stat-card { background: #222; border: 1px solid #333; border-radius: 8px; padding: 14px 16px; text-align: center; }
 .stat-card .value { font-size: 28px; font-weight: 700; }
 .stat-card .label { font-size: 11px; color: #888; margin-top: 2px; text-transform: uppercase; }
 .stat-card.board .value { color: #3fa266; }
 .stat-card.watch .value { color: #f0a040; }
 .stat-card.wait .value { color: #70b0d8; }
+.stat-card.avoid .value { color: #dd5555; }
 .stat-card.total .value { color: #e4e4e4; }
 .charts { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 20px; }
 .chart-box { background: #222; border: 1px solid #333; border-radius: 8px; padding: 14px 16px; }
@@ -39,6 +40,7 @@ tr:last-child td { border-bottom: none; }
 .pill-board { background: #1f3a2a; color: #3fa266; border: 1px solid #2a553a; }
 .pill-watch { background: #3a2e1a; color: #f0a040; border: 1px solid #554428; }
 .pill-hot { background: #3a1a1a; color: #f04040; border: 1px solid #552828; }
+.pill-avoid { background: #2a1a1a; color: #dd5555; border: 1px solid #4a2a2a; }
 .code { font-weight: 600; color: #e4e4e4; margin-right: 6px; }
 .name { color: #aaa; font-size: 12px; }
 .verdict-cell { display: flex; align-items: center; gap: 8px; justify-content: flex-end; }
@@ -67,6 +69,7 @@ tr:last-child td { border-bottom: none; }
   <div class="stat-card board"><div class="value" id="statBoard">-</div><div class="label">可上车</div></div>
   <div class="stat-card watch"><div class="value" id="statWatch">-</div><div class="label">可关注</div></div>
   <div class="stat-card wait"><div class="value" id="statWait">-</div><div class="label">观望</div></div>
+  <div class="stat-card avoid"><div class="value" id="statAvoid">-</div><div class="label">回避</div></div>
   <div class="stat-card total"><div class="value" id="statTotal">-</div><div class="label">总计</div></div>
 </div>
 
@@ -83,6 +86,7 @@ tr:last-child td { border-bottom: none; }
   <div class="tab active" data-tab="board">可上车</div>
   <div class="tab" data-tab="watch">可关注</div>
   <div class="tab" data-tab="wait">观望</div>
+  <div class="tab" data-tab="avoid">回避</div>
 </div>
 <div id="tableStock"></div>
 
@@ -109,9 +113,11 @@ if (d.indices && d.indices.length) {
 var b = d.stocks.filter(function(s){return s.verdict==='可上车'}).length;
 var w = d.stocks.filter(function(s){return s.verdict==='可关注'}).length;
 var wa = d.stocks.filter(function(s){return s.verdict==='观望'}).length;
+var av = d.stocks.filter(function(s){return s.verdict==='回避'}).length;
 document.getElementById('statBoard').textContent = b;
 document.getElementById('statWatch').textContent = w;
 document.getElementById('statWait').textContent = wa;
+document.getElementById('statAvoid').textContent = av;
 document.getElementById('statTotal').textContent = d.stocks.length;
 
 var sNames = d.sectors.map(function(s){return s.name;});
@@ -130,7 +136,7 @@ function stockTable(verdict){
   if(!list.length) return '<div style="text-align:center;padding:20px;color:#666;font-size:13px">无符合条件的标的</div>';
   return '<table><thead><tr><th>标的</th><th>板块</th><th>今日%</th><th>量比</th><th>20日%</th><th>得分/信号</th></tr></thead><tbody>'+list.map(function(s){
     var c = s.code.split('.')[0];
-    var pill = s.verdict==='可上车'?'<span class="pill pill-board">上车</span>':s.verdict==='可关注'?'<span class="pill pill-watch">关注</span>':'';
+    var pill = s.verdict==='可上车'?'<span class="pill pill-board">上车</span>':s.verdict==='可关注'?'<span class="pill pill-watch">关注</span>':s.verdict==='回避'?'<span class="pill pill-avoid">回避</span>':'';
     var riskHtml = '';
     if(s.risk_label){
       var riskCls = s.risk_label.indexOf('\u9ad8\u4f4d')>=0 ? 'risk-danger' : 'risk-warn';
@@ -145,7 +151,7 @@ document.querySelectorAll('.tab').forEach(function(t){
   t.addEventListener('click',function(){
     document.querySelectorAll('.tab').forEach(function(x){x.classList.remove('active');});
     t.classList.add('active');
-    var v = {board:'可上车',watch:'可关注',wait:'观望'}[t.dataset.tab];
+    var v = {board:'可上车',watch:'可关注',wait:'观望',avoid:'回避'}[t.dataset.tab];
     document.getElementById('tableStock').innerHTML = stockTable(v);
   });
 });

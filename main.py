@@ -92,6 +92,7 @@ def _output_text(trade_date, sectors, stocks, indices, args):
 
     board = [r for r in stocks if r.verdict == "可上车"]
     watch = [r for r in stocks if r.verdict == "可关注"]
+    avoid = [r for r in stocks if r.verdict == "回避"]
 
     # ========================
     # 板块量能概览
@@ -100,7 +101,7 @@ def _output_text(trade_date, sectors, stocks, indices, args):
     print("┌" + "─" * 74 + "┐")
     print(f"│  AI产业链轮动扫描  {dt}                                     │")
     print("├" + "─" * 74 + "┤")
-    print(f"│  可上车 {len(board):>2}  |  可关注 {len(watch):>2}  |  观望 {len(stocks)-len(board)-len(watch):>2}                                       │")
+    print(f"│  可上车 {len(board):>2}  |  可关注 {len(watch):>2}  |  观望 {len(stocks)-len(board)-len(watch)-len(avoid):>2}  |  回避 {len(avoid):>2}                      │")
     print("└" + "─" * 74 + "┘")
 
     # 大盘指数概览

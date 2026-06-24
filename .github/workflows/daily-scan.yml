@@ -9,8 +9,6 @@ on:
 jobs:
   scan:
     runs-on: ubuntu-latest
-    env:
-      TZ: Asia/Shanghai
     permissions:
       contents: write   # 需要写权限以提交并推送
     steps:

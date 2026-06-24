@@ -48,8 +48,8 @@
       "avg_pct_20d": 3.34,
       "uptrend_count": 3,
       "downtrend_count": 0,
-      "status": "正常",
-      "summary": "主力流入2.2亿"
+      "status": "偏强",
+      "summary": "缩量惜售，资金偏多；主力流入2.2亿"
     },
     {
       "name": "先进封装设备材料",
@@ -64,8 +64,8 @@
       "avg_pct_20d": 15.65,
       "uptrend_count": 15,
       "downtrend_count": 2,
-      "status": "正常",
-      "summary": "主力流入89.9亿；15/18只上升趋势"
+      "status": "偏强",
+      "summary": "缩量惜售，资金偏多；主力流入89.9亿；15/18只上升趋势"
     },
     {
       "name": "CPO/光互连/高速铜缆",
@@ -80,8 +80,8 @@
       "avg_pct_20d": 11.31,
       "uptrend_count": 15,
       "downtrend_count": 1,
-      "status": "正常",
-      "summary": "主力流入4.3亿；15/25只上升趋势"
+      "status": "偏强",
+      "summary": "缩量惜售，资金偏多；主力流入4.3亿；15/25只上升趋势"
     },
     {
       "name": "PCB/CCL",
@@ -96,8 +96,8 @@
       "avg_pct_20d": 14.18,
       "uptrend_count": 19,
       "downtrend_count": 1,
-      "status": "过热",
-      "summary": "板块过热；主力流入17.7亿；19/22只上升趋势"
+      "status": "偏强",
+      "summary": "缩量惜售，资金偏多；主力流入17.7亿；19/22只上升趋势"
     },
     {
       "name": "AI服务器/整机",
@@ -144,8 +144,8 @@
       "avg_pct_20d": 10.89,
       "uptrend_count": 6,
       "downtrend_count": 0,
-      "status": "正常",
-      "summary": "主力流出1.3亿；6/10只上升趋势"
+      "status": "偏强",
+      "summary": "趋势偏强；主力流出1.3亿；6/10只上升趋势"
     }
   ],
   "stocks": [

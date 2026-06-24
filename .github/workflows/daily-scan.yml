@@ -1,4 +1,5 @@
 name: AI产业链轮动扫描
+# scheduler-reset: 2026-06-24
 
 on:
   schedule:

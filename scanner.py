@@ -237,10 +237,15 @@ class Scanner:
         reasons = []
 
         # 过热
-        if preset_crowded or snap.avg_pct_20d > 38:
+        overbought = THRESHOLDS.get("pct_change_overbought_20d", 38)
+        if snap.avg_pct_20d > overbought:
             snap.status = "过热"
-            snap.status_icon = "🔥"
-            reasons.append("板块过热" if preset_crowded else f"20日涨{snap.avg_pct_20d:.0f}%过热")
+            snap.status_icon = "⚠️"
+            reasons.append(f"20日涨{snap.avg_pct_20d:.0f}%过热")
+        elif preset_crowded and snap.avg_pct_20d > THRESHOLDS.get("crowded_overbought_20d", 25):
+            snap.status = "过热"
+            snap.status_icon = "⚠️"
+            reasons.append(f"板块拥挤+20日涨{snap.avg_pct_20d:.0f}%")
         else:
             vol_up = label.startswith("放量") or label.startswith("温和放量")
             vol_down = label.startswith("缩量") or label.startswith("温和缩量")
@@ -260,6 +265,39 @@ class Scanner:
                 snap.status = "退潮"
                 snap.status_icon = "🌊"
                 reasons.append(f"{label}阴跌")
+            else:
+                # 缩量/温和场景的精细化判断：4 项信号综合评分
+                bull = 0
+                if snap.net_mf > 0:
+                    bull += 1
+                if snap.avg_pct > 0:
+                    bull += 1
+                if snap.avg_pct_5d > 0:
+                    bull += 1
+                if snap.uptrend_count > snap.downtrend_count:
+                    bull += 1
+
+                if bull >= 3:
+                    snap.status = "偏强"
+                    snap.status_icon = "➕"
+                    if snap.net_mf > 0 and snap.avg_pct > 0:
+                        reasons.append("缩量惜售，资金偏多")
+                    elif snap.net_mf > 0:
+                        reasons.append("资金护盘，趋势偏强")
+                    else:
+                        reasons.append("趋势偏强")
+                elif bull <= 1:
+                    snap.status = "偏弱"
+                    snap.status_icon = "➖"
+                    if snap.net_mf < 0 and snap.avg_pct < 0:
+                        reasons.append("资金流出，弱势整理")
+                    elif snap.downtrend_count > snap.uptrend_count:
+                        reasons.append("趋势偏弱")
+                    else:
+                        reasons.append("信号偏弱")
+                else:
+                    snap.status = "正常"
+                    snap.status_icon = "➡️"
 
         # 补充说明
         if snap.net_mf > 0:

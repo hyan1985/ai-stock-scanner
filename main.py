@@ -127,7 +127,7 @@ def _output_text(trade_date, sectors, stocks, indices, args):
         p20  = f"{s.avg_pct_20d:+.2f}%" if s.avg_pct_20d else "N/A"
         tend = f"{s.uptrend_count}↑{s.downtrend_count}↓"
 
-        icon = {"活跃": "🔥", "过热": "⚠️", "退潮": "🌊"}.get(s.status, "  ")
+        icon = {"活跃": "🔥", "过热": "⚠️", "退潮": "🌊", "偏强": "➕", "偏弱": "➖", "正常": "➡️"}.get(s.status, "  ")
         print(f"  {icon}{name:<14} {vr:>5} {vt:>6} {mf:>8}  {pct:>7} {p5:>7} {p20:>7} {tend:>6}")
 
     print()

@@ -25,11 +25,11 @@ def _mf_yi(v: float) -> str:
 
 
 def _status_emoji(status: str) -> str:
-    return {"活跃": "🔥", "过热": "⚠️", "退潮": "🌊", "正常": "➖"}.get(status, "")
+    return {"活跃": "🔥", "过热": "⚠️", "退潮": "🌊", "偏强": "➕", "偏弱": "➖", "正常": "➡️"}.get(status, "")
 
 
 def _pick_headline(sectors: List[dict]) -> str:
-    active = [s for s in sectors if s.get("status") == "活跃"]
+    active = [s for s in sectors if s.get("status") in ("活跃", "偏强")]
     hot = [s for s in sectors if s.get("status") == "过热"]
     if active:
         names = "、".join(s["name"].split("/")[0] for s in active[:3])

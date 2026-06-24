@@ -233,8 +233,9 @@ THRESHOLDS = {
 
     # 涨跌幅异常
     "pct_change_extreme": 9.5,          # 接近涨停
-    "pct_change_overbought_20d": 38.0,  # 20日涨幅超过此值视为过热（参照PCB +38.8%）
+    "pct_change_overbought_20d": 38.0,  # 20日涨幅超过此值视为过热
     "pct_change_oversold_20d": -15.0,   # 20日跌幅超过此值视为超卖
+    "crowded_overbought_20d": 25.0,     # 拥挤预警板块：20日涨幅超过此值视为过热（比通用阈值更严）
 
     # 均线系统
     "ma_short": 5,                      # 短期均线

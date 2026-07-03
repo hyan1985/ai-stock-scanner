@@ -1,190 +1,418 @@
 {
-  "trade_date": "20260702",
+  "trade_date": "20260703",
   "indices": [
     {
       "name": "上证指数",
       "code": "000001.SH",
-      "close": 4028.9,
-      "pct_chg": -2.03,
-      "pct_5d": -2.22,
-      "pct_20d": -1.35
+      "close": 4043.64,
+      "pct_chg": 0.37,
+      "pct_5d": 0.41,
+      "pct_20d": -0.35
     },
     {
       "name": "深证成指",
       "code": "399001.SZ",
-      "close": 15498.81,
-      "pct_chg": -3.85,
-      "pct_5d": -5.17,
-      "pct_20d": -1.31
+      "close": 15597.51,
+      "pct_chg": 0.64,
+      "pct_5d": -1.17,
+      "pct_20d": -0.41
     },
     {
       "name": "创业板指",
       "code": "399006.SZ",
-      "close": 4017.27,
-      "pct_chg": -5.71,
-      "pct_5d": -8.11,
-      "pct_20d": -2.56
+      "close": 4019.93,
+      "pct_chg": 0.07,
+      "pct_5d": -4.16,
+      "pct_20d": -1.69
     },
     {
       "name": "科创50",
       "code": "000688.SH",
-      "close": 1987.29,
-      "pct_chg": -7.7,
-      "pct_5d": -3.83,
-      "pct_20d": 15.13
+      "close": 1975.6,
+      "pct_chg": -0.59,
+      "pct_5d": -2.79,
+      "pct_20d": 13.67
     }
   ],
   "sectors": [
     {
       "name": "液冷/IDC电力",
       "priority": 1,
-      "avg_volume_ratio": 0.97,
-      "vol_trend": "温和放量(+7%)",
-      "vol_trend_ratio": 1.07,
-      "vol_trend_coef": 0.035,
-      "net_mf": -85801.53,
-      "avg_pct": -2.49,
-      "avg_pct_5d": -2.92,
-      "avg_pct_20d": 2.54,
-      "uptrend_count": 3,
+      "avg_volume_ratio": 0.96,
+      "vol_trend": "温和缩量(-6%)",
+      "vol_trend_ratio": 0.94,
+      "vol_trend_coef": -0.0323,
+      "net_mf": -7485.92,
+      "avg_pct": 0.46,
+      "avg_pct_5d": 0.59,
+      "avg_pct_20d": 2.33,
+      "uptrend_count": 2,
       "downtrend_count": 2,
-      "status": "退潮",
-      "summary": "放量下跌，资金在退；主力流出8.6亿"
+      "status": "正常",
+      "summary": "主力流出0.7亿"
     },
     {
       "name": "先进封装设备材料",
       "priority": 2,
-      "avg_volume_ratio": 1.0,
-      "vol_trend": "持平(-2%)",
-      "vol_trend_ratio": 0.98,
-      "vol_trend_coef": -0.0076,
-      "net_mf": 390593.84,
-      "avg_pct": -4.89,
-      "avg_pct_5d": -1.66,
-      "avg_pct_20d": 19.71,
-      "uptrend_count": 16,
+      "avg_volume_ratio": 0.83,
+      "vol_trend": "缩量(-16%)",
+      "vol_trend_ratio": 0.84,
+      "vol_trend_coef": -0.0864,
+      "net_mf": -669672.32,
+      "avg_pct": -2.31,
+      "avg_pct_5d": -3.49,
+      "avg_pct_20d": 15.0,
+      "uptrend_count": 14,
       "downtrend_count": 0,
-      "status": "正常",
-      "summary": "主力流入39.1亿；16/18只上升趋势"
+      "status": "退潮",
+      "summary": "缩量(-16%)阴跌；主力流出67.0亿；14/18只上升趋势"
     },
     {
       "name": "CPO/光互连/高速铜缆",
       "priority": 3,
-      "avg_volume_ratio": 1.03,
-      "vol_trend": "温和放量(+7%)",
-      "vol_trend_ratio": 1.07,
-      "vol_trend_coef": 0.0329,
-      "net_mf": -307947.09,
-      "avg_pct": -5.1,
-      "avg_pct_5d": -7.68,
-      "avg_pct_20d": 4.39,
-      "uptrend_count": 14,
-      "downtrend_count": 5,
+      "avg_volume_ratio": 0.86,
+      "vol_trend": "缩量(-14%)",
+      "vol_trend_ratio": 0.86,
+      "vol_trend_coef": -0.072,
+      "net_mf": 312265.82,
+      "avg_pct": -0.32,
+      "avg_pct_5d": -4.48,
+      "avg_pct_20d": 2.82,
+      "uptrend_count": 10,
+      "downtrend_count": 6,
       "status": "退潮",
-      "summary": "放量下跌，资金在退；主力流出30.8亿"
+      "summary": "缩量(-14%)阴跌；主力流入31.2亿"
     },
     {
       "name": "PCB/CCL",
       "priority": 4,
-      "avg_volume_ratio": 0.98,
-      "vol_trend": "放量(+17%)",
-      "vol_trend_ratio": 1.17,
-      "vol_trend_coef": 0.0751,
-      "net_mf": -309233.56,
-      "avg_pct": -3.83,
-      "avg_pct_5d": -6.55,
-      "avg_pct_20d": 10.29,
-      "uptrend_count": 14,
+      "avg_volume_ratio": 0.93,
+      "vol_trend": "缩量(-11%)",
+      "vol_trend_ratio": 0.89,
+      "vol_trend_coef": -0.0567,
+      "net_mf": 69608.97,
+      "avg_pct": -0.1,
+      "avg_pct_5d": -4.13,
+      "avg_pct_20d": 8.66,
+      "uptrend_count": 8,
       "downtrend_count": 3,
       "status": "退潮",
-      "summary": "放量下跌，资金在退；主力流出30.9亿；14/22只上升趋势"
+      "summary": "缩量(-11%)阴跌；主力流入7.0亿"
     },
     {
       "name": "AI服务器/整机",
       "priority": 5,
-      "avg_volume_ratio": 0.98,
-      "vol_trend": "温和放量(+11%)",
-      "vol_trend_ratio": 1.11,
-      "vol_trend_coef": 0.0497,
-      "net_mf": -230080.26,
-      "avg_pct": -2.54,
-      "avg_pct_5d": -3.89,
-      "avg_pct_20d": -5.2,
+      "avg_volume_ratio": 0.89,
+      "vol_trend": "缩量(-16%)",
+      "vol_trend_ratio": 0.84,
+      "vol_trend_coef": -0.086,
+      "net_mf": 138481.16,
+      "avg_pct": 0.77,
+      "avg_pct_5d": 0.4,
+      "avg_pct_20d": -3.8,
       "uptrend_count": 1,
       "downtrend_count": 0,
-      "status": "退潮",
-      "summary": "放量下跌，资金在退；主力流出23.0亿"
+      "status": "偏强",
+      "summary": "缩量惜售，资金偏多；主力流入13.8亿"
     },
     {
       "name": "国产算力/AI应用",
       "priority": 6,
-      "avg_volume_ratio": 0.92,
-      "vol_trend": "温和放量(+5%)",
-      "vol_trend_ratio": 1.05,
-      "vol_trend_coef": 0.024,
-      "net_mf": -101091.4,
-      "avg_pct": -2.04,
-      "avg_pct_5d": -3.47,
-      "avg_pct_20d": -6.43,
+      "avg_volume_ratio": 0.88,
+      "vol_trend": "缩量(-20%)",
+      "vol_trend_ratio": 0.8,
+      "vol_trend_coef": -0.1128,
+      "net_mf": 70458.79,
+      "avg_pct": 0.05,
+      "avg_pct_5d": 0.58,
+      "avg_pct_20d": -4.97,
       "uptrend_count": 2,
       "downtrend_count": 1,
-      "status": "退潮",
-      "summary": "放量下跌，资金在退；主力流出10.1亿"
+      "status": "偏强",
+      "summary": "缩量惜售，资金偏多；主力流入7.0亿"
     },
     {
       "name": "电源磁性/电容",
       "priority": 7,
-      "avg_volume_ratio": 0.88,
-      "vol_trend": "温和放量(+5%)",
-      "vol_trend_ratio": 1.05,
-      "vol_trend_coef": 0.0229,
-      "net_mf": -14815.58,
-      "avg_pct": -2.85,
-      "avg_pct_5d": -3.93,
-      "avg_pct_20d": 3.93,
+      "avg_volume_ratio": 0.83,
+      "vol_trend": "缩量(-20%)",
+      "vol_trend_ratio": 0.8,
+      "vol_trend_coef": -0.1101,
+      "net_mf": -20420.0,
+      "avg_pct": -1.29,
+      "avg_pct_5d": -1.91,
+      "avg_pct_20d": -0.38,
       "uptrend_count": 8,
       "downtrend_count": 0,
-      "status": "退潮",
-      "summary": "放量下跌，资金在退；主力流出1.5亿；8/10只上升趋势"
+      "status": "偏弱",
+      "summary": "资金流出，弱势整理；主力流出2.0亿；8/10只上升趋势"
     },
     {
       "name": "存储/HBM",
       "priority": 8,
-      "avg_volume_ratio": 0.93,
-      "vol_trend": "持平(+2%)",
-      "vol_trend_ratio": 1.02,
-      "vol_trend_coef": 0.0079,
-      "net_mf": -148658.1,
-      "avg_pct": -5.67,
-      "avg_pct_5d": 0.09,
-      "avg_pct_20d": 24.88,
+      "avg_volume_ratio": 0.85,
+      "vol_trend": "缩量(-17%)",
+      "vol_trend_ratio": 0.83,
+      "vol_trend_coef": -0.0912,
+      "net_mf": 406167.41,
+      "avg_pct": -1.97,
+      "avg_pct_5d": -1.41,
+      "avg_pct_20d": 19.52,
       "uptrend_count": 7,
       "downtrend_count": 0,
       "status": "正常",
-      "summary": "主力流出14.9亿；7/8只上升趋势"
+      "summary": "主力流入40.6亿；7/8只上升趋势"
     }
   ],
   "stocks": [
     {
-      "code": "002056.SZ",
-      "name": "横店东磁",
-      "sector": "电源磁性/电容",
-      "priority": 7,
-      "close": 30.66,
-      "pct_chg": -0.33,
-      "volume_ratio": 1.08,
-      "pct_5d": 1.52,
-      "pct_20d": 11.49,
-      "trend": "上升",
-      "net_mf": 14776.02,
+      "code": "301018.SZ",
+      "name": "申菱环境",
+      "sector": "液冷/IDC电力",
+      "priority": 1,
+      "close": 117.78,
+      "pct_chg": 9.5,
+      "volume_ratio": 1.38,
+      "pct_5d": 8.96,
+      "pct_20d": 14.36,
+      "trend": "震荡",
+      "net_mf": 47152.64,
       "verdict": "可上车",
-      "score": 93,
+      "score": 90,
+      "sector_rank": 1,
+      "risk_label": "",
+      "reasons": [
+        "板块内第1",
+        "放量上涨",
+        "主力流入",
+        "多头排列"
+      ],
+      "warnings": []
+    },
+    {
+      "code": "000977.SZ",
+      "name": "浪潮信息",
+      "sector": "AI服务器/整机",
+      "priority": 5,
+      "close": 66.35,
+      "pct_chg": 4.01,
+      "volume_ratio": 1.12,
+      "pct_5d": 3.85,
+      "pct_20d": 4.72,
+      "trend": "震荡",
+      "net_mf": 103810.56,
+      "verdict": "可上车",
+      "score": 87,
+      "sector_rank": 1,
+      "risk_label": "",
+      "reasons": [
+        "板块内第1",
+        "温和上涨",
+        "主力流入",
+        "站上20日线"
+      ],
+      "warnings": []
+    },
+    {
+      "code": "688041.SH",
+      "name": "海光信息",
+      "sector": "国产算力/AI应用",
+      "priority": 6,
+      "close": 325.4,
+      "pct_chg": 0.96,
+      "volume_ratio": 0.7,
+      "pct_5d": -5.65,
+      "pct_20d": 13.86,
+      "trend": "上升",
+      "net_mf": 68871.82,
+      "verdict": "可上车",
+      "score": 84,
       "sector_rank": 1,
       "risk_label": "",
       "reasons": [
         "板块内第1",
         "主力流入",
-        "多头排列",
+        "站上20日线",
+        "上升趋势"
+      ],
+      "warnings": []
+    },
+    {
+      "code": "301511.SZ",
+      "name": "德福科技",
+      "sector": "PCB/CCL",
+      "priority": 4,
+      "close": 153.1,
+      "pct_chg": 5.14,
+      "volume_ratio": 0.9,
+      "pct_5d": -1.42,
+      "pct_20d": 25.17,
+      "trend": "震荡",
+      "net_mf": 39802.88,
+      "verdict": "可上车",
+      "score": 82,
+      "sector_rank": 1,
+      "risk_label": "",
+      "reasons": [
+        "板块内第1",
+        "温和上涨",
+        "主力流入",
+        "多头排列"
+      ],
+      "warnings": [
+        "板块拥挤+个股涨幅大",
+        "板块退潮"
+      ]
+    },
+    {
+      "code": "600183.SH",
+      "name": "生益科技",
+      "sector": "PCB/CCL",
+      "priority": 4,
+      "close": 160.78,
+      "pct_chg": 5.81,
+      "volume_ratio": 1.1,
+      "pct_5d": -9.93,
+      "pct_20d": 11.68,
+      "trend": "震荡",
+      "net_mf": 51762.7,
+      "verdict": "可上车",
+      "score": 81,
+      "sector_rank": 2,
+      "risk_label": "",
+      "reasons": [
+        "板块内第2",
+        "温和上涨",
+        "主力流入"
+      ],
+      "warnings": [
+        "跌破20日线",
+        "板块退潮"
+      ]
+    },
+    {
+      "code": "601869.SH",
+      "name": "长飞光纤",
+      "sector": "CPO/光互连/高速铜缆",
+      "priority": 3,
+      "close": 475.08,
+      "pct_chg": 2.31,
+      "volume_ratio": 0.93,
+      "pct_5d": -12.51,
+      "pct_20d": 4.21,
+      "trend": "上升",
+      "net_mf": 10289.31,
+      "verdict": "可上车",
+      "score": 78,
+      "sector_rank": 1,
+      "risk_label": "",
+      "reasons": [
+        "板块内第1",
+        "温和上涨",
+        "主力流入",
+        "上升趋势"
+      ],
+      "warnings": [
+        "空头排列",
+        "板块退潮"
+      ]
+    },
+    {
+      "code": "002484.SZ",
+      "name": "江海股份",
+      "sector": "电源磁性/电容",
+      "priority": 7,
+      "close": 97.96,
+      "pct_chg": -0.71,
+      "volume_ratio": 0.82,
+      "pct_5d": -10.13,
+      "pct_20d": 1.67,
+      "trend": "上升",
+      "net_mf": 19604.94,
+      "verdict": "可上车",
+      "score": 78,
+      "sector_rank": 1,
+      "risk_label": "",
+      "reasons": [
+        "板块内第1",
+        "主力流入",
+        "站上20日线",
+        "上升趋势"
+      ],
+      "warnings": []
+    },
+    {
+      "code": "301308.SZ",
+      "name": "江波龙",
+      "sector": "存储/HBM",
+      "priority": 8,
+      "close": 618.02,
+      "pct_chg": 3.14,
+      "volume_ratio": 0.95,
+      "pct_5d": -9.06,
+      "pct_20d": 8.71,
+      "trend": "上升",
+      "net_mf": 110370.13,
+      "verdict": "可上车",
+      "score": 77,
+      "sector_rank": 1,
+      "risk_label": "",
+      "reasons": [
+        "板块内第1",
+        "温和上涨",
+        "主力流入",
+        "站上20日线",
+        "上升趋势"
+      ],
+      "warnings": []
+    },
+    {
+      "code": "300570.SZ",
+      "name": "太辰光",
+      "sector": "CPO/光互连/高速铜缆",
+      "priority": 3,
+      "close": 237.12,
+      "pct_chg": 0.61,
+      "volume_ratio": 0.76,
+      "pct_5d": 1.29,
+      "pct_20d": 38.13,
+      "trend": "震荡",
+      "net_mf": 18978.88,
+      "verdict": "可上车",
+      "score": 75,
+      "sector_rank": 2,
+      "risk_label": "",
+      "reasons": [
+        "板块内第2",
+        "主力流入",
+        "多头排列"
+      ],
+      "warnings": [
+        "38%偏高",
+        "板块退潮"
+      ]
+    },
+    {
+      "code": "600584.SH",
+      "name": "长电科技",
+      "sector": "先进封装设备材料",
+      "priority": 2,
+      "close": 90.88,
+      "pct_chg": -5.31,
+      "volume_ratio": 0.67,
+      "pct_5d": -9.92,
+      "pct_20d": 13.49,
+      "trend": "上升",
+      "net_mf": 36143.99,
+      "verdict": "可上车",
+      "score": 71,
+      "sector_rank": 1,
+      "risk_label": "",
+      "reasons": [
+        "板块内第1",
+        "缩量回调",
+        "主力流入",
+        "站上20日线",
         "上升趋势"
       ],
       "warnings": [
@@ -192,24 +420,980 @@
       ]
     },
     {
+      "code": "002056.SZ",
+      "name": "横店东磁",
+      "sector": "电源磁性/电容",
+      "priority": 7,
+      "close": 32.82,
+      "pct_chg": 7.04,
+      "volume_ratio": 1.38,
+      "pct_5d": 7.54,
+      "pct_20d": 11.56,
+      "trend": "上升",
+      "net_mf": -36276.25,
+      "verdict": "可上车",
+      "score": 70,
+      "sector_rank": 2,
+      "risk_label": "",
+      "reasons": [
+        "板块内第2",
+        "放量上涨",
+        "多头排列",
+        "上升趋势"
+      ],
+      "warnings": [
+        "主力流出"
+      ]
+    },
+    {
+      "code": "688525.SH",
+      "name": "佰维存储",
+      "sector": "存储/HBM",
+      "priority": 8,
+      "close": 427.91,
+      "pct_chg": 2.18,
+      "volume_ratio": 0.98,
+      "pct_5d": -14.6,
+      "pct_20d": 25.37,
+      "trend": "上升",
+      "net_mf": 87589.4,
+      "verdict": "可上车",
+      "score": 68,
+      "sector_rank": 2,
+      "risk_label": "",
+      "reasons": [
+        "板块内第2",
+        "温和上涨",
+        "主力流入",
+        "站上20日线",
+        "上升趋势"
+      ],
+      "warnings": []
+    },
+    {
+      "code": "688120.SH",
+      "name": "华海清科",
+      "sector": "先进封装设备材料",
+      "priority": 2,
+      "close": 267.5,
+      "pct_chg": -4.8,
+      "volume_ratio": 1.17,
+      "pct_5d": 1.48,
+      "pct_20d": 4.87,
+      "trend": "震荡",
+      "net_mf": 24974.32,
+      "verdict": "可上车",
+      "score": 67,
+      "sector_rank": 2,
+      "risk_label": "",
+      "reasons": [
+        "板块内第2",
+        "主力流入",
+        "站上20日线"
+      ],
+      "warnings": [
+        "板块退潮"
+      ]
+    },
+    {
+      "code": "688256.SH",
+      "name": "寒武纪",
+      "sector": "国产算力/AI应用",
+      "priority": 6,
+      "close": 1353.0,
+      "pct_chg": -1.38,
+      "volume_ratio": 0.72,
+      "pct_5d": -7.2,
+      "pct_20d": -0.43,
+      "trend": "上升",
+      "net_mf": 19165.72,
+      "verdict": "可上车",
+      "score": 66,
+      "sector_rank": 2,
+      "risk_label": "",
+      "reasons": [
+        "板块内第2",
+        "缩量回调",
+        "主力流入",
+        "上升趋势"
+      ],
+      "warnings": [
+        "空头排列"
+      ]
+    },
+    {
+      "code": "600172.SH",
+      "name": "黄河旋风",
+      "sector": "液冷/IDC电力",
+      "priority": 1,
+      "close": 16.86,
+      "pct_chg": -6.49,
+      "volume_ratio": 1.17,
+      "pct_5d": 1.26,
+      "pct_20d": 16.44,
+      "trend": "上升",
+      "net_mf": -22700.7,
+      "verdict": "可上车",
+      "score": 55,
+      "sector_rank": 2,
+      "risk_label": "",
+      "reasons": [
+        "板块内第2",
+        "多头排列",
+        "上升趋势"
+      ],
+      "warnings": [
+        "主力流出"
+      ]
+    },
+    {
+      "code": "300408.SZ",
+      "name": "三环集团",
+      "sector": "AI服务器/整机",
+      "priority": 5,
+      "close": 144.89,
+      "pct_chg": -2.23,
+      "volume_ratio": 0.82,
+      "pct_5d": -9.47,
+      "pct_20d": 4.21,
+      "trend": "上升",
+      "net_mf": 65424.15,
+      "verdict": "可上车",
+      "score": 48,
+      "sector_rank": 2,
+      "risk_label": "",
+      "reasons": [
+        "板块内第2",
+        "主力流入",
+        "上升趋势"
+      ],
+      "warnings": [
+        "空头排列"
+      ]
+    },
+    {
+      "code": "688519.SH",
+      "name": "南亚新材",
+      "sector": "PCB/CCL",
+      "priority": 4,
+      "close": 371.22,
+      "pct_chg": 5.16,
+      "volume_ratio": 1.11,
+      "pct_5d": -9.48,
+      "pct_20d": 50.29,
+      "trend": "上升",
+      "net_mf": 39314.44,
+      "verdict": "可关注",
+      "score": 80,
+      "sector_rank": 3,
+      "risk_label": "⚠️涨幅已大",
+      "reasons": [
+        "板块内第3",
+        "温和上涨",
+        "主力流入",
+        "多头排列",
+        "上升趋势"
+      ],
+      "warnings": [
+        "50%涨幅已大",
+        "板块拥挤+个股涨幅大",
+        "板块退潮"
+      ]
+    },
+    {
+      "code": "002428.SZ",
+      "name": "云南锗业",
+      "sector": "CPO/光互连/高速铜缆",
+      "priority": 3,
+      "close": 105.07,
+      "pct_chg": -1.7,
+      "volume_ratio": 0.67,
+      "pct_5d": -12.79,
+      "pct_20d": 18.58,
+      "trend": "上升",
+      "net_mf": 4584.87,
+      "verdict": "可关注",
+      "score": 69,
+      "sector_rank": 3,
+      "risk_label": "",
+      "reasons": [
+        "板块内第3",
+        "缩量回调",
+        "主力流入",
+        "站上20日线",
+        "上升趋势"
+      ],
+      "warnings": [
+        "板块退潮"
+      ]
+    },
+    {
+      "code": "002463.SZ",
+      "name": "沪电股份",
+      "sector": "PCB/CCL",
+      "priority": 4,
+      "close": 135.35,
+      "pct_chg": 3.71,
+      "volume_ratio": 1.03,
+      "pct_5d": -8.1,
+      "pct_20d": -3.88,
+      "trend": "震荡",
+      "net_mf": 137376.59,
+      "verdict": "可关注",
+      "score": 69,
+      "sector_rank": 5,
+      "risk_label": "",
+      "reasons": [
+        "板块内第5",
+        "温和上涨",
+        "主力流入"
+      ],
+      "warnings": [
+        "空头排列",
+        "板块退潮"
+      ]
+    },
+    {
+      "code": "603256.SH",
+      "name": "宏和科技",
+      "sector": "PCB/CCL",
+      "priority": 4,
+      "close": 238.0,
+      "pct_chg": 2.05,
+      "volume_ratio": 1.1,
+      "pct_5d": -19.87,
+      "pct_20d": 22.05,
+      "trend": "上升",
+      "net_mf": 885.78,
+      "verdict": "可关注",
+      "score": 69,
+      "sector_rank": 4,
+      "risk_label": "",
+      "reasons": [
+        "板块内第4",
+        "温和上涨",
+        "主力流入",
+        "上升趋势"
+      ],
+      "warnings": [
+        "空头排列",
+        "板块拥挤+个股涨幅大",
+        "板块退潮"
+      ]
+    },
+    {
+      "code": "300502.SZ",
+      "name": "新易盛",
+      "sector": "CPO/光互连/高速铜缆",
+      "priority": 3,
+      "close": 526.0,
+      "pct_chg": 3.34,
+      "volume_ratio": 0.92,
+      "pct_5d": -7.07,
+      "pct_20d": -32.21,
+      "trend": "震荡",
+      "net_mf": 167428.24,
+      "verdict": "可关注",
+      "score": 66,
+      "sector_rank": 4,
+      "risk_label": "",
+      "reasons": [
+        "板块内第4",
+        "温和上涨",
+        "主力流入",
+        "深度超跌"
+      ],
+      "warnings": [
+        "跌破20日线",
+        "板块退潮"
+      ]
+    },
+    {
+      "code": "300429.SZ",
+      "name": "强力新材",
+      "sector": "先进封装设备材料",
+      "priority": 2,
+      "close": 16.08,
+      "pct_chg": -7.85,
+      "volume_ratio": 0.9,
+      "pct_5d": -5.69,
+      "pct_20d": 17.46,
+      "trend": "上升",
+      "net_mf": -6998.01,
+      "verdict": "可关注",
+      "score": 64,
+      "sector_rank": 3,
+      "risk_label": "",
+      "reasons": [
+        "板块内第3",
+        "站上20日线",
+        "上升趋势"
+      ],
+      "warnings": [
+        "主力流出",
+        "板块退潮"
+      ]
+    },
+    {
+      "code": "002230.SZ",
+      "name": "科大讯飞",
+      "sector": "国产算力/AI应用",
+      "priority": 6,
+      "close": 41.51,
+      "pct_chg": 1.05,
+      "volume_ratio": 1.08,
+      "pct_5d": 6.11,
+      "pct_20d": -9.45,
+      "trend": "震荡",
+      "net_mf": 422.99,
+      "verdict": "可关注",
+      "score": 64,
+      "sector_rank": 3,
+      "risk_label": "",
+      "reasons": [
+        "板块内第3",
+        "温和上涨",
+        "主力流入"
+      ],
+      "warnings": [
+        "跌破20日线"
+      ]
+    },
+    {
+      "code": "688766.SH",
+      "name": "普冉股份",
+      "sector": "存储/HBM",
+      "priority": 8,
+      "close": 815.88,
+      "pct_chg": 3.99,
+      "volume_ratio": 1.17,
+      "pct_5d": 12.22,
+      "pct_20d": 90.92,
+      "trend": "上升",
+      "net_mf": 1870.37,
+      "verdict": "可关注",
+      "score": 64,
+      "sector_rank": 3,
+      "risk_label": "⚠️高位博弈",
+      "reasons": [
+        "板块内第3",
+        "温和上涨",
+        "主力流入",
+        "多头排列",
+        "上升趋势"
+      ],
+      "warnings": [
+        "91%高位博弈"
+      ]
+    },
+    {
+      "code": "300285.SZ",
+      "name": "国瓷材料",
+      "sector": "电源磁性/电容",
+      "priority": 7,
+      "close": 90.73,
+      "pct_chg": -2.22,
+      "volume_ratio": 0.76,
+      "pct_5d": -11.75,
+      "pct_20d": 41.77,
+      "trend": "上升",
+      "net_mf": 27996.69,
+      "verdict": "可关注",
+      "score": 63,
+      "sector_rank": 3,
+      "risk_label": "",
+      "reasons": [
+        "板块内第3",
+        "缩量回调",
+        "主力流入",
+        "站上20日线",
+        "上升趋势"
+      ],
+      "warnings": [
+        "42%偏高"
+      ]
+    },
+    {
+      "code": "300308.SZ",
+      "name": "中际旭创",
+      "sector": "CPO/光互连/高速铜缆",
+      "priority": 3,
+      "close": 1116.0,
+      "pct_chg": -2.36,
+      "volume_ratio": 1.05,
+      "pct_5d": -11.0,
+      "pct_20d": -12.81,
+      "trend": "震荡",
+      "net_mf": 255200.31,
+      "verdict": "可关注",
+      "score": 62,
+      "sector_rank": 5,
+      "risk_label": "",
+      "reasons": [
+        "板块内第5",
+        "主力流入",
+        "短期超跌"
+      ],
+      "warnings": [
+        "跌破20日线",
+        "板块退潮"
+      ]
+    },
+    {
+      "code": "688268.SH",
+      "name": "华特气体",
+      "sector": "先进封装设备材料",
+      "priority": 2,
+      "close": 225.91,
+      "pct_chg": -9.27,
+      "volume_ratio": 0.89,
+      "pct_5d": -2.62,
+      "pct_20d": 10.96,
+      "trend": "上升",
+      "net_mf": -7331.4,
+      "verdict": "可关注",
+      "score": 61,
+      "sector_rank": 4,
+      "risk_label": "",
+      "reasons": [
+        "板块内第4",
+        "站上20日线",
+        "上升趋势"
+      ],
+      "warnings": [
+        "主力流出",
+        "板块退潮"
+      ]
+    },
+    {
+      "code": "600206.SH",
+      "name": "有研新材",
+      "sector": "先进封装设备材料",
+      "priority": 2,
+      "close": 54.3,
+      "pct_chg": -6.07,
+      "volume_ratio": 0.89,
+      "pct_5d": -10.63,
+      "pct_20d": 84.38,
+      "trend": "上升",
+      "net_mf": 34711.8,
+      "verdict": "可关注",
+      "score": 59,
+      "sector_rank": 5,
+      "risk_label": "⚠️高位博弈",
+      "reasons": [
+        "板块内第5",
+        "主力流入",
+        "站上20日线",
+        "上升趋势"
+      ],
+      "warnings": [
+        "84%高位博弈",
+        "板块退潮"
+      ]
+    },
+    {
+      "code": "002138.SZ",
+      "name": "顺络电子",
+      "sector": "电源磁性/电容",
+      "priority": 7,
+      "close": 64.87,
+      "pct_chg": -3.92,
+      "volume_ratio": 0.91,
+      "pct_5d": -5.74,
+      "pct_20d": 28.33,
+      "trend": "上升",
+      "net_mf": 14915.7,
+      "verdict": "可关注",
+      "score": 59,
+      "sector_rank": 4,
+      "risk_label": "",
+      "reasons": [
+        "板块内第4",
+        "主力流入",
+        "上升趋势"
+      ],
+      "warnings": [
+        "空头排列"
+      ]
+    },
+    {
+      "code": "603986.SH",
+      "name": "兆易创新",
+      "sector": "存储/HBM",
+      "priority": 8,
+      "close": 677.77,
+      "pct_chg": -2.45,
+      "volume_ratio": 1.26,
+      "pct_5d": -11.98,
+      "pct_20d": 28.05,
+      "trend": "上升",
+      "net_mf": 143250.54,
+      "verdict": "可关注",
+      "score": 57,
+      "sector_rank": 4,
+      "risk_label": "",
+      "reasons": [
+        "板块内第4",
+        "主力流入",
+        "站上20日线",
+        "上升趋势"
+      ],
+      "warnings": []
+    },
+    {
+      "code": "002028.SZ",
+      "name": "思源电气",
+      "sector": "液冷/IDC电力",
+      "priority": 1,
+      "close": 167.65,
+      "pct_chg": 7.86,
+      "volume_ratio": 1.26,
+      "pct_5d": -4.27,
+      "pct_20d": -13.04,
+      "trend": "下跌",
+      "net_mf": 14282.95,
+      "verdict": "可关注",
+      "score": 53,
+      "sector_rank": 3,
+      "risk_label": "",
+      "reasons": [
+        "板块内第3",
+        "放量上涨",
+        "主力流入",
+        "短期超跌"
+      ],
+      "warnings": [
+        "跌破20日线",
+        "下跌趋势"
+      ]
+    },
+    {
       "code": "301071.SZ",
       "name": "力量钻石",
       "sector": "液冷/IDC电力",
       "priority": 1,
-      "close": 89.39,
-      "pct_chg": 1.68,
-      "volume_ratio": 0.95,
-      "pct_5d": -13.18,
-      "pct_20d": 11.74,
+      "close": 84.11,
+      "pct_chg": -5.91,
+      "volume_ratio": 0.76,
+      "pct_5d": -13.82,
+      "pct_20d": 8.29,
       "trend": "上升",
-      "net_mf": 16887.74,
-      "verdict": "可上车",
-      "score": 85,
-      "sector_rank": 1,
+      "net_mf": -7191.9,
+      "verdict": "可关注",
+      "score": 51,
+      "sector_rank": 4,
       "risk_label": "",
       "reasons": [
-        "板块内第1",
+        "板块内第4",
+        "缩量回调",
+        "站上20日线",
+        "上升趋势"
+      ],
+      "warnings": [
+        "主力流出"
+      ]
+    },
+    {
+      "code": "688234.SH",
+      "name": "天岳先进",
+      "sector": "电源磁性/电容",
+      "priority": 7,
+      "close": 145.6,
+      "pct_chg": -4.76,
+      "volume_ratio": 0.74,
+      "pct_5d": -13.66,
+      "pct_20d": 4.67,
+      "trend": "上升",
+      "net_mf": 4053.78,
+      "verdict": "可关注",
+      "score": 47,
+      "sector_rank": 5,
+      "risk_label": "",
+      "reasons": [
+        "板块内第5",
+        "缩量回调",
+        "主力流入",
+        "上升趋势"
+      ],
+      "warnings": [
+        "空头排列"
+      ]
+    },
+    {
+      "code": "688008.SH",
+      "name": "澜起科技",
+      "sector": "存储/HBM",
+      "priority": 8,
+      "close": 266.8,
+      "pct_chg": -0.87,
+      "volume_ratio": 0.8,
+      "pct_5d": 1.9,
+      "pct_20d": 2.75,
+      "trend": "上升",
+      "net_mf": 24652.79,
+      "verdict": "可关注",
+      "score": 46,
+      "sector_rank": 5,
+      "risk_label": "",
+      "reasons": [
+        "板块内第5",
+        "主力流入",
+        "站上20日线",
+        "上升趋势"
+      ],
+      "warnings": []
+    },
+    {
+      "code": "002335.SZ",
+      "name": "科华数据",
+      "sector": "液冷/IDC电力",
+      "priority": 1,
+      "close": 37.95,
+      "pct_chg": 0.37,
+      "volume_ratio": 0.5,
+      "pct_5d": -13.0,
+      "pct_20d": -4.91,
+      "trend": "震荡",
+      "net_mf": -6564.09,
+      "verdict": "可关注",
+      "score": 44,
+      "sector_rank": 5,
+      "risk_label": "",
+      "reasons": [
+        "板块内第5"
+      ],
+      "warnings": [
+        "极度缩量(0.50)",
+        "主力流出",
+        "空头排列"
+      ]
+    },
+    {
+      "code": "603019.SH",
+      "name": "中科曙光",
+      "sector": "AI服务器/整机",
+      "priority": 5,
+      "close": 92.68,
+      "pct_chg": -1.99,
+      "volume_ratio": 0.63,
+      "pct_5d": -6.16,
+      "pct_20d": 9.81,
+      "trend": "震荡",
+      "net_mf": -74978.32,
+      "verdict": "可关注",
+      "score": 38,
+      "sector_rank": 3,
+      "risk_label": "",
+      "reasons": [
+        "板块内第3",
+        "缩量回调",
+        "站上20日线"
+      ],
+      "warnings": [
+        "主力流出"
+      ]
+    },
+    {
+      "code": "601138.SH",
+      "name": "工业富联",
+      "sector": "AI服务器/整机",
+      "priority": 5,
+      "close": 64.72,
+      "pct_chg": 1.09,
+      "volume_ratio": 0.66,
+      "pct_5d": -7.83,
+      "pct_20d": -17.61,
+      "trend": "震荡",
+      "net_mf": 44224.77,
+      "verdict": "可关注",
+      "score": 27,
+      "sector_rank": 4,
+      "risk_label": "",
+      "reasons": [
+        "板块内第4",
+        "主力流入",
+        "短期超跌"
+      ],
+      "warnings": [
+        "跌破20日线"
+      ]
+    },
+    {
+      "code": "300624.SZ",
+      "name": "万兴科技",
+      "sector": "国产算力/AI应用",
+      "priority": 6,
+      "close": 50.61,
+      "pct_chg": -3.75,
+      "volume_ratio": 1.15,
+      "pct_5d": -0.78,
+      "pct_20d": -10.14,
+      "trend": "下跌",
+      "net_mf": -8191.45,
+      "verdict": "可关注",
+      "score": 21,
+      "sector_rank": 4,
+      "risk_label": "",
+      "reasons": [
+        "板块内第4",
+        "短期超跌"
+      ],
+      "warnings": [
+        "主力流出",
+        "跌破20日线",
+        "下跌趋势"
+      ]
+    },
+    {
+      "code": "688111.SH",
+      "name": "金山办公",
+      "sector": "国产算力/AI应用",
+      "priority": 6,
+      "close": 211.35,
+      "pct_chg": -1.88,
+      "volume_ratio": 0.66,
+      "pct_5d": 5.66,
+      "pct_20d": -11.07,
+      "trend": "震荡",
+      "net_mf": -9810.29,
+      "verdict": "可关注",
+      "score": 14,
+      "sector_rank": 5,
+      "risk_label": "",
+      "reasons": [
+        "板块内第5",
+        "缩量回调",
+        "短期超跌"
+      ],
+      "warnings": [
+        "主力流出",
+        "跌破20日线"
+      ]
+    },
+    {
+      "code": "002080.SZ",
+      "name": "中材科技",
+      "sector": "PCB/CCL",
+      "priority": 4,
+      "close": 85.09,
+      "pct_chg": 3.49,
+      "volume_ratio": 0.71,
+      "pct_5d": -12.88,
+      "pct_20d": 33.37,
+      "trend": "上升",
+      "net_mf": 21163.22,
+      "verdict": "观望",
+      "score": 61,
+      "sector_rank": 6,
+      "risk_label": "",
+      "reasons": [
+        "主力流入",
+        "站上20日线",
+        "上升趋势"
+      ],
+      "warnings": [
+        "板块拥挤+个股涨幅大",
+        "板块退潮"
+      ]
+    },
+    {
+      "code": "003031.SZ",
+      "name": "中瓷电子",
+      "sector": "CPO/光互连/高速铜缆",
+      "priority": 3,
+      "close": 156.98,
+      "pct_chg": -1.52,
+      "volume_ratio": 0.6,
+      "pct_5d": -14.27,
+      "pct_20d": 6.91,
+      "trend": "上升",
+      "net_mf": 3525.93,
+      "verdict": "观望",
+      "score": 60,
+      "sector_rank": 6,
+      "risk_label": "",
+      "reasons": [
+        "缩量回调",
+        "主力流入",
+        "上升趋势"
+      ],
+      "warnings": [
+        "空头排列",
+        "板块退潮"
+      ]
+    },
+    {
+      "code": "002130.SZ",
+      "name": "沃尔核材",
+      "sector": "CPO/光互连/高速铜缆",
+      "priority": 3,
+      "close": 18.28,
+      "pct_chg": 3.8,
+      "volume_ratio": 0.86,
+      "pct_5d": 2.87,
+      "pct_20d": -12.79,
+      "trend": "下跌",
+      "net_mf": 13480.04,
+      "verdict": "观望",
+      "score": 59,
+      "sector_rank": 8,
+      "risk_label": "",
+      "reasons": [
         "温和上涨",
+        "主力流入",
+        "短期超跌"
+      ],
+      "warnings": [
+        "跌破20日线",
+        "下跌趋势",
+        "板块退潮"
+      ]
+    },
+    {
+      "code": "002491.SZ",
+      "name": "通鼎互联",
+      "sector": "CPO/光互连/高速铜缆",
+      "priority": 3,
+      "close": 25.47,
+      "pct_chg": -4.36,
+      "volume_ratio": 0.85,
+      "pct_5d": -29.54,
+      "pct_20d": -5.07,
+      "trend": "上升",
+      "net_mf": 3960.83,
+      "verdict": "观望",
+      "score": 59,
+      "sector_rank": 7,
+      "risk_label": "",
+      "reasons": [
+        "主力流入",
+        "上升趋势"
+      ],
+      "warnings": [
+        "空头排列",
+        "板块退潮"
+      ]
+    },
+    {
+      "code": "600487.SH",
+      "name": "亨通光电",
+      "sector": "CPO/光互连/高速铜缆",
+      "priority": 3,
+      "close": 89.42,
+      "pct_chg": -4.71,
+      "volume_ratio": 1.08,
+      "pct_5d": -19.3,
+      "pct_20d": -8.63,
+      "trend": "震荡",
+      "net_mf": 62962.11,
+      "verdict": "观望",
+      "score": 57,
+      "sector_rank": 9,
+      "risk_label": "",
+      "reasons": [
+        "主力流入"
+      ],
+      "warnings": [
+        "跌破20日线",
+        "板块退潮"
+      ]
+    },
+    {
+      "code": "600110.SH",
+      "name": "诺德股份",
+      "sector": "PCB/CCL",
+      "priority": 4,
+      "close": 15.75,
+      "pct_chg": 8.4,
+      "volume_ratio": 1.24,
+      "pct_5d": 3.01,
+      "pct_20d": 36.48,
+      "trend": "震荡",
+      "net_mf": -41383.1,
+      "verdict": "观望",
+      "score": 57,
+      "sector_rank": 7,
+      "risk_label": "",
+      "reasons": [
+        "放量上涨",
+        "多头排列"
+      ],
+      "warnings": [
+        "主力流出",
+        "36%偏高",
+        "板块拥挤+个股涨幅大",
+        "板块退潮"
+      ]
+    },
+    {
+      "code": "688019.SH",
+      "name": "安集科技",
+      "sector": "先进封装设备材料",
+      "priority": 2,
+      "close": 284.31,
+      "pct_chg": -5.67,
+      "volume_ratio": 0.9,
+      "pct_5d": 3.58,
+      "pct_20d": 0.61,
+      "trend": "震荡",
+      "net_mf": -1668.86,
+      "verdict": "观望",
+      "score": 56,
+      "sector_rank": 6,
+      "risk_label": "",
+      "reasons": [
+        "站上20日线"
+      ],
+      "warnings": [
+        "主力流出",
+        "板块退潮"
+      ]
+    },
+    {
+      "code": "300054.SZ",
+      "name": "鼎龙股份",
+      "sector": "先进封装设备材料",
+      "priority": 2,
+      "close": 89.88,
+      "pct_chg": -3.74,
+      "volume_ratio": 0.72,
+      "pct_5d": -5.46,
+      "pct_20d": 22.47,
+      "trend": "上升",
+      "net_mf": -12153.92,
+      "verdict": "观望",
+      "score": 55,
+      "sector_rank": 7,
+      "risk_label": "",
+      "reasons": [
+        "缩量回调",
+        "站上20日线",
+        "上升趋势"
+      ],
+      "warnings": [
+        "主力流出",
+        "板块退潮"
+      ]
+    },
+    {
+      "code": "300398.SZ",
+      "name": "飞凯材料",
+      "sector": "CPO/光互连/高速铜缆",
+      "priority": 3,
+      "close": 52.34,
+      "pct_chg": -7.75,
+      "volume_ratio": 0.68,
+      "pct_5d": -14.6,
+      "pct_20d": 26.61,
+      "trend": "上升",
+      "net_mf": 3561.13,
+      "verdict": "观望",
+      "score": 54,
+      "sector_rank": 10,
+      "risk_label": "",
+      "reasons": [
+        "缩量回调",
         "主力流入",
         "站上20日线",
         "上升趋势"
@@ -223,664 +1407,23 @@
       "name": "久日新材",
       "sector": "CPO/光互连/高速铜缆",
       "priority": 3,
-      "close": 34.08,
-      "pct_chg": -0.84,
-      "volume_ratio": 1.06,
-      "pct_5d": 1.25,
-      "pct_20d": 32.45,
-      "trend": "上升",
-      "net_mf": 2238.52,
-      "verdict": "可上车",
-      "score": 85,
-      "sector_rank": 1,
-      "risk_label": "",
-      "reasons": [
-        "板块内第1",
-        "主力流入",
-        "站上20日线",
-        "上升趋势"
-      ],
-      "warnings": [
-        "板块退潮"
-      ]
-    },
-    {
-      "code": "600160.SH",
-      "name": "巨化股份",
-      "sector": "PCB/CCL",
-      "priority": 4,
-      "close": 54.83,
-      "pct_chg": -1.83,
-      "volume_ratio": 1.13,
-      "pct_5d": 7.93,
-      "pct_20d": 41.35,
-      "trend": "上升",
-      "net_mf": 13830.89,
-      "verdict": "可上车",
-      "score": 83,
-      "sector_rank": 1,
-      "risk_label": "",
-      "reasons": [
-        "板块内第1",
-        "主力流入",
-        "多头排列",
-        "上升趋势"
-      ],
-      "warnings": [
-        "41%偏高",
-        "板块拥挤+个股涨幅大",
-        "板块退潮"
-      ]
-    },
-    {
-      "code": "600378.SH",
-      "name": "昊华科技",
-      "sector": "PCB/CCL",
-      "priority": 4,
-      "close": 82.17,
-      "pct_chg": 1.44,
-      "volume_ratio": 1.19,
-      "pct_5d": 20.13,
-      "pct_20d": 97.29,
-      "trend": "上升",
-      "net_mf": 26209.13,
-      "verdict": "可上车",
-      "score": 81,
-      "sector_rank": 2,
-      "risk_label": "⚠️高位博弈",
-      "reasons": [
-        "板块内第2",
-        "温和上涨",
-        "主力流入",
-        "多头排列",
-        "上升趋势"
-      ],
-      "warnings": [
-        "97%高位博弈",
-        "板块拥挤+个股涨幅大",
-        "板块退潮"
-      ]
-    },
-    {
-      "code": "000725.SZ",
-      "name": "京东方A",
-      "sector": "先进封装设备材料",
-      "priority": 2,
-      "close": 9.1,
-      "pct_chg": 3.76,
-      "volume_ratio": 1.28,
-      "pct_5d": 21.01,
-      "pct_20d": 62.79,
-      "trend": "上升",
-      "net_mf": 299620.9,
-      "verdict": "可上车",
-      "score": 79,
-      "sector_rank": 1,
-      "risk_label": "⚠️涨幅已大",
-      "reasons": [
-        "板块内第1",
-        "放量上涨",
-        "主力流入",
-        "多头排列",
-        "上升趋势"
-      ],
-      "warnings": [
-        "63%涨幅已大"
-      ]
-    },
-    {
-      "code": "300346.SZ",
-      "name": "南大光电",
-      "sector": "先进封装设备材料",
-      "priority": 2,
-      "close": 88.77,
-      "pct_chg": 0.03,
-      "volume_ratio": 0.99,
-      "pct_5d": 18.8,
-      "pct_20d": 74.68,
-      "trend": "上升",
-      "net_mf": 52578.12,
-      "verdict": "可上车",
-      "score": 76,
-      "sector_rank": 2,
-      "risk_label": "⚠️涨幅已大",
-      "reasons": [
-        "板块内第2",
-        "温和上涨",
-        "主力流入",
-        "多头排列",
-        "上升趋势"
-      ],
-      "warnings": [
-        "75%涨幅已大"
-      ]
-    },
-    {
-      "code": "300570.SZ",
-      "name": "太辰光",
-      "sector": "CPO/光互连/高速铜缆",
-      "priority": 3,
-      "close": 235.69,
-      "pct_chg": -1.12,
-      "volume_ratio": 0.73,
-      "pct_5d": -8.76,
-      "pct_20d": 39.63,
-      "trend": "上升",
-      "net_mf": 37231.89,
-      "verdict": "可上车",
-      "score": 75,
-      "sector_rank": 2,
-      "risk_label": "",
-      "reasons": [
-        "板块内第2",
-        "缩量回调",
-        "主力流入",
-        "站上20日线",
-        "上升趋势"
-      ],
-      "warnings": [
-        "40%偏高",
-        "板块退潮"
-      ]
-    },
-    {
-      "code": "300408.SZ",
-      "name": "三环集团",
-      "sector": "AI服务器/整机",
-      "priority": 5,
-      "close": 148.2,
-      "pct_chg": -13.06,
-      "volume_ratio": 1.1,
-      "pct_5d": -9.42,
-      "pct_20d": 9.87,
-      "trend": "上升",
-      "net_mf": 52289.25,
-      "verdict": "可上车",
-      "score": 72,
-      "sector_rank": 1,
-      "risk_label": "",
-      "reasons": [
-        "板块内第1",
-        "主力流入",
-        "上升趋势"
-      ],
-      "warnings": [
-        "空头排列",
-        "板块退潮"
-      ]
-    },
-    {
-      "code": "688234.SH",
-      "name": "天岳先进",
-      "sector": "电源磁性/电容",
-      "priority": 7,
-      "close": 152.88,
-      "pct_chg": -5.75,
-      "volume_ratio": 0.66,
-      "pct_5d": -11.26,
-      "pct_20d": 12.07,
-      "trend": "上升",
-      "net_mf": 15524.39,
-      "verdict": "可上车",
-      "score": 71,
-      "sector_rank": 2,
-      "risk_label": "",
-      "reasons": [
-        "板块内第2",
-        "缩量回调",
-        "主力流入",
-        "站上20日线",
-        "上升趋势"
-      ],
-      "warnings": [
-        "板块退潮"
-      ]
-    },
-    {
-      "code": "688041.SH",
-      "name": "海光信息",
-      "sector": "国产算力/AI应用",
-      "priority": 6,
-      "close": 322.29,
-      "pct_chg": -7.89,
-      "volume_ratio": 0.87,
-      "pct_5d": -10.54,
-      "pct_20d": 12.71,
-      "trend": "上升",
-      "net_mf": 37155.28,
-      "verdict": "可上车",
-      "score": 69,
-      "sector_rank": 1,
-      "risk_label": "",
-      "reasons": [
-        "板块内第1",
-        "主力流入",
-        "站上20日线",
-        "上升趋势"
-      ],
-      "warnings": [
-        "板块退潮"
-      ]
-    },
-    {
-      "code": "688766.SH",
-      "name": "普冉股份",
-      "sector": "存储/HBM",
-      "priority": 8,
-      "close": 784.57,
-      "pct_chg": -9.82,
-      "volume_ratio": 0.96,
-      "pct_5d": 4.03,
-      "pct_20d": 109.78,
-      "trend": "上升",
-      "net_mf": 34444.87,
-      "verdict": "可上车",
-      "score": 69,
-      "sector_rank": 1,
-      "risk_label": "⚠️高位博弈",
-      "reasons": [
-        "板块内第1",
-        "主力流入",
-        "多头排列",
-        "上升趋势"
-      ],
-      "warnings": [
-        "110%高位博弈"
-      ]
-    },
-    {
-      "code": "300576.SZ",
-      "name": "金盘科技",
-      "sector": "液冷/IDC电力",
-      "priority": 1,
-      "close": 50.15,
-      "pct_chg": -1.76,
+      "close": 31.23,
+      "pct_chg": -8.36,
       "volume_ratio": 0.92,
-      "pct_5d": -1.88,
-      "pct_20d": 22.14,
+      "pct_5d": -8.2,
+      "pct_20d": 17.36,
       "trend": "上升",
-      "net_mf": 3887.16,
-      "verdict": "可上车",
-      "score": 63,
-      "sector_rank": 2,
+      "net_mf": -2212.92,
+      "verdict": "观望",
+      "score": 54,
+      "sector_rank": 11,
       "risk_label": "",
       "reasons": [
-        "板块内第2",
-        "主力流入",
-        "站上20日线",
         "上升趋势"
-      ],
-      "warnings": [
-        "板块退潮"
-      ]
-    },
-    {
-      "code": "603019.SH",
-      "name": "中科曙光",
-      "sector": "AI服务器/整机",
-      "priority": 5,
-      "close": 94.56,
-      "pct_chg": -7.7,
-      "volume_ratio": 0.7,
-      "pct_5d": -3.33,
-      "pct_20d": 9.55,
-      "trend": "震荡",
-      "net_mf": -43591.68,
-      "verdict": "可上车",
-      "score": 57,
-      "sector_rank": 2,
-      "risk_label": "",
-      "reasons": [
-        "板块内第2",
-        "缩量回调",
-        "站上20日线"
       ],
       "warnings": [
         "主力流出",
-        "板块退潮"
-      ]
-    },
-    {
-      "code": "603986.SH",
-      "name": "兆易创新",
-      "sector": "存储/HBM",
-      "priority": 8,
-      "close": 694.81,
-      "pct_chg": -10.0,
-      "volume_ratio": 0.89,
-      "pct_5d": -10.37,
-      "pct_20d": 41.16,
-      "trend": "上升",
-      "net_mf": 43228.46,
-      "verdict": "可上车",
-      "score": 57,
-      "sector_rank": 2,
-      "risk_label": "",
-      "reasons": [
-        "板块内第2",
-        "主力流入",
-        "站上20日线",
-        "上升趋势"
-      ],
-      "warnings": [
-        "41%偏高"
-      ]
-    },
-    {
-      "code": "002230.SZ",
-      "name": "科大讯飞",
-      "sector": "国产算力/AI应用",
-      "priority": 6,
-      "close": 41.08,
-      "pct_chg": 0.12,
-      "volume_ratio": 1.13,
-      "pct_5d": -1.44,
-      "pct_20d": -13.53,
-      "trend": "震荡",
-      "net_mf": -11800.98,
-      "verdict": "可上车",
-      "score": 52,
-      "sector_rank": 2,
-      "risk_label": "",
-      "reasons": [
-        "板块内第2",
-        "温和上涨",
-        "短期超跌"
-      ],
-      "warnings": [
-        "主力流出",
-        "跌破20日线",
-        "板块退潮"
-      ]
-    },
-    {
-      "code": "688733.SH",
-      "name": "壹石通",
-      "sector": "PCB/CCL",
-      "priority": 4,
-      "close": 41.1,
-      "pct_chg": 0.24,
-      "volume_ratio": 0.89,
-      "pct_5d": -2.12,
-      "pct_20d": 10.93,
-      "trend": "震荡",
-      "net_mf": 1325.21,
-      "verdict": "可关注",
-      "score": 76,
-      "sector_rank": 3,
-      "risk_label": "",
-      "reasons": [
-        "板块内第3",
-        "温和上涨",
-        "主力流入",
-        "短中期向好"
-      ],
-      "warnings": [
-        "板块退潮"
-      ]
-    },
-    {
-      "code": "002428.SZ",
-      "name": "云南锗业",
-      "sector": "CPO/光互连/高速铜缆",
-      "priority": 3,
-      "close": 106.9,
-      "pct_chg": -6.92,
-      "volume_ratio": 0.79,
-      "pct_5d": -17.83,
-      "pct_20d": 20.13,
-      "trend": "上升",
-      "net_mf": 13400.07,
-      "verdict": "可关注",
-      "score": 75,
-      "sector_rank": 3,
-      "risk_label": "",
-      "reasons": [
-        "板块内第3",
-        "缩量回调",
-        "主力流入",
-        "站上20日线",
-        "上升趋势"
-      ],
-      "warnings": [
-        "板块退潮"
-      ]
-    },
-    {
-      "code": "002669.SZ",
-      "name": "康达新材",
-      "sector": "先进封装设备材料",
-      "priority": 2,
-      "close": 18.4,
-      "pct_chg": 3.14,
-      "volume_ratio": 1.39,
-      "pct_5d": 7.23,
-      "pct_20d": 14.71,
-      "trend": "上升",
-      "net_mf": 4403.98,
-      "verdict": "可关注",
-      "score": 72,
-      "sector_rank": 3,
-      "risk_label": "",
-      "reasons": [
-        "板块内第3",
-        "放量上涨",
-        "主力流入",
-        "多头排列",
-        "上升趋势"
-      ],
-      "warnings": []
-    },
-    {
-      "code": "003031.SZ",
-      "name": "中瓷电子",
-      "sector": "CPO/光互连/高速铜缆",
-      "priority": 3,
-      "close": 159.4,
-      "pct_chg": -7.74,
-      "volume_ratio": 0.75,
-      "pct_5d": -18.49,
-      "pct_20d": 10.64,
-      "trend": "上升",
-      "net_mf": 5194.06,
-      "verdict": "可关注",
-      "score": 66,
-      "sector_rank": 4,
-      "risk_label": "",
-      "reasons": [
-        "板块内第4",
-        "缩量回调",
-        "主力流入",
-        "上升趋势"
-      ],
-      "warnings": [
         "空头排列",
-        "板块退潮"
-      ]
-    },
-    {
-      "code": "300398.SZ",
-      "name": "飞凯材料",
-      "sector": "CPO/光互连/高速铜缆",
-      "priority": 3,
-      "close": 56.74,
-      "pct_chg": -5.45,
-      "volume_ratio": 0.69,
-      "pct_5d": 0.14,
-      "pct_20d": 46.99,
-      "trend": "上升",
-      "net_mf": 9916.39,
-      "verdict": "可关注",
-      "score": 65,
-      "sector_rank": 5,
-      "risk_label": "",
-      "reasons": [
-        "板块内第5",
-        "缩量回调",
-        "主力流入",
-        "站上20日线",
-        "上升趋势"
-      ],
-      "warnings": [
-        "47%偏高",
-        "板块退潮"
-      ]
-    },
-    {
-      "code": "300429.SZ",
-      "name": "强力新材",
-      "sector": "先进封装设备材料",
-      "priority": 2,
-      "close": 17.45,
-      "pct_chg": -1.52,
-      "volume_ratio": 0.91,
-      "pct_5d": 4.43,
-      "pct_20d": 31.6,
-      "trend": "上升",
-      "net_mf": 1756.39,
-      "verdict": "可关注",
-      "score": 64,
-      "sector_rank": 4,
-      "risk_label": "",
-      "reasons": [
-        "板块内第4",
-        "主力流入",
-        "多头排列",
-        "上升趋势"
-      ],
-      "warnings": []
-    },
-    {
-      "code": "000100.SZ",
-      "name": "TCL科技",
-      "sector": "先进封装设备材料",
-      "priority": 2,
-      "close": 5.92,
-      "pct_chg": -3.27,
-      "volume_ratio": 1.21,
-      "pct_5d": 10.86,
-      "pct_20d": 24.89,
-      "trend": "上升",
-      "net_mf": -9729.13,
-      "verdict": "可关注",
-      "score": 63,
-      "sector_rank": 5,
-      "risk_label": "",
-      "reasons": [
-        "板块内第5",
-        "多头排列",
-        "上升趋势"
-      ],
-      "warnings": [
-        "主力流出"
-      ]
-    },
-    {
-      "code": "300285.SZ",
-      "name": "国瓷材料",
-      "sector": "电源磁性/电容",
-      "priority": 7,
-      "close": 92.79,
-      "pct_chg": -6.1,
-      "volume_ratio": 0.78,
-      "pct_5d": -5.7,
-      "pct_20d": 53.45,
-      "trend": "上升",
-      "net_mf": 34598.13,
-      "verdict": "可关注",
-      "score": 62,
-      "sector_rank": 3,
-      "risk_label": "⚠️涨幅已大",
-      "reasons": [
-        "板块内第3",
-        "缩量回调",
-        "主力流入",
-        "站上20日线",
-        "上升趋势"
-      ],
-      "warnings": [
-        "53%涨幅已大",
-        "板块退潮"
-      ]
-    },
-    {
-      "code": "301018.SZ",
-      "name": "申菱环境",
-      "sector": "液冷/IDC电力",
-      "priority": 1,
-      "close": 107.56,
-      "pct_chg": -2.15,
-      "volume_ratio": 0.97,
-      "pct_5d": -6.4,
-      "pct_20d": 10.42,
-      "trend": "震荡",
-      "net_mf": -73.57,
-      "verdict": "可关注",
-      "score": 61,
-      "sector_rank": 3,
-      "risk_label": "",
-      "reasons": [
-        "板块内第3",
-        "站上20日线"
-      ],
-      "warnings": [
-        "主力流出",
-        "板块退潮"
-      ]
-    },
-    {
-      "code": "600172.SH",
-      "name": "黄河旋风",
-      "sector": "液冷/IDC电力",
-      "priority": 1,
-      "close": 18.03,
-      "pct_chg": 10.01,
-      "volume_ratio": 0.92,
-      "pct_5d": -1.31,
-      "pct_20d": 19.88,
-      "trend": "上升",
-      "net_mf": -55529.32,
-      "verdict": "可关注",
-      "score": 60,
-      "sector_rank": 4,
-      "risk_label": "",
-      "reasons": [
-        "板块内第4",
-        "温和上涨",
-        "多头排列",
-        "上升趋势"
-      ],
-      "warnings": [
-        "主力流出",
-        "板块退潮"
-      ]
-    },
-    {
-      "code": "688519.SH",
-      "name": "南亚新材",
-      "sector": "PCB/CCL",
-      "priority": 4,
-      "close": 353.0,
-      "pct_chg": -1.94,
-      "volume_ratio": 0.74,
-      "pct_5d": -7.1,
-      "pct_20d": 54.35,
-      "trend": "上升",
-      "net_mf": 6697.27,
-      "verdict": "可关注",
-      "score": 60,
-      "sector_rank": 4,
-      "risk_label": "⚠️涨幅已大",
-      "reasons": [
-        "板块内第4",
-        "缩量回调",
-        "主力流入",
-        "站上20日线",
-        "上升趋势"
-      ],
-      "warnings": [
-        "54%涨幅已大",
-        "板块拥挤+个股涨幅大",
         "板块退潮"
       ]
     },
@@ -889,566 +1432,25 @@
       "name": "宏昌电子",
       "sector": "PCB/CCL",
       "priority": 4,
-      "close": 22.79,
-      "pct_chg": -4.16,
-      "volume_ratio": 0.76,
-      "pct_5d": -8.66,
-      "pct_20d": 31.66,
+      "close": 22.38,
+      "pct_chg": -1.8,
+      "volume_ratio": 0.74,
+      "pct_5d": -14.68,
+      "pct_20d": 27.38,
       "trend": "上升",
-      "net_mf": 2993.24,
-      "verdict": "可关注",
-      "score": 58,
-      "sector_rank": 5,
-      "risk_label": "",
-      "reasons": [
-        "板块内第5",
-        "缩量回调",
-        "主力流入",
-        "站上20日线",
-        "上升趋势"
-      ],
-      "warnings": [
-        "板块拥挤+个股涨幅大",
-        "板块退潮"
-      ]
-    },
-    {
-      "code": "000977.SZ",
-      "name": "浪潮信息",
-      "sector": "AI服务器/整机",
-      "priority": 5,
-      "close": 63.79,
-      "pct_chg": -5.16,
-      "volume_ratio": 0.75,
-      "pct_5d": -6.97,
-      "pct_20d": -0.67,
-      "trend": "震荡",
-      "net_mf": -68287.32,
-      "verdict": "可关注",
-      "score": 55,
-      "sector_rank": 3,
-      "risk_label": "",
-      "reasons": [
-        "板块内第3",
-        "缩量回调",
-        "站上20日线"
-      ],
-      "warnings": [
-        "主力流出",
-        "板块退潮"
-      ]
-    },
-    {
-      "code": "002484.SZ",
-      "name": "江海股份",
-      "sector": "电源磁性/电容",
-      "priority": 7,
-      "close": 98.66,
-      "pct_chg": -7.5,
-      "volume_ratio": 1.07,
-      "pct_5d": -11.13,
-      "pct_20d": 12.64,
-      "trend": "上升",
-      "net_mf": -19632.5,
-      "verdict": "可关注",
+      "net_mf": 4988.64,
+      "verdict": "观望",
       "score": 54,
-      "sector_rank": 4,
-      "risk_label": "",
-      "reasons": [
-        "板块内第4",
-        "站上20日线",
-        "上升趋势"
-      ],
-      "warnings": [
-        "主力流出",
-        "板块退潮"
-      ]
-    },
-    {
-      "code": "301391.SZ",
-      "name": "明阳电气",
-      "sector": "液冷/IDC电力",
-      "priority": 1,
-      "close": 57.11,
-      "pct_chg": -1.06,
-      "volume_ratio": 0.99,
-      "pct_5d": -8.62,
-      "pct_20d": -10.26,
-      "trend": "下跌",
-      "net_mf": 77.07,
-      "verdict": "可关注",
-      "score": 49,
-      "sector_rank": 5,
-      "risk_label": "",
-      "reasons": [
-        "板块内第5",
-        "主力流入",
-        "短期超跌"
-      ],
-      "warnings": [
-        "跌破20日线",
-        "下跌趋势",
-        "板块退潮"
-      ]
-    },
-    {
-      "code": "002138.SZ",
-      "name": "顺络电子",
-      "sector": "电源磁性/电容",
-      "priority": 7,
-      "close": 67.52,
-      "pct_chg": -9.49,
-      "volume_ratio": 0.94,
-      "pct_5d": -5.16,
-      "pct_20d": 41.26,
-      "trend": "上升",
-      "net_mf": -3911.57,
-      "verdict": "可关注",
-      "score": 49,
-      "sector_rank": 5,
-      "risk_label": "",
-      "reasons": [
-        "板块内第5",
-        "站上20日线",
-        "上升趋势"
-      ],
-      "warnings": [
-        "主力流出",
-        "41%偏高",
-        "板块退潮"
-      ]
-    },
-    {
-      "code": "301308.SZ",
-      "name": "江波龙",
-      "sector": "存储/HBM",
-      "priority": 8,
-      "close": 599.22,
-      "pct_chg": -10.27,
-      "volume_ratio": 0.91,
-      "pct_5d": -11.53,
-      "pct_20d": 12.53,
-      "trend": "上升",
-      "net_mf": -34686.7,
-      "verdict": "可关注",
-      "score": 49,
-      "sector_rank": 3,
-      "risk_label": "",
-      "reasons": [
-        "板块内第3",
-        "站上20日线",
-        "上升趋势"
-      ],
-      "warnings": [
-        "主力流出"
-      ]
-    },
-    {
-      "code": "688820.SH",
-      "name": "盛合晶微",
-      "sector": "存储/HBM",
-      "priority": 8,
-      "close": 179.87,
-      "pct_chg": -3.94,
-      "volume_ratio": 0.79,
-      "pct_5d": -14.55,
-      "pct_20d": -3.74,
-      "trend": "震荡",
-      "net_mf": 19806.63,
-      "verdict": "可关注",
-      "score": 49,
-      "sector_rank": 4,
-      "risk_label": "",
-      "reasons": [
-        "板块内第4",
-        "缩量回调",
-        "主力流入"
-      ],
-      "warnings": [
-        "空头排列"
-      ]
-    },
-    {
-      "code": "688525.SH",
-      "name": "佰维存储",
-      "sector": "存储/HBM",
-      "priority": 8,
-      "close": 418.8,
-      "pct_chg": -9.56,
-      "volume_ratio": 0.84,
-      "pct_5d": -12.8,
-      "pct_20d": 33.38,
-      "trend": "上升",
-      "net_mf": -13032.72,
-      "verdict": "可关注",
-      "score": 48,
-      "sector_rank": 5,
-      "risk_label": "",
-      "reasons": [
-        "板块内第5",
-        "站上20日线",
-        "上升趋势"
-      ],
-      "warnings": [
-        "主力流出"
-      ]
-    },
-    {
-      "code": "300624.SZ",
-      "name": "万兴科技",
-      "sector": "国产算力/AI应用",
-      "priority": 6,
-      "close": 52.58,
-      "pct_chg": 0.55,
-      "volume_ratio": 1.98,
-      "pct_5d": -2.23,
-      "pct_20d": -9.38,
-      "trend": "下跌",
-      "net_mf": -6638.33,
-      "verdict": "可关注",
-      "score": 46,
-      "sector_rank": 3,
-      "risk_label": "",
-      "reasons": [
-        "板块内第3",
-        "温和上涨"
-      ],
-      "warnings": [
-        "主力流出",
-        "跌破20日线",
-        "下跌趋势",
-        "板块退潮"
-      ]
-    },
-    {
-      "code": "688256.SH",
-      "name": "寒武纪",
-      "sector": "国产算力/AI应用",
-      "priority": 6,
-      "close": 1372.0,
-      "pct_chg": -7.63,
-      "volume_ratio": 0.97,
-      "pct_5d": -8.84,
-      "pct_20d": -0.44,
-      "trend": "上升",
-      "net_mf": -103780.49,
-      "verdict": "可关注",
-      "score": 42,
-      "sector_rank": 4,
-      "risk_label": "",
-      "reasons": [
-        "板块内第4",
-        "上升趋势"
-      ],
-      "warnings": [
-        "主力流出",
-        "空头排列",
-        "板块退潮"
-      ]
-    },
-    {
-      "code": "688111.SH",
-      "name": "金山办公",
-      "sector": "国产算力/AI应用",
-      "priority": 6,
-      "close": 216.66,
-      "pct_chg": -2.23,
-      "volume_ratio": 1.15,
-      "pct_5d": 1.67,
-      "pct_20d": -13.53,
-      "trend": "震荡",
-      "net_mf": -16026.88,
-      "verdict": "可关注",
-      "score": 41,
-      "sector_rank": 5,
-      "risk_label": "",
-      "reasons": [
-        "板块内第5",
-        "短期超跌"
-      ],
-      "warnings": [
-        "主力流出",
-        "跌破20日线",
-        "板块退潮"
-      ]
-    },
-    {
-      "code": "601138.SH",
-      "name": "工业富联",
-      "sector": "AI服务器/整机",
-      "priority": 5,
-      "close": 64.02,
-      "pct_chg": -8.54,
-      "volume_ratio": 0.99,
-      "pct_5d": -16.85,
-      "pct_20d": -21.01,
-      "trend": "震荡",
-      "net_mf": -170490.51,
-      "verdict": "可关注",
-      "score": 17,
-      "sector_rank": 4,
-      "risk_label": "",
-      "reasons": [
-        "板块内第4",
-        "深度超跌"
-      ],
-      "warnings": [
-        "主力流出",
-        "跌破20日线",
-        "板块退潮"
-      ]
-    },
-    {
-      "code": "603688.SH",
-      "name": "石英股份",
-      "sector": "CPO/光互连/高速铜缆",
-      "priority": 3,
-      "close": 72.05,
-      "pct_chg": -8.67,
-      "volume_ratio": 0.88,
-      "pct_5d": -13.77,
-      "pct_20d": 12.97,
-      "trend": "上升",
-      "net_mf": -3659.5,
-      "verdict": "观望",
-      "score": 62,
-      "sector_rank": 6,
-      "risk_label": "",
-      "reasons": [
-        "上升趋势"
-      ],
-      "warnings": [
-        "主力流出",
-        "空头排列",
-        "板块退潮"
-      ]
-    },
-    {
-      "code": "603938.SH",
-      "name": "三孚股份",
-      "sector": "CPO/光互连/高速铜缆",
-      "priority": 3,
-      "close": 69.93,
-      "pct_chg": -5.26,
-      "volume_ratio": 0.68,
-      "pct_5d": 0.36,
-      "pct_20d": 47.59,
-      "trend": "上升",
-      "net_mf": 1946.97,
-      "verdict": "观望",
-      "score": 62,
-      "sector_rank": 7,
-      "risk_label": "",
-      "reasons": [
-        "缩量回调",
-        "主力流入",
-        "站上20日线",
-        "上升趋势"
-      ],
-      "warnings": [
-        "48%偏高",
-        "板块退潮"
-      ]
-    },
-    {
-      "code": "600206.SH",
-      "name": "有研新材",
-      "sector": "先进封装设备材料",
-      "priority": 2,
-      "close": 57.81,
-      "pct_chg": -3.55,
-      "volume_ratio": 0.98,
-      "pct_5d": 2.94,
-      "pct_20d": 98.25,
-      "trend": "上升",
-      "net_mf": 62695.44,
-      "verdict": "观望",
-      "score": 59,
-      "sector_rank": 6,
-      "risk_label": "⚠️高位博弈",
-      "reasons": [
-        "主力流入",
-        "站上20日线",
-        "上升趋势"
-      ],
-      "warnings": [
-        "98%高位博弈"
-      ]
-    },
-    {
-      "code": "688535.SH",
-      "name": "华海诚科",
-      "sector": "先进封装设备材料",
-      "priority": 2,
-      "close": 174.18,
-      "pct_chg": -2.86,
-      "volume_ratio": 0.96,
-      "pct_5d": 17.29,
-      "pct_20d": 50.88,
-      "trend": "上升",
-      "net_mf": 23123.47,
-      "verdict": "观望",
-      "score": 58,
-      "sector_rank": 7,
-      "risk_label": "⚠️涨幅已大",
-      "reasons": [
-        "主力流入",
-        "站上20日线",
-        "上升趋势"
-      ],
-      "warnings": [
-        "51%涨幅已大"
-      ]
-    },
-    {
-      "code": "300563.SZ",
-      "name": "神宇股份",
-      "sector": "CPO/光互连/高速铜缆",
-      "priority": 3,
-      "close": 28.25,
-      "pct_chg": -4.98,
-      "volume_ratio": 0.92,
-      "pct_5d": 4.94,
-      "pct_20d": -9.4,
-      "trend": "下跌",
-      "net_mf": -1351.44,
-      "verdict": "观望",
-      "score": 58,
       "sector_rank": 8,
       "risk_label": "",
       "reasons": [
-        "站上20日线"
-      ],
-      "warnings": [
-        "主力流出",
-        "下跌趋势",
-        "板块退潮"
-      ]
-    },
-    {
-      "code": "002741.SZ",
-      "name": "光华科技",
-      "sector": "PCB/CCL",
-      "priority": 4,
-      "close": 34.35,
-      "pct_chg": -3.48,
-      "volume_ratio": 0.78,
-      "pct_5d": -6.78,
-      "pct_20d": 21.72,
-      "trend": "上升",
-      "net_mf": -4759.25,
-      "verdict": "观望",
-      "score": 58,
-      "sector_rank": 6,
-      "risk_label": "",
-      "reasons": [
         "缩量回调",
+        "主力流入",
         "站上20日线",
         "上升趋势"
       ],
       "warnings": [
-        "主力流出",
         "板块拥挤+个股涨幅大",
-        "板块退潮"
-      ]
-    },
-    {
-      "code": "301511.SZ",
-      "name": "德福科技",
-      "sector": "PCB/CCL",
-      "priority": 4,
-      "close": 145.61,
-      "pct_chg": -6.07,
-      "volume_ratio": 0.84,
-      "pct_5d": -4.55,
-      "pct_20d": 16.93,
-      "trend": "震荡",
-      "net_mf": 3293.7,
-      "verdict": "观望",
-      "score": 56,
-      "sector_rank": 8,
-      "risk_label": "",
-      "reasons": [
-        "主力流入",
-        "站上20日线"
-      ],
-      "warnings": [
-        "板块退潮"
-      ]
-    },
-    {
-      "code": "000426.SZ",
-      "name": "兴业银锡",
-      "sector": "PCB/CCL",
-      "priority": 4,
-      "close": 34.33,
-      "pct_chg": 3.9,
-      "volume_ratio": 1.27,
-      "pct_5d": -2.69,
-      "pct_20d": -18.42,
-      "trend": "下跌",
-      "net_mf": 4780.59,
-      "verdict": "观望",
-      "score": 56,
-      "sector_rank": 7,
-      "risk_label": "",
-      "reasons": [
-        "放量上涨",
-        "主力流入",
-        "短期超跌"
-      ],
-      "warnings": [
-        "跌破20日线",
-        "下跌趋势",
-        "板块退潮"
-      ]
-    },
-    {
-      "code": "688035.SH",
-      "name": "德邦科技",
-      "sector": "先进封装设备材料",
-      "priority": 2,
-      "close": 92.36,
-      "pct_chg": -1.64,
-      "volume_ratio": 0.89,
-      "pct_5d": -1.85,
-      "pct_20d": 20.5,
-      "trend": "上升",
-      "net_mf": 1041.09,
-      "verdict": "观望",
-      "score": 55,
-      "sector_rank": 8,
-      "risk_label": "",
-      "reasons": [
-        "主力流入",
-        "站上20日线",
-        "上升趋势"
-      ],
-      "warnings": []
-    },
-    {
-      "code": "600497.SH",
-      "name": "驰宏锌锗",
-      "sector": "CPO/光互连/高速铜缆",
-      "priority": 3,
-      "close": 11.63,
-      "pct_chg": -4.83,
-      "volume_ratio": 0.65,
-      "pct_5d": -5.52,
-      "pct_20d": 16.3,
-      "trend": "上升",
-      "net_mf": -34415.84,
-      "verdict": "观望",
-      "score": 55,
-      "sector_rank": 9,
-      "risk_label": "",
-      "reasons": [
-        "缩量回调",
-        "站上20日线",
-        "上升趋势"
-      ],
-      "warnings": [
-        "主力流出",
         "板块退潮"
       ]
     },
@@ -1458,15 +1460,139 @@
       "sector": "PCB/CCL",
       "priority": 4,
       "close": 63.7,
-      "pct_chg": -5.32,
-      "volume_ratio": 0.79,
-      "pct_5d": -17.89,
-      "pct_20d": 12.76,
-      "trend": "上升",
-      "net_mf": -262.49,
+      "pct_chg": 0.0,
+      "volume_ratio": 0.77,
+      "pct_5d": -13.51,
+      "pct_20d": 6.88,
+      "trend": "震荡",
+      "net_mf": 8130.56,
       "verdict": "观望",
-      "score": 54,
+      "score": 53,
       "sector_rank": 9,
+      "risk_label": "",
+      "reasons": [
+        "主力流入"
+      ],
+      "warnings": [
+        "跌破20日线",
+        "板块退潮"
+      ]
+    },
+    {
+      "code": "000100.SZ",
+      "name": "TCL科技",
+      "sector": "先进封装设备材料",
+      "priority": 2,
+      "close": 5.65,
+      "pct_chg": -4.56,
+      "volume_ratio": 0.8,
+      "pct_5d": 4.63,
+      "pct_20d": 14.84,
+      "trend": "上升",
+      "net_mf": -95107.69,
+      "verdict": "观望",
+      "score": 51,
+      "sector_rank": 8,
+      "risk_label": "",
+      "reasons": [
+        "缩量回调",
+        "站上20日线",
+        "上升趋势"
+      ],
+      "warnings": [
+        "主力流出",
+        "板块退潮"
+      ]
+    },
+    {
+      "code": "300563.SZ",
+      "name": "神宇股份",
+      "sector": "CPO/光互连/高速铜缆",
+      "priority": 3,
+      "close": 27.8,
+      "pct_chg": -1.59,
+      "volume_ratio": 0.63,
+      "pct_5d": 12.41,
+      "pct_20d": -8.4,
+      "trend": "下跌",
+      "net_mf": -984.83,
+      "verdict": "观望",
+      "score": 51,
+      "sector_rank": 12,
+      "risk_label": "",
+      "reasons": [
+        "缩量回调",
+        "短中期向好"
+      ],
+      "warnings": [
+        "主力流出",
+        "下跌趋势",
+        "板块退潮"
+      ]
+    },
+    {
+      "code": "688035.SH",
+      "name": "德邦科技",
+      "sector": "先进封装设备材料",
+      "priority": 2,
+      "close": 88.11,
+      "pct_chg": -4.6,
+      "volume_ratio": 0.84,
+      "pct_5d": -8.18,
+      "pct_20d": 13.84,
+      "trend": "震荡",
+      "net_mf": -10343.6,
+      "verdict": "观望",
+      "score": 50,
+      "sector_rank": 9,
+      "risk_label": "",
+      "reasons": [],
+      "warnings": [
+        "主力流出",
+        "空头排列",
+        "板块退潮"
+      ]
+    },
+    {
+      "code": "603688.SH",
+      "name": "石英股份",
+      "sector": "CPO/光互连/高速铜缆",
+      "priority": 3,
+      "close": 69.25,
+      "pct_chg": -3.89,
+      "volume_ratio": 0.78,
+      "pct_5d": -20.03,
+      "pct_20d": 4.32,
+      "trend": "震荡",
+      "net_mf": 3351.54,
+      "verdict": "观望",
+      "score": 50,
+      "sector_rank": 13,
+      "risk_label": "",
+      "reasons": [
+        "缩量回调",
+        "主力流入"
+      ],
+      "warnings": [
+        "跌破20日线",
+        "板块退潮"
+      ]
+    },
+    {
+      "code": "600522.SH",
+      "name": "中天科技",
+      "sector": "CPO/光互连/高速铜缆",
+      "priority": 3,
+      "close": 50.22,
+      "pct_chg": -2.64,
+      "volume_ratio": 0.73,
+      "pct_5d": -18.06,
+      "pct_20d": 9.03,
+      "trend": "上升",
+      "net_mf": -37037.42,
+      "verdict": "观望",
+      "score": 50,
+      "sector_rank": 14,
       "risk_label": "",
       "reasons": [
         "缩量回调",
@@ -1475,6 +1601,55 @@
       "warnings": [
         "主力流出",
         "空头排列",
+        "板块退潮"
+      ]
+    },
+    {
+      "code": "605589.SH",
+      "name": "圣泉集团",
+      "sector": "PCB/CCL",
+      "priority": 4,
+      "close": 55.7,
+      "pct_chg": -2.88,
+      "volume_ratio": 0.84,
+      "pct_5d": -16.5,
+      "pct_20d": 2.39,
+      "trend": "震荡",
+      "net_mf": 15215.47,
+      "verdict": "观望",
+      "score": 50,
+      "sector_rank": 10,
+      "risk_label": "",
+      "reasons": [
+        "主力流入"
+      ],
+      "warnings": [
+        "跌破20日线",
+        "板块退潮"
+      ]
+    },
+    {
+      "code": "688300.SH",
+      "name": "联瑞新材",
+      "sector": "PCB/CCL",
+      "priority": 4,
+      "close": 208.99,
+      "pct_chg": 0.1,
+      "volume_ratio": 0.77,
+      "pct_5d": -21.3,
+      "pct_20d": 23.81,
+      "trend": "震荡",
+      "net_mf": 5457.92,
+      "verdict": "观望",
+      "score": 50,
+      "sector_rank": 11,
+      "risk_label": "",
+      "reasons": [
+        "主力流入"
+      ],
+      "warnings": [
+        "空头排列",
+        "板块拥挤+个股涨幅大",
         "板块退潮"
       ]
     },
@@ -1483,16 +1658,16 @@
       "name": "仕佳光子",
       "sector": "CPO/光互连/高速铜缆",
       "priority": 3,
-      "close": 160.91,
-      "pct_chg": -5.79,
-      "volume_ratio": 0.71,
-      "pct_5d": -19.52,
-      "pct_20d": -4.71,
+      "close": 158.57,
+      "pct_chg": -1.45,
+      "volume_ratio": 0.62,
+      "pct_5d": -11.76,
+      "pct_20d": -4.16,
       "trend": "上升",
-      "net_mf": -6493.31,
+      "net_mf": -9651.65,
       "verdict": "观望",
-      "score": 53,
-      "sector_rank": 10,
+      "score": 49,
+      "sector_rank": 15,
       "risk_label": "",
       "reasons": [
         "缩量回调",
@@ -1500,56 +1675,183 @@
       ],
       "warnings": [
         "主力流出",
-        "空头排列",
+        "跌破20日线",
         "板块退潮"
       ]
     },
     {
-      "code": "301217.SZ",
-      "name": "铜冠铜箔",
-      "sector": "PCB/CCL",
-      "priority": 4,
-      "close": 157.92,
-      "pct_chg": -4.2,
-      "volume_ratio": 0.7,
-      "pct_5d": -13.83,
-      "pct_20d": 47.04,
+      "code": "688535.SH",
+      "name": "华海诚科",
+      "sector": "先进封装设备材料",
+      "priority": 2,
+      "close": 160.46,
+      "pct_chg": -7.88,
+      "volume_ratio": 0.9,
+      "pct_5d": -2.1,
+      "pct_20d": 35.14,
       "trend": "上升",
-      "net_mf": 4132.59,
+      "net_mf": -12097.66,
       "verdict": "观望",
-      "score": 53,
+      "score": 48,
       "sector_rank": 10,
       "risk_label": "",
       "reasons": [
-        "缩量回调",
-        "主力流入",
         "站上20日线",
         "上升趋势"
       ],
       "warnings": [
-        "47%偏高",
+        "主力流出",
+        "35%偏高",
+        "板块退潮"
+      ]
+    },
+    {
+      "code": "688668.SH",
+      "name": "鼎通科技",
+      "sector": "CPO/光互连/高速铜缆",
+      "priority": 3,
+      "close": 322.83,
+      "pct_chg": 0.56,
+      "volume_ratio": 0.73,
+      "pct_5d": -14.14,
+      "pct_20d": -10.92,
+      "trend": "震荡",
+      "net_mf": -4209.87,
+      "verdict": "观望",
+      "score": 48,
+      "sector_rank": 16,
+      "risk_label": "",
+      "reasons": [
+        "短期超跌"
+      ],
+      "warnings": [
+        "主力流出",
+        "跌破20日线",
+        "板块退潮"
+      ]
+    },
+    {
+      "code": "603186.SH",
+      "name": "华正新材",
+      "sector": "PCB/CCL",
+      "priority": 4,
+      "close": 199.99,
+      "pct_chg": 2.04,
+      "volume_ratio": 0.99,
+      "pct_5d": -19.11,
+      "pct_20d": 61.84,
+      "trend": "上升",
+      "net_mf": -10532.77,
+      "verdict": "观望",
+      "score": 48,
+      "sector_rank": 12,
+      "risk_label": "⚠️涨幅已大",
+      "reasons": [
+        "温和上涨",
+        "上升趋势"
+      ],
+      "warnings": [
+        "主力流出",
+        "空头排列",
+        "62%涨幅已大",
         "板块拥挤+个股涨幅大",
         "板块退潮"
       ]
     },
     {
-      "code": "002491.SZ",
-      "name": "通鼎互联",
+      "code": "300666.SZ",
+      "name": "江丰电子",
+      "sector": "先进封装设备材料",
+      "priority": 2,
+      "close": 332.19,
+      "pct_chg": -3.0,
+      "volume_ratio": 0.78,
+      "pct_5d": -6.37,
+      "pct_20d": 57.79,
+      "trend": "上升",
+      "net_mf": -17139.49,
+      "verdict": "观望",
+      "score": 47,
+      "sector_rank": 11,
+      "risk_label": "⚠️涨幅已大",
+      "reasons": [
+        "缩量回调",
+        "站上20日线",
+        "上升趋势"
+      ],
+      "warnings": [
+        "主力流出",
+        "58%涨幅已大",
+        "板块退潮"
+      ]
+    },
+    {
+      "code": "600497.SH",
+      "name": "驰宏锌锗",
       "sector": "CPO/光互连/高速铜缆",
       "priority": 3,
-      "close": 26.63,
-      "pct_chg": -10.0,
-      "volume_ratio": 0.75,
-      "pct_5d": -30.83,
-      "pct_20d": 9.18,
+      "close": 10.95,
+      "pct_chg": -5.85,
+      "volume_ratio": 0.74,
+      "pct_5d": -12.68,
+      "pct_20d": 16.74,
       "trend": "上升",
-      "net_mf": -4662.24,
+      "net_mf": -50141.45,
       "verdict": "观望",
-      "score": 51,
-      "sector_rank": 11,
+      "score": 47,
+      "sector_rank": 17,
       "risk_label": "",
       "reasons": [
         "缩量回调",
+        "站上20日线",
+        "上升趋势"
+      ],
+      "warnings": [
+        "主力流出",
+        "板块退潮"
+      ]
+    },
+    {
+      "code": "000636.SZ",
+      "name": "风华高科",
+      "sector": "电源磁性/电容",
+      "priority": 7,
+      "close": 63.23,
+      "pct_chg": -5.57,
+      "volume_ratio": 0.85,
+      "pct_5d": -19.45,
+      "pct_20d": -0.43,
+      "trend": "上升",
+      "net_mf": 411.84,
+      "verdict": "观望",
+      "score": 47,
+      "sector_rank": 6,
+      "risk_label": "",
+      "reasons": [
+        "主力流入",
+        "上升趋势"
+      ],
+      "warnings": [
+        "空头排列"
+      ]
+    },
+    {
+      "code": "002669.SZ",
+      "name": "康达新材",
+      "sector": "先进封装设备材料",
+      "priority": 2,
+      "close": 17.29,
+      "pct_chg": -6.03,
+      "volume_ratio": 0.93,
+      "pct_5d": 4.35,
+      "pct_20d": 4.47,
+      "trend": "上升",
+      "net_mf": -14020.94,
+      "verdict": "观望",
+      "score": 46,
+      "sector_rank": 12,
+      "risk_label": "",
+      "reasons": [
         "上升趋势"
       ],
       "warnings": [
@@ -1563,19 +1865,70 @@
       "name": "生益电子",
       "sector": "PCB/CCL",
       "priority": 4,
-      "close": 3.68,
-      "pct_chg": 0.27,
-      "volume_ratio": 0.97,
-      "pct_5d": 3.37,
-      "pct_20d": -7.77,
+      "close": 3.75,
+      "pct_chg": 1.9,
+      "volume_ratio": 0.8,
+      "pct_5d": 4.75,
+      "pct_20d": -4.09,
       "trend": "下跌",
-      "net_mf": -253.77,
+      "net_mf": 52.55,
       "verdict": "观望",
-      "score": 51,
-      "sector_rank": 11,
+      "score": 45,
+      "sector_rank": 13,
       "risk_label": "",
       "reasons": [
-        "温和上涨"
+        "温和上涨",
+        "主力流入",
+        "站上20日线"
+      ],
+      "warnings": [
+        "下跌趋势",
+        "板块退潮"
+      ]
+    },
+    {
+      "code": "688126.SH",
+      "name": "沪硅产业",
+      "sector": "先进封装设备材料",
+      "priority": 2,
+      "close": 34.53,
+      "pct_chg": -7.8,
+      "volume_ratio": 0.81,
+      "pct_5d": -0.95,
+      "pct_20d": 19.69,
+      "trend": "上升",
+      "net_mf": -45528.44,
+      "verdict": "观望",
+      "score": 44,
+      "sector_rank": 13,
+      "risk_label": "",
+      "reasons": [
+        "站上20日线",
+        "上升趋势"
+      ],
+      "warnings": [
+        "主力流出",
+        "板块退潮"
+      ]
+    },
+    {
+      "code": "300913.SZ",
+      "name": "兆龙互连",
+      "sector": "CPO/光互连/高速铜缆",
+      "priority": 3,
+      "close": 41.49,
+      "pct_chg": 2.85,
+      "volume_ratio": 0.79,
+      "pct_5d": -18.25,
+      "pct_20d": -34.78,
+      "trend": "下跌",
+      "net_mf": -1479.96,
+      "verdict": "观望",
+      "score": 44,
+      "sector_rank": 19,
+      "risk_label": "",
+      "reasons": [
+        "深度超跌"
       ],
       "warnings": [
         "主力流出",
@@ -1585,43 +1938,170 @@
       ]
     },
     {
-      "code": "300054.SZ",
-      "name": "鼎龙股份",
-      "sector": "先进封装设备材料",
-      "priority": 2,
-      "close": 93.37,
-      "pct_chg": -6.91,
-      "volume_ratio": 0.92,
-      "pct_5d": -2.18,
-      "pct_20d": 32.63,
+      "code": "603938.SH",
+      "name": "三孚股份",
+      "sector": "CPO/光互连/高速铜缆",
+      "priority": 3,
+      "close": 64.8,
+      "pct_chg": -7.34,
+      "volume_ratio": 0.69,
+      "pct_5d": -14.52,
+      "pct_20d": 34.94,
       "trend": "上升",
-      "net_mf": 14489.25,
+      "net_mf": -6721.62,
       "verdict": "观望",
-      "score": 50,
-      "sector_rank": 9,
+      "score": 44,
+      "sector_rank": 18,
       "risk_label": "",
       "reasons": [
+        "缩量回调",
+        "站上20日线",
+        "上升趋势"
+      ],
+      "warnings": [
+        "主力流出",
+        "板块退潮"
+      ]
+    },
+    {
+      "code": "002859.SZ",
+      "name": "洁美科技",
+      "sector": "电源磁性/电容",
+      "priority": 7,
+      "close": 93.27,
+      "pct_chg": -5.7,
+      "volume_ratio": 0.77,
+      "pct_5d": -10.12,
+      "pct_20d": -1.19,
+      "trend": "上升",
+      "net_mf": -1540.73,
+      "verdict": "观望",
+      "score": 44,
+      "sector_rank": 7,
+      "risk_label": "",
+      "reasons": [
+        "缩量回调",
+        "站上20日线",
+        "上升趋势"
+      ],
+      "warnings": [
+        "主力流出"
+      ]
+    },
+    {
+      "code": "300475.SZ",
+      "name": "香农芯创",
+      "sector": "存储/HBM",
+      "priority": 8,
+      "close": 264.25,
+      "pct_chg": 0.84,
+      "volume_ratio": 0.82,
+      "pct_5d": -12.21,
+      "pct_20d": 42.87,
+      "trend": "上升",
+      "net_mf": 45351.95,
+      "verdict": "观望",
+      "score": 44,
+      "sector_rank": 6,
+      "risk_label": "",
+      "reasons": [
+        "温和上涨",
         "主力流入",
         "站上20日线",
         "上升趋势"
       ],
-      "warnings": []
+      "warnings": [
+        "43%偏高"
+      ]
     },
     {
-      "code": "600522.SH",
-      "name": "中天科技",
-      "sector": "CPO/光互连/高速铜缆",
-      "priority": 3,
-      "close": 51.58,
-      "pct_chg": -6.93,
-      "volume_ratio": 0.85,
-      "pct_5d": -24.26,
-      "pct_20d": 14.67,
-      "trend": "上升",
-      "net_mf": -37948.44,
+      "code": "002741.SZ",
+      "name": "光华科技",
+      "sector": "PCB/CCL",
+      "priority": 4,
+      "close": 33.34,
+      "pct_chg": -2.94,
+      "volume_ratio": 0.83,
+      "pct_5d": -14.75,
+      "pct_20d": 17.27,
+      "trend": "震荡",
+      "net_mf": -1106.46,
       "verdict": "观望",
-      "score": 50,
-      "sector_rank": 12,
+      "score": 42,
+      "sector_rank": 14,
+      "risk_label": "",
+      "reasons": [],
+      "warnings": [
+        "主力流出",
+        "空头排列",
+        "板块退潮"
+      ]
+    },
+    {
+      "code": "300576.SZ",
+      "name": "金盘科技",
+      "sector": "液冷/IDC电力",
+      "priority": 1,
+      "close": 45.86,
+      "pct_chg": -8.55,
+      "volume_ratio": 0.76,
+      "pct_5d": -10.36,
+      "pct_20d": 10.77,
+      "trend": "震荡",
+      "net_mf": -8477.41,
+      "verdict": "观望",
+      "score": 41,
+      "sector_rank": 6,
+      "risk_label": "",
+      "reasons": [
+        "缩量回调"
+      ],
+      "warnings": [
+        "主力流出",
+        "空头排列"
+      ]
+    },
+    {
+      "code": "002156.SZ",
+      "name": "通富微电",
+      "sector": "先进封装设备材料",
+      "priority": 2,
+      "close": 64.8,
+      "pct_chg": -3.81,
+      "volume_ratio": 0.64,
+      "pct_5d": -9.5,
+      "pct_20d": -8.86,
+      "trend": "上升",
+      "net_mf": -10466.55,
+      "verdict": "观望",
+      "score": 41,
+      "sector_rank": 14,
+      "risk_label": "",
+      "reasons": [
+        "缩量回调",
+        "上升趋势"
+      ],
+      "warnings": [
+        "主力流出",
+        "空头排列",
+        "板块退潮"
+      ]
+    },
+    {
+      "code": "605358.SH",
+      "name": "立昂微",
+      "sector": "先进封装设备材料",
+      "priority": 2,
+      "close": 64.67,
+      "pct_chg": -10.01,
+      "volume_ratio": 0.82,
+      "pct_5d": -14.2,
+      "pct_20d": 1.21,
+      "trend": "上升",
+      "net_mf": -1782.14,
+      "verdict": "观望",
+      "score": 39,
+      "sector_rank": 15,
       "risk_label": "",
       "reasons": [
         "上升趋势"
@@ -1633,20 +2113,46 @@
       ]
     },
     {
-      "code": "600110.SH",
-      "name": "诺德股份",
+      "code": "300346.SZ",
+      "name": "南大光电",
+      "sector": "先进封装设备材料",
+      "priority": 2,
+      "close": 80.18,
+      "pct_chg": -9.68,
+      "volume_ratio": 0.95,
+      "pct_5d": 2.64,
+      "pct_20d": 52.46,
+      "trend": "上升",
+      "net_mf": -51794.41,
+      "verdict": "观望",
+      "score": 38,
+      "sector_rank": 16,
+      "risk_label": "⚠️涨幅已大",
+      "reasons": [
+        "站上20日线",
+        "上升趋势"
+      ],
+      "warnings": [
+        "主力流出",
+        "52%涨幅已大",
+        "板块退潮"
+      ]
+    },
+    {
+      "code": "600160.SH",
+      "name": "巨化股份",
       "sector": "PCB/CCL",
       "priority": 4,
-      "close": 14.53,
-      "pct_chg": -5.22,
-      "volume_ratio": 0.86,
-      "pct_5d": -7.86,
-      "pct_20d": 20.68,
+      "close": 49.35,
+      "pct_chg": -9.99,
+      "volume_ratio": 1.17,
+      "pct_5d": -3.14,
+      "pct_20d": 29.05,
       "trend": "上升",
-      "net_mf": -32894.63,
+      "net_mf": -65247.46,
       "verdict": "观望",
-      "score": 50,
-      "sector_rank": 12,
+      "score": 38,
+      "sector_rank": 16,
       "risk_label": "",
       "reasons": [
         "站上20日线",
@@ -1659,296 +2165,23 @@
       ]
     },
     {
-      "code": "300620.SZ",
-      "name": "光库科技",
-      "sector": "CPO/光互连/高速铜缆",
-      "priority": 3,
-      "close": 324.4,
-      "pct_chg": -7.55,
-      "volume_ratio": 0.69,
-      "pct_5d": -17.97,
-      "pct_20d": -3.76,
-      "trend": "上升",
-      "net_mf": -4913.15,
-      "verdict": "观望",
-      "score": 49,
-      "sector_rank": 13,
-      "risk_label": "",
-      "reasons": [
-        "缩量回调",
-        "上升趋势"
-      ],
-      "warnings": [
-        "主力流出",
-        "空头排列",
-        "板块退潮"
-      ]
-    },
-    {
-      "code": "000960.SZ",
-      "name": "锡业股份",
+      "code": "000426.SZ",
+      "name": "兴业银锡",
       "sector": "PCB/CCL",
       "priority": 4,
-      "close": 41.21,
-      "pct_chg": -2.62,
-      "volume_ratio": 0.66,
-      "pct_5d": -7.23,
-      "pct_20d": -5.81,
-      "trend": "上升",
-      "net_mf": -8524.95,
+      "close": 35.34,
+      "pct_chg": 2.94,
+      "volume_ratio": 1.32,
+      "pct_5d": 7.06,
+      "pct_20d": -11.41,
+      "trend": "下跌",
+      "net_mf": -7632.79,
       "verdict": "观望",
-      "score": 49,
-      "sector_rank": 13,
-      "risk_label": "",
-      "reasons": [
-        "缩量回调",
-        "站上20日线",
-        "上升趋势"
-      ],
-      "warnings": [
-        "主力流出",
-        "板块退潮"
-      ]
-    },
-    {
-      "code": "688126.SH",
-      "name": "沪硅产业",
-      "sector": "先进封装设备材料",
-      "priority": 2,
-      "close": 37.45,
-      "pct_chg": -8.79,
-      "volume_ratio": 0.86,
-      "pct_5d": 12.43,
-      "pct_20d": 48.14,
-      "trend": "上升",
-      "net_mf": 35346.66,
-      "verdict": "观望",
-      "score": 47,
-      "sector_rank": 10,
-      "risk_label": "",
-      "reasons": [
-        "主力流入",
-        "站上20日线",
-        "上升趋势"
-      ],
-      "warnings": [
-        "48%偏高"
-      ]
-    },
-    {
-      "code": "603256.SH",
-      "name": "宏和科技",
-      "sector": "PCB/CCL",
-      "priority": 4,
-      "close": 233.23,
-      "pct_chg": -8.88,
-      "volume_ratio": 1.05,
-      "pct_5d": -15.73,
-      "pct_20d": 18.17,
-      "trend": "上升",
-      "net_mf": -9974.95,
-      "verdict": "观望",
-      "score": 47,
-      "sector_rank": 14,
-      "risk_label": "",
-      "reasons": [
-        "上升趋势"
-      ],
-      "warnings": [
-        "主力流出",
-        "空头排列",
-        "板块退潮"
-      ]
-    },
-    {
-      "code": "300475.SZ",
-      "name": "香农芯创",
-      "sector": "存储/HBM",
-      "priority": 8,
-      "close": 262.04,
-      "pct_chg": -13.38,
-      "volume_ratio": 1.11,
-      "pct_5d": -14.44,
-      "pct_20d": 48.02,
-      "trend": "上升",
-      "net_mf": -8577.64,
-      "verdict": "观望",
-      "score": 47,
-      "sector_rank": 6,
-      "risk_label": "",
-      "reasons": [
-        "站上20日线",
-        "上升趋势"
-      ],
-      "warnings": [
-        "主力流出",
-        "48%偏高"
-      ]
-    },
-    {
-      "code": "605358.SH",
-      "name": "立昂微",
-      "sector": "先进封装设备材料",
-      "priority": 2,
-      "close": 71.86,
-      "pct_chg": -9.99,
-      "volume_ratio": 0.63,
-      "pct_5d": 1.93,
-      "pct_20d": 23.7,
-      "trend": "上升",
-      "net_mf": 37044.52,
-      "verdict": "观望",
-      "score": 46,
-      "sector_rank": 11,
-      "risk_label": "",
-      "reasons": [
-        "缩量回调",
-        "主力流入",
-        "站上20日线",
-        "上升趋势"
-      ],
-      "warnings": []
-    },
-    {
-      "code": "688668.SH",
-      "name": "鼎通科技",
-      "sector": "CPO/光互连/高速铜缆",
-      "priority": 3,
-      "close": 321.04,
-      "pct_chg": -10.39,
-      "volume_ratio": 1.06,
-      "pct_5d": -20.12,
-      "pct_20d": 6.3,
-      "trend": "震荡",
-      "net_mf": -9450.38,
-      "verdict": "观望",
-      "score": 46,
+      "score": 38,
       "sector_rank": 15,
       "risk_label": "",
-      "reasons": [],
-      "warnings": [
-        "主力流出",
-        "跌破20日线",
-        "板块退潮"
-      ]
-    },
-    {
-      "code": "601869.SH",
-      "name": "长飞光纤",
-      "sector": "CPO/光互连/高速铜缆",
-      "priority": 3,
-      "close": 464.37,
-      "pct_chg": -8.68,
-      "volume_ratio": 0.8,
-      "pct_5d": -19.24,
-      "pct_20d": 4.36,
-      "trend": "上升",
-      "net_mf": -18585.89,
-      "verdict": "观望",
-      "score": 46,
-      "sector_rank": 14,
-      "risk_label": "",
       "reasons": [
-        "上升趋势"
-      ],
-      "warnings": [
-        "主力流出",
-        "空头排列",
-        "板块退潮"
-      ]
-    },
-    {
-      "code": "688019.SH",
-      "name": "安集科技",
-      "sector": "先进封装设备材料",
-      "priority": 2,
-      "close": 301.4,
-      "pct_chg": -6.57,
-      "volume_ratio": 0.95,
-      "pct_5d": 12.23,
-      "pct_20d": 8.03,
-      "trend": "震荡",
-      "net_mf": -3511.68,
-      "verdict": "观望",
-      "score": 45,
-      "sector_rank": 12,
-      "risk_label": "",
-      "reasons": [
-        "站上20日线"
-      ],
-      "warnings": [
-        "主力流出"
-      ]
-    },
-    {
-      "code": "600498.SH",
-      "name": "烽火通信",
-      "sector": "CPO/光互连/高速铜缆",
-      "priority": 3,
-      "close": 63.72,
-      "pct_chg": -8.12,
-      "volume_ratio": 0.75,
-      "pct_5d": -24.76,
-      "pct_20d": 22.49,
-      "trend": "上升",
-      "net_mf": -15825.72,
-      "verdict": "观望",
-      "score": 45,
-      "sector_rank": 16,
-      "risk_label": "",
-      "reasons": [
-        "缩量回调",
-        "上升趋势"
-      ],
-      "warnings": [
-        "主力流出",
-        "空头排列",
-        "板块退潮"
-      ]
-    },
-    {
-      "code": "002617.SZ",
-      "name": "露笑科技",
-      "sector": "电源磁性/电容",
-      "priority": 7,
-      "close": 9.6,
-      "pct_chg": -4.1,
-      "volume_ratio": 0.62,
-      "pct_5d": 6.79,
-      "pct_20d": 10.85,
-      "trend": "震荡",
-      "net_mf": -8850.24,
-      "verdict": "观望",
-      "score": 45,
-      "sector_rank": 6,
-      "risk_label": "",
-      "reasons": [
-        "缩量回调",
-        "站上20日线"
-      ],
-      "warnings": [
-        "主力流出",
-        "板块退潮"
-      ]
-    },
-    {
-      "code": "002222.SZ",
-      "name": "福晶科技",
-      "sector": "CPO/光互连/高速铜缆",
-      "priority": 3,
-      "close": 85.15,
-      "pct_chg": -2.34,
-      "volume_ratio": 0.66,
-      "pct_5d": -13.39,
-      "pct_20d": -13.99,
-      "trend": "下跌",
-      "net_mf": -1198.94,
-      "verdict": "观望",
-      "score": 44,
-      "sector_rank": 17,
-      "risk_label": "",
-      "reasons": [
-        "缩量回调",
+        "放量上涨",
         "短期超跌"
       ],
       "warnings": [
@@ -1963,488 +2196,40 @@
       "name": "东芯股份",
       "sector": "存储/HBM",
       "priority": 8,
-      "close": 176.1,
-      "pct_chg": -8.89,
-      "volume_ratio": 0.87,
-      "pct_5d": -1.87,
-      "pct_20d": 35.28,
+      "close": 178.8,
+      "pct_chg": 1.53,
+      "volume_ratio": 0.76,
+      "pct_5d": -6.16,
+      "pct_20d": 35.44,
       "trend": "上升",
-      "net_mf": -44890.95,
+      "net_mf": 3277.77,
       "verdict": "观望",
-      "score": 44,
+      "score": 38,
       "sector_rank": 7,
       "risk_label": "",
       "reasons": [
+        "主力流入",
         "站上20日线",
         "上升趋势"
       ],
       "warnings": [
-        "主力流出",
         "35%偏高"
       ]
     },
     {
-      "code": "300395.SZ",
-      "name": "菲利华",
+      "code": "600498.SH",
+      "name": "烽火通信",
       "sector": "CPO/光互连/高速铜缆",
       "priority": 3,
-      "close": 117.2,
-      "pct_chg": -7.11,
+      "close": 61.91,
+      "pct_chg": -2.84,
       "volume_ratio": 0.67,
-      "pct_5d": -12.24,
-      "pct_20d": -1.5,
+      "pct_5d": -18.77,
+      "pct_20d": 17.36,
       "trend": "震荡",
-      "net_mf": -3959.6,
-      "verdict": "观望",
-      "score": 43,
-      "sector_rank": 18,
-      "risk_label": "",
-      "reasons": [
-        "缩量回调"
-      ],
-      "warnings": [
-        "主力流出",
-        "空头排列",
-        "板块退潮"
-      ]
-    },
-    {
-      "code": "688120.SH",
-      "name": "华海清科",
-      "sector": "先进封装设备材料",
-      "priority": 2,
-      "close": 281.0,
-      "pct_chg": -14.85,
-      "volume_ratio": 1.44,
-      "pct_5d": 11.29,
-      "pct_20d": 13.37,
-      "trend": "震荡",
-      "net_mf": 72909.11,
-      "verdict": "观望",
-      "score": 42,
-      "sector_rank": 13,
-      "risk_label": "",
-      "reasons": [
-        "主力流入",
-        "站上20日线"
-      ],
-      "warnings": []
-    },
-    {
-      "code": "300308.SZ",
-      "name": "中际旭创",
-      "sector": "CPO/光互连/高速铜缆",
-      "priority": 3,
-      "close": 1143.0,
-      "pct_chg": -6.55,
-      "volume_ratio": 0.97,
-      "pct_5d": -13.63,
-      "pct_20d": -10.35,
-      "trend": "震荡",
-      "net_mf": -21626.87,
-      "verdict": "观望",
-      "score": 42,
-      "sector_rank": 19,
-      "risk_label": "",
-      "reasons": [
-        "短期超跌"
-      ],
-      "warnings": [
-        "主力流出",
-        "跌破20日线",
-        "板块退潮"
-      ]
-    },
-    {
-      "code": "002859.SZ",
-      "name": "洁美科技",
-      "sector": "电源磁性/电容",
-      "priority": 7,
-      "close": 98.91,
-      "pct_chg": -10.0,
-      "volume_ratio": 0.55,
-      "pct_5d": 1.86,
-      "pct_20d": 14.06,
-      "trend": "上升",
-      "net_mf": 8789.66,
-      "verdict": "观望",
-      "score": 42,
-      "sector_rank": 7,
-      "risk_label": "",
-      "reasons": [
-        "缩量回调",
-        "主力流入",
-        "站上20日线",
-        "上升趋势"
-      ],
-      "warnings": [
-        "板块退潮"
-      ]
-    },
-    {
-      "code": "600183.SH",
-      "name": "生益科技",
-      "sector": "PCB/CCL",
-      "priority": 4,
-      "close": 151.95,
-      "pct_chg": -7.8,
-      "volume_ratio": 1.02,
-      "pct_5d": -18.83,
-      "pct_20d": 7.7,
-      "trend": "震荡",
-      "net_mf": -14702.59,
-      "verdict": "观望",
-      "score": 41,
-      "sector_rank": 15,
-      "risk_label": "",
-      "reasons": [],
-      "warnings": [
-        "主力流出",
-        "空头排列",
-        "板块退潮"
-      ]
-    },
-    {
-      "code": "002130.SZ",
-      "name": "沃尔核材",
-      "sector": "CPO/光互连/高速铜缆",
-      "priority": 3,
-      "close": 17.61,
-      "pct_chg": -4.03,
-      "volume_ratio": 0.84,
-      "pct_5d": -8.09,
-      "pct_20d": -18.62,
-      "trend": "下跌",
-      "net_mf": -11552.29,
-      "verdict": "观望",
-      "score": 40,
-      "sector_rank": 20,
-      "risk_label": "",
-      "reasons": [
-        "短期超跌"
-      ],
-      "warnings": [
-        "主力流出",
-        "跌破20日线",
-        "下跌趋势",
-        "板块退潮"
-      ]
-    },
-    {
-      "code": "002080.SZ",
-      "name": "中材科技",
-      "sector": "PCB/CCL",
-      "priority": 4,
-      "close": 82.22,
-      "pct_chg": -7.31,
-      "volume_ratio": 0.72,
-      "pct_5d": -11.52,
-      "pct_20d": 29.24,
-      "trend": "上升",
-      "net_mf": -11683.55,
-      "verdict": "观望",
-      "score": 40,
-      "sector_rank": 16,
-      "risk_label": "",
-      "reasons": [
-        "缩量回调",
-        "站上20日线",
-        "上升趋势"
-      ],
-      "warnings": [
-        "主力流出",
-        "板块拥挤+个股涨幅大",
-        "板块退潮"
-      ]
-    },
-    {
-      "code": "605589.SH",
-      "name": "圣泉集团",
-      "sector": "PCB/CCL",
-      "priority": 4,
-      "close": 57.35,
-      "pct_chg": -8.58,
-      "volume_ratio": 0.85,
-      "pct_5d": -21.4,
-      "pct_20d": 4.94,
-      "trend": "震荡",
-      "net_mf": -4617.23,
-      "verdict": "观望",
-      "score": 39,
-      "sector_rank": 17,
-      "risk_label": "",
-      "reasons": [],
-      "warnings": [
-        "主力流出",
-        "空头排列",
-        "板块退潮"
-      ]
-    },
-    {
-      "code": "002837.SZ",
-      "name": "英维克",
-      "sector": "液冷/IDC电力",
-      "priority": 1,
-      "close": 71.4,
-      "pct_chg": -4.46,
-      "volume_ratio": 0.7,
-      "pct_5d": -17.92,
-      "pct_20d": 4.51,
-      "trend": "震荡",
-      "net_mf": -5283.97,
-      "verdict": "观望",
-      "score": 38,
-      "sector_rank": 6,
-      "risk_label": "",
-      "reasons": [
-        "缩量回调"
-      ],
-      "warnings": [
-        "主力流出",
-        "空头排列",
-        "板块退潮"
-      ]
-    },
-    {
-      "code": "688008.SH",
-      "name": "澜起科技",
-      "sector": "存储/HBM",
-      "priority": 8,
-      "close": 269.15,
-      "pct_chg": -14.8,
-      "volume_ratio": 1.0,
-      "pct_5d": -3.59,
-      "pct_20d": 6.01,
-      "trend": "上升",
-      "net_mf": -144950.05,
-      "verdict": "观望",
-      "score": 38,
-      "sector_rank": 8,
-      "risk_label": "",
-      "reasons": [
-        "站上20日线",
-        "上升趋势"
-      ],
-      "warnings": [
-        "主力流出"
-      ]
-    },
-    {
-      "code": "600487.SH",
-      "name": "亨通光电",
-      "sector": "CPO/光互连/高速铜缆",
-      "priority": 3,
-      "close": 93.84,
-      "pct_chg": -7.94,
-      "volume_ratio": 0.95,
-      "pct_5d": -23.71,
-      "pct_20d": 2.64,
-      "trend": "震荡",
-      "net_mf": -39700.16,
-      "verdict": "观望",
-      "score": 37,
-      "sector_rank": 21,
-      "risk_label": "",
-      "reasons": [],
-      "warnings": [
-        "主力流出",
-        "跌破20日线",
-        "板块退潮"
-      ]
-    },
-    {
-      "code": "301188.SZ",
-      "name": "力诺药包",
-      "sector": "先进封装设备材料",
-      "priority": 2,
-      "close": 57.44,
-      "pct_chg": -9.4,
-      "volume_ratio": 0.96,
-      "pct_5d": -13.27,
-      "pct_20d": 26.38,
-      "trend": "上升",
-      "net_mf": -6150.06,
+      "net_mf": -28822.09,
       "verdict": "观望",
       "score": 36,
-      "sector_rank": 14,
-      "risk_label": "",
-      "reasons": [
-        "上升趋势"
-      ],
-      "warnings": [
-        "主力流出",
-        "空头排列"
-      ]
-    },
-    {
-      "code": "603186.SH",
-      "name": "华正新材",
-      "sector": "PCB/CCL",
-      "priority": 4,
-      "close": 196.0,
-      "pct_chg": -7.94,
-      "volume_ratio": 0.9,
-      "pct_5d": -25.42,
-      "pct_20d": 65.39,
-      "trend": "上升",
-      "net_mf": -7080.31,
-      "verdict": "观望",
-      "score": 35,
-      "sector_rank": 18,
-      "risk_label": "⚠️涨幅已大",
-      "reasons": [
-        "上升趋势"
-      ],
-      "warnings": [
-        "主力流出",
-        "空头排列",
-        "65%涨幅已大",
-        "板块拥挤+个股涨幅大",
-        "板块退潮"
-      ]
-    },
-    {
-      "code": "300319.SZ",
-      "name": "麦捷科技",
-      "sector": "电源磁性/电容",
-      "priority": 7,
-      "close": 28.25,
-      "pct_chg": -11.16,
-      "volume_ratio": 0.94,
-      "pct_5d": -6.08,
-      "pct_20d": 57.03,
-      "trend": "上升",
-      "net_mf": -9569.81,
-      "verdict": "观望",
-      "score": 35,
-      "sector_rank": 8,
-      "risk_label": "⚠️涨幅已大",
-      "reasons": [
-        "站上20日线",
-        "上升趋势"
-      ],
-      "warnings": [
-        "主力流出",
-        "57%涨幅已大",
-        "板块退潮"
-      ]
-    },
-    {
-      "code": "002463.SZ",
-      "name": "沪电股份",
-      "sector": "PCB/CCL",
-      "priority": 4,
-      "close": 130.51,
-      "pct_chg": -10.0,
-      "volume_ratio": 1.0,
-      "pct_5d": -15.79,
-      "pct_20d": 0.55,
-      "trend": "上升",
-      "net_mf": -91892.02,
-      "verdict": "观望",
-      "score": 33,
-      "sector_rank": 19,
-      "risk_label": "",
-      "reasons": [
-        "上升趋势"
-      ],
-      "warnings": [
-        "主力流出",
-        "空头排列",
-        "板块退潮"
-      ]
-    },
-    {
-      "code": "688300.SH",
-      "name": "联瑞新材",
-      "sector": "PCB/CCL",
-      "priority": 4,
-      "close": 208.78,
-      "pct_chg": -9.62,
-      "volume_ratio": 0.87,
-      "pct_5d": -22.67,
-      "pct_20d": 25.19,
-      "trend": "上升",
-      "net_mf": -23190.24,
-      "verdict": "观望",
-      "score": 32,
-      "sector_rank": 20,
-      "risk_label": "",
-      "reasons": [
-        "上升趋势"
-      ],
-      "warnings": [
-        "主力流出",
-        "空头排列",
-        "板块拥挤+个股涨幅大",
-        "板块退潮"
-      ]
-    },
-    {
-      "code": "300913.SZ",
-      "name": "兆龙互连",
-      "sector": "CPO/光互连/高速铜缆",
-      "priority": 3,
-      "close": 40.34,
-      "pct_chg": -8.86,
-      "volume_ratio": 1.22,
-      "pct_5d": -27.52,
-      "pct_20d": -34.83,
-      "trend": "下跌",
-      "net_mf": -7714.21,
-      "verdict": "观望",
-      "score": 31,
-      "sector_rank": 22,
-      "risk_label": "",
-      "reasons": [
-        "深度超跌"
-      ],
-      "warnings": [
-        "主力流出",
-        "跌破20日线",
-        "下跌趋势",
-        "板块退潮"
-      ]
-    },
-    {
-      "code": "688268.SH",
-      "name": "华特气体",
-      "sector": "先进封装设备材料",
-      "priority": 2,
-      "close": 249.0,
-      "pct_chg": -10.42,
-      "volume_ratio": 0.83,
-      "pct_5d": -1.19,
-      "pct_20d": 41.26,
-      "trend": "上升",
-      "net_mf": -8215.04,
-      "verdict": "观望",
-      "score": 30,
-      "sector_rank": 15,
-      "risk_label": "",
-      "reasons": [
-        "站上20日线",
-        "上升趋势"
-      ],
-      "warnings": [
-        "主力流出",
-        "41%偏高"
-      ]
-    },
-    {
-      "code": "600500.SH",
-      "name": "中化国际",
-      "sector": "PCB/CCL",
-      "priority": 4,
-      "close": 7.51,
-      "pct_chg": -5.65,
-      "volume_ratio": 0.75,
-      "pct_5d": -13.08,
-      "pct_20d": 25.8,
-      "trend": "震荡",
-      "net_mf": -13940.52,
-      "verdict": "观望",
-      "score": 30,
       "sector_rank": 21,
       "risk_label": "",
       "reasons": [
@@ -2452,55 +2237,28 @@
       ],
       "warnings": [
         "主力流出",
-        "空头排列",
-        "板块拥挤+个股涨幅大",
+        "跌破20日线",
         "板块退潮"
       ]
     },
     {
-      "code": "600584.SH",
-      "name": "长电科技",
-      "sector": "先进封装设备材料",
-      "priority": 2,
-      "close": 95.98,
-      "pct_chg": -10.0,
-      "volume_ratio": 0.76,
-      "pct_5d": -7.86,
-      "pct_20d": 19.78,
-      "trend": "上升",
-      "net_mf": -125589.16,
-      "verdict": "观望",
-      "score": 29,
-      "sector_rank": 16,
-      "risk_label": "",
-      "reasons": [
-        "缩量回调",
-        "站上20日线",
-        "上升趋势"
-      ],
-      "warnings": [
-        "主力流出"
-      ]
-    },
-    {
-      "code": "600330.SH",
-      "name": "天通股份",
+      "code": "300620.SZ",
+      "name": "光库科技",
       "sector": "CPO/光互连/高速铜缆",
       "priority": 3,
-      "close": 27.9,
-      "pct_chg": -6.81,
-      "volume_ratio": 0.63,
-      "pct_5d": -21.63,
-      "pct_20d": -11.43,
+      "close": 312.25,
+      "pct_chg": -3.75,
+      "volume_ratio": 0.67,
+      "pct_5d": -13.85,
+      "pct_20d": -2.2,
       "trend": "震荡",
-      "net_mf": -19684.03,
+      "net_mf": -10647.16,
       "verdict": "观望",
-      "score": 29,
-      "sector_rank": 23,
+      "score": 36,
+      "sector_rank": 20,
       "risk_label": "",
       "reasons": [
-        "缩量回调",
-        "短期超跌"
+        "缩量回调"
       ],
       "warnings": [
         "主力流出",
@@ -2509,42 +2267,19 @@
       ]
     },
     {
-      "code": "300811.SZ",
-      "name": "铂科新材",
-      "sector": "电源磁性/电容",
-      "priority": 7,
-      "close": 92.53,
-      "pct_chg": -8.07,
-      "volume_ratio": 0.85,
-      "pct_5d": -6.96,
-      "pct_20d": 4.99,
-      "trend": "震荡",
-      "net_mf": -18171.96,
-      "verdict": "观望",
-      "score": 28,
-      "sector_rank": 9,
-      "risk_label": "",
-      "reasons": [],
-      "warnings": [
-        "主力流出",
-        "空头排列",
-        "板块退潮"
-      ]
-    },
-    {
-      "code": "300666.SZ",
-      "name": "江丰电子",
-      "sector": "先进封装设备材料",
-      "priority": 2,
-      "close": 342.47,
-      "pct_chg": -13.15,
-      "volume_ratio": 0.92,
-      "pct_5d": 3.78,
-      "pct_20d": 64.65,
+      "code": "600378.SH",
+      "name": "昊华科技",
+      "sector": "PCB/CCL",
+      "priority": 4,
+      "close": 76.01,
+      "pct_chg": -7.5,
+      "volume_ratio": 1.02,
+      "pct_5d": 22.01,
+      "pct_20d": 74.49,
       "trend": "上升",
-      "net_mf": -33184.06,
+      "net_mf": -26046.81,
       "verdict": "观望",
-      "score": 25,
+      "score": 36,
       "sector_rank": 17,
       "risk_label": "⚠️涨幅已大",
       "reasons": [
@@ -2553,48 +2288,99 @@
       ],
       "warnings": [
         "主力流出",
-        "65%涨幅已大"
+        "74%涨幅已大",
+        "板块拥挤+个股涨幅大",
+        "板块退潮"
       ]
     },
     {
-      "code": "002335.SZ",
-      "name": "科华数据",
+      "code": "002617.SZ",
+      "name": "露笑科技",
+      "sector": "电源磁性/电容",
+      "priority": 7,
+      "close": 9.15,
+      "pct_chg": -4.69,
+      "volume_ratio": 0.58,
+      "pct_5d": -5.28,
+      "pct_20d": 4.69,
+      "trend": "震荡",
+      "net_mf": -25518.92,
+      "verdict": "观望",
+      "score": 36,
+      "sector_rank": 8,
+      "risk_label": "",
+      "reasons": [
+        "缩量回调",
+        "站上20日线"
+      ],
+      "warnings": [
+        "主力流出"
+      ]
+    },
+    {
+      "code": "301391.SZ",
+      "name": "明阳电气",
       "sector": "液冷/IDC电力",
       "priority": 1,
-      "close": 37.81,
-      "pct_chg": -5.8,
-      "volume_ratio": 0.59,
-      "pct_5d": -10.51,
-      "pct_20d": -6.53,
-      "trend": "震荡",
-      "net_mf": -21170.72,
+      "close": 57.14,
+      "pct_chg": 0.05,
+      "volume_ratio": 0.64,
+      "pct_5d": 1.04,
+      "pct_20d": -12.23,
+      "trend": "下跌",
+      "net_mf": 544.29,
       "verdict": "观望",
-      "score": 23,
+      "score": 35,
       "sector_rank": 7,
+      "risk_label": "",
+      "reasons": [
+        "主力流入",
+        "短期超跌"
+      ],
+      "warnings": [
+        "跌破20日线",
+        "下跌趋势"
+      ]
+    },
+    {
+      "code": "688733.SH",
+      "name": "壹石通",
+      "sector": "PCB/CCL",
+      "priority": 4,
+      "close": 38.88,
+      "pct_chg": -5.4,
+      "volume_ratio": 0.72,
+      "pct_5d": -0.05,
+      "pct_20d": 3.54,
+      "trend": "震荡",
+      "net_mf": -7037.15,
+      "verdict": "观望",
+      "score": 35,
+      "sector_rank": 19,
       "risk_label": "",
       "reasons": [
         "缩量回调"
       ],
       "warnings": [
         "主力流出",
-        "空头排列",
+        "跌破20日线",
         "板块退潮"
       ]
     },
     {
-      "code": "002156.SZ",
-      "name": "通富微电",
-      "sector": "先进封装设备材料",
-      "priority": 2,
-      "close": 67.37,
-      "pct_chg": -8.85,
-      "volume_ratio": 0.77,
-      "pct_5d": -13.42,
-      "pct_20d": -4.06,
+      "code": "000960.SZ",
+      "name": "锡业股份",
+      "sector": "PCB/CCL",
+      "priority": 4,
+      "close": 40.48,
+      "pct_chg": -1.77,
+      "volume_ratio": 0.7,
+      "pct_5d": -4.93,
+      "pct_20d": -3.25,
       "trend": "上升",
-      "net_mf": -28035.96,
+      "net_mf": -35704.18,
       "verdict": "观望",
-      "score": 23,
+      "score": 35,
       "sector_rank": 18,
       "risk_label": "",
       "reasons": [
@@ -2603,83 +2389,7 @@
       ],
       "warnings": [
         "主力流出",
-        "空头排列"
-      ]
-    },
-    {
-      "code": "300502.SZ",
-      "name": "新易盛",
-      "sector": "CPO/光互连/高速铜缆",
-      "priority": 3,
-      "close": 509.0,
-      "pct_chg": -11.56,
-      "volume_ratio": 1.2,
-      "pct_5d": -16.62,
-      "pct_20d": -34.93,
-      "trend": "震荡",
-      "net_mf": -116530.38,
-      "verdict": "观望",
-      "score": 22,
-      "sector_rank": 24,
-      "risk_label": "",
-      "reasons": [
-        "深度超跌"
-      ],
-      "warnings": [
-        "主力流出",
-        "跌破20日线",
-        "板块退潮"
-      ]
-    },
-    {
-      "code": "000636.SZ",
-      "name": "风华高科",
-      "sector": "电源磁性/电容",
-      "priority": 7,
-      "close": 66.96,
-      "pct_chg": -10.0,
-      "volume_ratio": 0.73,
-      "pct_5d": -15.9,
-      "pct_20d": 10.6,
-      "trend": "上升",
-      "net_mf": -28367.7,
-      "verdict": "观望",
-      "score": 21,
-      "sector_rank": 10,
-      "risk_label": "",
-      "reasons": [
-        "缩量回调",
-        "上升趋势"
-      ],
-      "warnings": [
-        "主力流出",
         "空头排列",
-        "板块退潮"
-      ]
-    },
-    {
-      "code": "002028.SZ",
-      "name": "思源电气",
-      "sector": "液冷/IDC电力",
-      "priority": 1,
-      "close": 155.44,
-      "pct_chg": -6.23,
-      "volume_ratio": 1.03,
-      "pct_5d": -17.54,
-      "pct_20d": -19.93,
-      "trend": "下跌",
-      "net_mf": -24595.92,
-      "verdict": "观望",
-      "score": 20,
-      "sector_rank": 8,
-      "risk_label": "",
-      "reasons": [
-        "短期超跌"
-      ],
-      "warnings": [
-        "主力流出",
-        "跌破20日线",
-        "下跌趋势",
         "板块退潮"
       ]
     },
@@ -2688,18 +2398,19 @@
       "name": "天孚通信",
       "sector": "CPO/光互连/高速铜缆",
       "priority": 3,
-      "close": 250.77,
-      "pct_chg": -12.01,
-      "volume_ratio": 0.95,
-      "pct_5d": -26.67,
-      "pct_20d": -49.58,
+      "close": 250.1,
+      "pct_chg": -0.27,
+      "volume_ratio": 0.8,
+      "pct_5d": -21.35,
+      "pct_20d": -47.94,
       "trend": "下跌",
-      "net_mf": -18602.6,
+      "net_mf": -14096.48,
       "verdict": "观望",
-      "score": 19,
-      "sector_rank": 25,
+      "score": 34,
+      "sector_rank": 22,
       "risk_label": "",
       "reasons": [
+        "缩量回调",
         "深度超跌"
       ],
       "warnings": [
@@ -2710,19 +2421,268 @@
       ]
     },
     {
+      "code": "301188.SZ",
+      "name": "力诺药包",
+      "sector": "先进封装设备材料",
+      "priority": 2,
+      "close": 51.55,
+      "pct_chg": -10.25,
+      "volume_ratio": 1.16,
+      "pct_5d": -27.55,
+      "pct_20d": -5.48,
+      "trend": "震荡",
+      "net_mf": -11884.71,
+      "verdict": "观望",
+      "score": 33,
+      "sector_rank": 17,
+      "risk_label": "",
+      "reasons": [],
+      "warnings": [
+        "主力流出",
+        "跌破20日线",
+        "板块退潮"
+      ]
+    },
+    {
+      "code": "000725.SZ",
+      "name": "京东方A",
+      "sector": "先进封装设备材料",
+      "priority": 2,
+      "close": 8.38,
+      "pct_chg": -7.91,
+      "volume_ratio": 0.86,
+      "pct_5d": 7.57,
+      "pct_20d": 36.26,
+      "trend": "上升",
+      "net_mf": -467184.61,
+      "verdict": "观望",
+      "score": 32,
+      "sector_rank": 18,
+      "risk_label": "",
+      "reasons": [
+        "站上20日线",
+        "上升趋势"
+      ],
+      "warnings": [
+        "主力流出",
+        "36%偏高",
+        "板块退潮"
+      ]
+    },
+    {
+      "code": "301217.SZ",
+      "name": "铜冠铜箔",
+      "sector": "PCB/CCL",
+      "priority": 4,
+      "close": 154.63,
+      "pct_chg": -2.08,
+      "volume_ratio": 0.98,
+      "pct_5d": -9.2,
+      "pct_20d": 40.89,
+      "trend": "震荡",
+      "net_mf": -21617.35,
+      "verdict": "观望",
+      "score": 31,
+      "sector_rank": 20,
+      "risk_label": "",
+      "reasons": [],
+      "warnings": [
+        "主力流出",
+        "空头排列",
+        "41%偏高",
+        "板块拥挤+个股涨幅大",
+        "板块退潮"
+      ]
+    },
+    {
+      "code": "002837.SZ",
+      "name": "英维克",
+      "sector": "液冷/IDC电力",
+      "priority": 1,
+      "close": 71.43,
+      "pct_chg": 0.04,
+      "volume_ratio": 0.67,
+      "pct_5d": -13.49,
+      "pct_20d": 3.19,
+      "trend": "震荡",
+      "net_mf": -24531.7,
+      "verdict": "观望",
+      "score": 30,
+      "sector_rank": 8,
+      "risk_label": "",
+      "reasons": [],
+      "warnings": [
+        "主力流出",
+        "空头排列"
+      ]
+    },
+    {
+      "code": "300319.SZ",
+      "name": "麦捷科技",
+      "sector": "电源磁性/电容",
+      "priority": 7,
+      "close": 26.18,
+      "pct_chg": -7.33,
+      "volume_ratio": 0.89,
+      "pct_5d": -15.55,
+      "pct_20d": 34.46,
+      "trend": "上升",
+      "net_mf": -12730.8,
+      "verdict": "观望",
+      "score": 29,
+      "sector_rank": 9,
+      "risk_label": "",
+      "reasons": [
+        "上升趋势"
+      ],
+      "warnings": [
+        "主力流出",
+        "空头排列"
+      ]
+    },
+    {
+      "code": "300811.SZ",
+      "name": "铂科新材",
+      "sector": "电源磁性/电容",
+      "priority": 7,
+      "close": 87.4,
+      "pct_chg": -5.54,
+      "volume_ratio": 0.78,
+      "pct_5d": -7.93,
+      "pct_20d": -1.23,
+      "trend": "震荡",
+      "net_mf": -11336.25,
+      "verdict": "观望",
+      "score": 27,
+      "sector_rank": 10,
+      "risk_label": "",
+      "reasons": [
+        "缩量回调"
+      ],
+      "warnings": [
+        "主力流出",
+        "跌破20日线"
+      ]
+    },
+    {
+      "code": "600500.SH",
+      "name": "中化国际",
+      "sector": "PCB/CCL",
+      "priority": 4,
+      "close": 7.36,
+      "pct_chg": -2.0,
+      "volume_ratio": 0.52,
+      "pct_5d": -17.49,
+      "pct_20d": 29.12,
+      "trend": "震荡",
+      "net_mf": -12730.99,
+      "verdict": "观望",
+      "score": 26,
+      "sector_rank": 21,
+      "risk_label": "",
+      "reasons": [
+        "缩量回调"
+      ],
+      "warnings": [
+        "主力流出",
+        "跌破20日线",
+        "板块拥挤+个股涨幅大",
+        "板块退潮"
+      ]
+    },
+    {
+      "code": "300395.SZ",
+      "name": "菲利华",
+      "sector": "CPO/光互连/高速铜缆",
+      "priority": 3,
+      "close": 114.02,
+      "pct_chg": -2.71,
+      "volume_ratio": 0.56,
+      "pct_5d": -18.53,
+      "pct_20d": -6.6,
+      "trend": "下跌",
+      "net_mf": -25442.13,
+      "verdict": "观望",
+      "score": 23,
+      "sector_rank": 23,
+      "risk_label": "",
+      "reasons": [
+        "缩量回调"
+      ],
+      "warnings": [
+        "主力流出",
+        "跌破20日线",
+        "下跌趋势",
+        "板块退潮"
+      ]
+    },
+    {
+      "code": "002222.SZ",
+      "name": "福晶科技",
+      "sector": "CPO/光互连/高速铜缆",
+      "priority": 3,
+      "close": 82.3,
+      "pct_chg": -3.35,
+      "volume_ratio": 0.7,
+      "pct_5d": -8.74,
+      "pct_20d": -15.33,
+      "trend": "下跌",
+      "net_mf": -17955.93,
+      "verdict": "观望",
+      "score": 23,
+      "sector_rank": 24,
+      "risk_label": "",
+      "reasons": [
+        "缩量回调",
+        "短期超跌"
+      ],
+      "warnings": [
+        "主力流出",
+        "跌破20日线",
+        "下跌趋势",
+        "板块退潮"
+      ]
+    },
+    {
+      "code": "600330.SH",
+      "name": "天通股份",
+      "sector": "CPO/光互连/高速铜缆",
+      "priority": 3,
+      "close": 26.28,
+      "pct_chg": -5.81,
+      "volume_ratio": 0.64,
+      "pct_5d": -19.76,
+      "pct_20d": -11.72,
+      "trend": "震荡",
+      "net_mf": -25653.86,
+      "verdict": "观望",
+      "score": 22,
+      "sector_rank": 25,
+      "risk_label": "",
+      "reasons": [
+        "缩量回调",
+        "短期超跌"
+      ],
+      "warnings": [
+        "主力流出",
+        "跌破20日线",
+        "板块退潮"
+      ]
+    },
+    {
       "code": "300476.SZ",
       "name": "胜宏科技",
       "sector": "PCB/CCL",
       "priority": 4,
-      "close": 306.09,
-      "pct_chg": -6.35,
-      "volume_ratio": 0.8,
-      "pct_5d": -12.59,
-      "pct_20d": -13.4,
+      "close": 308.07,
+      "pct_chg": 0.65,
+      "volume_ratio": 0.72,
+      "pct_5d": -3.59,
+      "pct_20d": -15.99,
       "trend": "下跌",
-      "net_mf": -148719.68,
+      "net_mf": -25502.72,
       "verdict": "观望",
-      "score": 18,
+      "score": 22,
       "sector_rank": 22,
       "risk_label": "",
       "reasons": [
@@ -2733,6 +2693,30 @@
         "跌破20日线",
         "下跌趋势",
         "板块退潮"
+      ]
+    },
+    {
+      "code": "688820.SH",
+      "name": "盛合晶微",
+      "sector": "存储/HBM",
+      "priority": 8,
+      "close": 172.67,
+      "pct_chg": -4.0,
+      "volume_ratio": 0.71,
+      "pct_5d": -9.24,
+      "pct_20d": -9.8,
+      "trend": "震荡",
+      "net_mf": -10195.54,
+      "verdict": "观望",
+      "score": 6,
+      "sector_rank": 8,
+      "risk_label": "",
+      "reasons": [
+        "缩量回调"
+      ],
+      "warnings": [
+        "主力流出",
+        "空头排列"
       ]
     }
   ]
